@@ -11,8 +11,8 @@ logging:
 spring.profiles: dev
 
 spring.datasource.url: jdbc:sqlserver://localhost;databaseName=AADB_DEV
-spring.datasource.username: test
-spring.datasource.password: test
+spring.datasource.username: NEPCUser
+spring.datasource.password: Admin@123#
 spring.datasource.tomcat.max-wait: 20000
 spring.datasource.tomcat.max-active: 50
 spring.datasource.tomcat.max-idle: 20
