@@ -1,0 +1,10 @@
+/**
+ * app.scss - version 1.0.0
+ *
+ * Imports all scss modules.
+ *
+ * @author Francisco Zuñiga
+ */
+
+@import 'base/module'; // Base module with shared styles goes first
+@import 'components/module';

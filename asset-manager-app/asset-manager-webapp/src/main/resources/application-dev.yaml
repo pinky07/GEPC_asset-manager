@@ -1,0 +1,21 @@
+spring:
+logging:
+  file: logs/asset-manager.log
+  pattern:
+      console: "%d %-5level %logger : %msg%n"
+      file: "%d %-5level [%thread] %logger : %msg%n"
+  level:
+    org.springframework.web: DEBUG
+    org.hibernate: ERROR
+
+spring.profiles: dev
+
+spring.datasource.url: jdbc:sqlserver://localhost;databaseName=AADB_DEV
+spring.datasource.username: test
+spring.datasource.password: test
+spring.datasource.tomcat.max-wait: 20000
+spring.datasource.tomcat.max-active: 50
+spring.datasource.tomcat.max-idle: 20
+spring.datasource.tomcat.min-idle: 15
+
+

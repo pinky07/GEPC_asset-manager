@@ -1,0 +1,16 @@
+/**
+ * shared.scss - version 1.0.0
+ * 
+ * Styles for common HTML elements
+ */
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  background-color: $blue-2;
+  font-family: $font;
+  font-weight: 400;
+}

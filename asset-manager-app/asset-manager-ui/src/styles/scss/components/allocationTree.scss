@@ -1,0 +1,64 @@
+.allocationTree {
+  font-weight: 700;
+
+  .treecontainer {
+    min-height: 800px;
+    height: auto;
+    overflow-y: hidden;
+  }
+
+  .treeHeader {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    button {
+      border-color: $gray-1;
+    }
+  }
+
+  .settings {
+    input, .dropdown {
+      display: inline-block;
+      width: 9em;
+      border-color: $gray-1;
+      margin-right: 1em;
+    }
+  }
+
+  h3 {
+    display: inline;
+  }
+
+  .buttonInfoNode {
+    position: absolute;
+    left: 40px;
+    top: 0;
+    width: 60%;
+    height: 99%;
+    opacity: 0;
+  }
+
+  .moveHandle {
+    background-color: $blue-1;
+  }
+
+  .rowTitle {
+    color: #4d4e54;
+  }
+
+  .toolbarButton {
+    & button {
+      color: #fff;
+      font-weight: bold;
+      background-color: $blue-1;
+      border: none;
+    }
+  }
+
+  .rst__nodeContent {
+    border-color: $gray-1;
+  }
+
+  .rowSearchMatch {
+    outline: none;
+  }
+}

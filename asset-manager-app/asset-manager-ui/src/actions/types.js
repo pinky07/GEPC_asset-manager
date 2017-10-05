@@ -1,0 +1,50 @@
+// Shared Action Types
+export const SAVE = 'save';
+export const SHOW_LOADING = 'showLoading';
+export const HIDE_LOADING = 'hideLoading';
+
+export const GET_ASSETS_ALLOCATION_SUCCESS = 'getAssetsAllocationSuccess';
+export const GET_ASSETS_ALLOCATION_FAIL = 'getAssetsAllocationFail';
+
+export const SAVE_ASSETS_ALLOCATION_SUCCESS = 'saveAssetsAllocationSuccess';
+export const SAVEA_SSETS_ALLOCATION_FAIL = 'saveAssetsAllocationFail';
+
+export const CHANGE_TREE = 'updateTree';
+
+export const SELECTED_NODE = 'selectNode';
+export const ADD_ABOVE_NODE = 'addAboveNode';
+export const ADD_SIBLING_NODE = 'addSiblingNode';
+export const ADD_BELOW_NODE = 'addBelowNode';
+export const DELETE_BELOW_NODE = 'deleteBelowNode';
+export const DELETE_NODE = 'deleteNode';
+export const JUMP_LEVEL = 'jumpLevel';
+export const TOGGLE_NODE_AT_PATH = 'toggleNodeAtPath';
+
+export const UPDATE_DETAILS_NODE = 'updateDetailsNode';
+
+export const GET_BETA_GROUPS_SUCCESS = 'getBetaGroupsSuccess';
+export const SELECTED_BETA_GROUP = 'selectBetaGroup';
+
+export const GET_GRID_SUCCESS = 'getGridSuccess';
+export const GET_TREE_SUCCESS = 'getTreeSuccess';
+
+//Grid actions
+export const GET_PLAN_ANALYSIS_SUCCESS = 'getPlanAnalysisSuccess';
+export const SELECTED_PLAN_ANALYSIS = 'selectedPlanAnalysis';
+export const ADD_NODE_FROM_GRID = 'addNodeFromGrid';
+export const SEARCH_NODE = 'searchNode';
+export const SHOW_TREE_VIEW = 'showTreeView';
+export const SHOW_GRID_VIEW = 'showGridView';
+
+// SpotFire Action Types
+export const FETCH_SPOTFIRE = 'fetchSpotFire';
+
+// Menu Action Types
+export const LOAD_IF_TREE = 'loadIFTree';
+export const LOAD_IF_MARKET_VALUES = 'loadIFMarketValues';
+export const COPY_TREE = 'copyTree';
+export const COPY_TREE_WITHOUT_MANAGERS = 'copyTreeWithoutManager';
+export const DELETE_TREE = 'deleteTree';
+export const NEW_TREE = 'newTree';
+export const PREVIEW = 'preview';
+export const IMPORT_MIX = 'importMix';

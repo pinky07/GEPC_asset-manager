@@ -1,0 +1,28 @@
+.content {
+  & > .row:first-child {
+    border-bottom: 1px solid $green;
+    margin-bottom: 20px;
+  }
+
+  .nav.nav-tabs {
+    padding: 20px 0 0 0;
+  }
+
+  .nav-tabs {
+    .nav-link {
+      border: none;
+      color: white;
+      background-color: $blue-1;
+      font-weight: bold;
+      padding: 4px 12px 12px 12px;
+
+      &.active,
+      &:hover,
+      &:focus {
+        border: none;
+        color: white;
+        background-color: $green;
+      }
+    }
+  }
+}

@@ -1,0 +1,4 @@
+rootProject.name = 'asset-manager-app'
+
+include ':asset-manager-webapp'
+include ':asset-manager-ui'

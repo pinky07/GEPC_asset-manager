@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`treeView component renders correctly 1`] = `
+<div
+  className="allocationTree"
+>
+  <Row
+    tag="div"
+  >
+    <Col
+      className="treecontainer"
+      lg="8"
+      md="8"
+      sm="12"
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+    >
+      <DragDropContext(ReactSortableTree)
+        canDrop={[Function]}
+        generateNodeProps={[Function]}
+        maxDepth={10}
+        nodeContentRenderer={[Function]}
+        onChange={[Function]}
+        searchFocusOffset={0}
+        treeData={Array []}
+      />
+      <Connect(NodeMenu) />
+    </Col>
+    <Col
+      lg="4"
+      md="4"
+      sm="12"
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+    >
+      <Connect(NodeDetails) />
+    </Col>
+  </Row>
+</div>
+`;

@@ -1,0 +1,175 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`gridView component renders correctly 1`] = `
+<div
+  className="gridView"
+>
+  <Row
+    tag="div"
+  >
+    <Col
+      lg="12"
+      md="12"
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+    >
+      <Select
+        addLabelText="Add \\"{label}\\"?"
+        arrowRenderer={[Function]}
+        autosize={true}
+        backspaceRemoves={true}
+        backspaceToRemoveMessage="Press backspace to remove {label}"
+        className="dropdownPlanAnalysis"
+        clearAllText="Clear all"
+        clearRenderer={[Function]}
+        clearValueText="Clear value"
+        clearable={false}
+        closeOnSelect={true}
+        deleteRemoves={true}
+        delimiter=","
+        disabled={false}
+        escapeClearsValue={true}
+        filterOptions={[Function]}
+        ignoreAccents={true}
+        ignoreCase={true}
+        inputProps={Object {}}
+        isLoading={false}
+        joinValues={false}
+        labelKey="name"
+        matchPos="any"
+        matchProp="any"
+        menuBuffer={0}
+        menuRenderer={[Function]}
+        multi={false}
+        noResultsText="No results found"
+        onBlurResetsInput={true}
+        onChange={[Function]}
+        onCloseResetsInput={true}
+        onSelectResetsInput={true}
+        openOnClick={true}
+        optionComponent={[Function]}
+        options={
+          Array [
+            "test1",
+            "test2",
+          ]
+        }
+        pageSize={5}
+        placeholder="Plan Analysis Lens"
+        required={false}
+        scrollMenuIntoView={true}
+        searchable={true}
+        simpleValue={false}
+        tabSelectsValue={true}
+        valueComponent={[Function]}
+        valueKey="id"
+      />
+    </Col>
+  </Row>
+  <Row
+    tag="div"
+  >
+    <Col
+      className=""
+      lg="9"
+      md="9"
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+    >
+      <ContextMenuProvider
+        className=""
+        event="onContextMenu"
+        id="grid_menu_id"
+        renderTag="div"
+        style={Object {}}
+      >
+        <div
+          className="gridContainer ag-fresh"
+        >
+          <AgGridReact
+            columnDefs={
+              Array [
+                Object {
+                  "cellRendererFramework": [Function],
+                  "field": "accountgroupname",
+                  "headerName": "Node Name",
+                  "width": 350,
+                },
+                Object {
+                  "field": "assetCategory",
+                  "headerName": "Asset Category",
+                  "width": 184,
+                },
+                Object {
+                  "field": "accountgroupname",
+                  "headerName": "Asset Class Alias",
+                  "width": 350,
+                },
+                Object {
+                  "field": "aa_model_benchmark",
+                  "headerName": "AAMB",
+                  "width": 150,
+                },
+                Object {
+                  "field": "policy_value",
+                  "headerName": "Policy",
+                  "width": 150,
+                },
+                Object {
+                  "field": "actual_mv",
+                  "headerName": "Value",
+                  "width": 150,
+                },
+                Object {
+                  "editable": true,
+                  "field": "mixA",
+                  "headerName": "Mix A",
+                  "width": 150,
+                },
+              ]
+            }
+            enableSorting={true}
+            headerHeight="35"
+            onGridReady={[Function]}
+            rowData={Array []}
+          />
+          <Connect(GridContextMenu) />
+        </div>
+      </ContextMenuProvider>
+    </Col>
+    <Col
+      lg="3"
+      md="3"
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+    >
+      <MixStatistics />
+      <MixDetails />
+    </Col>
+  </Row>
+</div>
+`;

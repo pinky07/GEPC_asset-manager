@@ -1,0 +1,49 @@
+plugins {
+    id "com.moowork.node" version "1.2.0"
+}
+
+apply plugin: 'com.moowork.node'
+apply plugin: 'eclipse-wtp'
+
+node {
+    version = '6.11.1'
+    download = true
+}
+
+task cleanUI(type: Delete) {
+    delete 'node_modules'
+    delete 'dist'
+    def tree = fileTree('../asset-manager-webapp/src/main/resources/static')
+    tree.include '**/*.*'
+    tree.each { it.delete() }
+    delete '../asset-manager-webapp/src/main/resources/static/assets'
+}
+
+task cleanStatic(type: Delete) {
+    def tree = fileTree('../asset-manager-webapp/src/main/resources/static')
+    tree.include '**/*.*'
+    tree.each { it.delete() }
+    delete '../asset-manager-webapp/src/main/resources/static/assets'
+}
+
+task npmBuild(type: NpmTask) {
+    args = ['run', 'build']
+}
+
+task npmRun(dependsOn: npm_install, type: NpmTask) {
+    args = ['run', 'build']
+}
+
+task buildUI(dependsOn: npmRun) << {
+    copy {
+        from "dist"
+        into '../asset-manager-webapp/src/main/resources/static'
+    }
+}
+
+task compileUI(dependsOn: npmBuild) << {
+    copy {
+        from "dist"
+        into '../asset-manager-webapp/src/main/resources/static'
+    }
+}

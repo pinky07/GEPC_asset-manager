@@ -1,0 +1,143 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`header component renders correctly 1`] = `
+<Header
+  client="Client"
+  plan="Plan"
+  save={[Function]}
+  saveAssetsAllocation={[Function]}
+  segment="Segment"
+>
+  <div
+    className="app-header"
+  >
+    <Container
+      fluid={true}
+      tag="div"
+    >
+      <div
+        className="container-fluid"
+      >
+        <Row
+          tag="div"
+        >
+          <div
+            className="row"
+          >
+            <Col
+              className="vcenter-parent text-left"
+              lg="2"
+              tag="div"
+              widths={
+                Array [
+                  "xs",
+                  "sm",
+                  "md",
+                  "lg",
+                  "xl",
+                ]
+              }
+              xs="12"
+            >
+              <div
+                className="vcenter-parent text-left col-12 col-lg-2"
+              >
+                <p
+                  className="vcenter"
+                >
+                  NEPC Tree View
+                </p>
+              </div>
+            </Col>
+            <Col
+              className="vcenter-parent text-center"
+              lg="8"
+              tag="div"
+              widths={
+                Array [
+                  "xs",
+                  "sm",
+                  "md",
+                  "lg",
+                  "xl",
+                ]
+              }
+              xs="12"
+            >
+              <div
+                className="vcenter-parent text-center col-12 col-lg-8"
+              >
+                <p
+                  className="vcenter"
+                >
+                  Segment: 
+                  <span>
+                    Segment
+                  </span>
+                   Client: 
+                  <span>
+                    Client
+                  </span>
+                   
+                  Plan: 
+                  <span>
+                    Plan
+                  </span>
+                </p>
+              </div>
+            </Col>
+            <Col
+              className="text-right"
+              lg="2"
+              tag="div"
+              widths={
+                Array [
+                  "xs",
+                  "sm",
+                  "md",
+                  "lg",
+                  "xl",
+                ]
+              }
+              xs="12"
+            >
+              <div
+                className="text-right col-12 col-lg-2"
+              >
+                <Button
+                  className="btn-save"
+                  color="primary"
+                  onClick={[Function]}
+                  tag="button"
+                >
+                  <button
+                    className="btn-save btn btn-primary"
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    Save
+                  </button>
+                </Button>
+                <Button
+                  className="btn-help"
+                  color="primary"
+                  onClick={[Function]}
+                  tag="button"
+                >
+                  <button
+                    className="btn-help btn btn-primary"
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    Help
+                  </button>
+                </Button>
+              </div>
+            </Col>
+          </div>
+        </Row>
+      </div>
+    </Container>
+  </div>
+</Header>
+`;

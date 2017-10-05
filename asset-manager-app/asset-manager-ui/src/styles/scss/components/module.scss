@@ -1,0 +1,20 @@
+/**
+ * module.scss - version 1.0.0
+ * 
+ * Imports every other scss file in this folder
+ *
+ * @author Francisco Zuñiga
+ */
+
+@import 'allocationGrid';
+@import 'allocationTree';
+@import 'colorPicker';
+@import 'content';
+@import 'expanderFormatter';
+@import 'header';
+@import 'menu';
+@import 'mixDetails';
+@import 'mixStatistics';
+@import 'nodeDetails';
+@import 'nodeMenu';
+@import 'treeNodeRenderer';

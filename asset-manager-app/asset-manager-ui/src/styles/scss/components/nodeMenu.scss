@@ -1,0 +1,17 @@
+.nodeMenu {
+  input {
+    display: inline-block;
+    width: 65px;
+    height: 36px;
+    margin-left: 1em;
+    border-color: $green;
+  }
+}
+
+.react-contexify {
+  z-index: 100;
+}
+
+.react-contexify__item__data {
+  width: 100%;
+}

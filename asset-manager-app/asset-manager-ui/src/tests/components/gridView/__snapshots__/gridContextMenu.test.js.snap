@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`gridContextMenu component renders correctly 1`] = `
+<ContextMenu
+  animation={null}
+  id="grid_menu_id"
+  theme={null}
+>
+  <Item
+    data={null}
+    disabled={false}
+    leftIcon=""
+    onClick={[Function]}
+    refsFromProvider={Array []}
+    rightIcon=""
+    targetNode={Object {}}
+  >
+    Add a Node
+  </Item>
+</ContextMenu>
+`;

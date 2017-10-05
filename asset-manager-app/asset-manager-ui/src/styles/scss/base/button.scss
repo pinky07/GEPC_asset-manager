@@ -1,0 +1,31 @@
+/**
+ * button.scss - version 1.0.0
+ *
+ * Shared button styles
+ */
+
+.btn {
+  padding: 4px 12px;
+  border: none;
+  color: #fff;
+  font-weight: 700;
+
+  &:focus {
+    outline: 0;
+    box-shadow: none;
+  }
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: none;
+  }
+}
+
+.btn-primary {
+  background-color: $green;
+  text-transform: uppercase;
+  
+  &:hover {
+    background-color: $green-hover;
+  }
+}

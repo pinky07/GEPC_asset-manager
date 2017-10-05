@@ -1,0 +1,24 @@
+spring.profiles.active: production
+
+spring:
+logging:
+  file: logs/asset-manager.log
+  pattern:     
+      file: "%d %-5level [%thread] %logger : %msg%n"
+  level:
+    org.springframework.web: WARN
+    com.sigma.eduko.endpoint: WARN
+    org.hibernate: WARN
+
+spring.datasource.url: jdbc:sqlserver://localhost;databaseName=AADB
+spring.datasource.username: eduko
+spring.datasource.password: eduko
+spring.datasource.tomcat.max-wait: 20000
+spring.datasource.tomcat.max-active: 50
+spring.datasource.tomcat.max-idle: 20
+spring.datasource.tomcat.min-idle: 15
+
+spring.jpa.properties.hibernate.dialect: org.hibernate.dialect.SQLServer2012Dialect
+spring.jpa.properties.hibernate.id.new_generator_mappings: false
+spring.jpa.properties.hibernate.format_sql: true
+spring.jpa.properties.hibernate.current_session_context_class: org.springframework.orm.hibernate5.SpringSessionContext

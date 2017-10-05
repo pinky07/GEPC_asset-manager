@@ -1,0 +1,107 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`content component renders correctly 1`] = `
+<Container
+  className="content"
+  fluid={true}
+  tag="div"
+>
+  <Row
+    tag="div"
+  >
+    <Col
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+      xs="3"
+    >
+      <Nav
+        tabs={true}
+        tag="ul"
+      >
+        <NavItem
+          tag="li"
+        >
+          <NavLink
+            className="active"
+            onClick={[Function]}
+            tag="a"
+          >
+            Tree View
+          </NavLink>
+        </NavItem>
+        <NavItem
+          tag="li"
+        >
+          <NavLink
+            className=""
+            onClick={[Function]}
+            tag="a"
+          >
+            Grid View
+          </NavLink>
+        </NavItem>
+      </Nav>
+    </Col>
+    <Col
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+      xs="9"
+    >
+      <Connect(Menu)
+        treeViewSelected={true}
+      />
+    </Col>
+  </Row>
+  <Row
+    tag="div"
+  >
+    <Col
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+      xs="12"
+    >
+      <TabContent
+        activeTab="1"
+        tag="div"
+      >
+        <TabPane
+          tabId="1"
+          tag="div"
+        >
+          <Connect(TreeView) />
+        </TabPane>
+        <TabPane
+          tabId="2"
+          tag="div"
+        >
+          <Connect(GridView) />
+        </TabPane>
+      </TabContent>
+    </Col>
+  </Row>
+</Container>
+`;

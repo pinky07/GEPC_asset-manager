@@ -1,0 +1,15 @@
+/**
+ * module.scss - version 1.0.0
+ * 
+ * Imports every other scss file in this folder
+ *
+ * @author Francisco Zuñiga
+ */
+
+@import "colors"; // Has to be imported before others
+@import "typography";
+
+@import "button";
+@import "centered";
+@import "shared";
+@import "spinner";
