@@ -20,7 +20,7 @@ gradle --no-daemon cleanStatic compileUI
 gradle --no-daemon clean build cleanUI buildUI
 
 # How to deploy the application
-Remember to add the following VM arg when you are creating the tomcat server: **-Dspring.profiles.active=dev**
+Remember to add the following VM arg when in the application: **-Dspring.profiles.active=dev**
 
 
 
