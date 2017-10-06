@@ -5,6 +5,7 @@ asset.manager.pulse.threshold: 5
 asset.manager.pulse.maxAge: 90000
 
 
+security.basic.enabled: false
 spring.jpa.properties.hibernate.dialect: org.hibernate.dialect.SQLServer2012Dialect
 spring.datasource.driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
 spring.jpa.properties.hibernate.id.new_generator_mappings: false

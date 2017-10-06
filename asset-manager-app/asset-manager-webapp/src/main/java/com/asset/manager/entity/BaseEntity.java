@@ -1,48 +1,51 @@
 package com.asset.manager.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.math.BigInteger;
 import java.util.Date;
 
 @MappedSuperclass
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @EqualsAndHashCode
-public abstract class BaseEntity implements Serializable, DateModifiable
+public abstract class BaseEntity implements Serializable
 {
 	@Setter
 	@Getter
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private BigInteger id;
-
-	@Setter
-	@Getter
-	@JsonIgnore
-	@Version
-	private Integer version;
+	@Column(name="Active_Ind", nullable = false)
+	private char activeInd;
 
 	@Setter
 	@Getter
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="create_date", nullable = false, updatable = false)
-	private Date createDate;
+	@Column(name="Active_Ind_TS", nullable = false)
+	private Date activeIndTS;
 
 	@Setter
 	@Getter
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="update_date", nullable = false)
-	private Date updateDate;
+	@Column(name="Created_TS", nullable = false)
+	private Date createdTS;
 
 	@Setter
 	@Getter
-	@Column(name="modified_by", nullable = false)
+	@Column(name="Modified_By", nullable = false)
 	private String modifiedBy;
+
+	@Setter
+	@Getter
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name="Modified_TS", nullable = false)
+	private Date modifiedTS;
+
+	@Setter
+	@Getter
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name="Archived_TS", nullable = false)
+	private Date archivedTS;
 
 	@Override
 	public abstract String toString();
