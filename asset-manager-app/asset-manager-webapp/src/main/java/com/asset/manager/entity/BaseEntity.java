@@ -44,7 +44,7 @@ public abstract class BaseEntity implements Serializable
 	@Setter
 	@Getter
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="Archived_TS", nullable = false)
+	@Column(name="Archived_TS")
 	private Date archivedTS;
 
 	@Override
