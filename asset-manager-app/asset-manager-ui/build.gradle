@@ -12,7 +12,7 @@ node {
 
 task cleanUI(type: Delete) {
     delete 'node_modules'
-    delete 'dist'
+    delete 'build'
     def tree = fileTree('../asset-manager-webapp/src/main/resources/static')
     tree.include '**/*.*'
     tree.each { it.delete() }
@@ -36,14 +36,14 @@ task npmRun(dependsOn: npm_install, type: NpmTask) {
 
 task buildUI(dependsOn: npmRun) << {
     copy {
-        from "dist"
+        from "build"
         into '../asset-manager-webapp/src/main/resources/static'
     }
 }
 
 task compileUI(dependsOn: npmBuild) << {
     copy {
-        from "dist"
+        from "build"
         into '../asset-manager-webapp/src/main/resources/static'
     }
 }
