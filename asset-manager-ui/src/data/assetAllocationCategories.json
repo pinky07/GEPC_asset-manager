@@ -1,0 +1,24 @@
+[
+  {
+    "assetAllocationCategory": "Equity",
+    "assetAllocationMarketingBenchmark": [
+      "Large Cap Equities",
+      "Small/Mid Cap Equities"
+    ]
+  },
+  {
+    "assetAllocationCategory": "Real State",
+    "assetAllocationMarketingBenchmark": [
+      "Real State 1",
+      "Real State 2",
+      "Real State 3"
+    ]
+  },
+  {
+    "assetAllocationCategory": "Fixed Income Misc",
+    "assetAllocationMarketingBenchmark": [
+      "Fixed Income Misc 1",
+      "Fixed Income Misc 2"
+    ]
+  }
+]
