@@ -1,4 +1,4 @@
-package com.asset.manager.exception;
+package com.nepc.asset.manager.exception;
 
 import org.apache.commons.lang3.StringUtils;
 

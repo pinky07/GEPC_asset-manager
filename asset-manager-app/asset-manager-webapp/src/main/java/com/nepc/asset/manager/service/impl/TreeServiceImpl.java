@@ -1,4 +1,4 @@
-package com.asset.manager.service.impl;
+package com.nepc.asset.manager.service.impl;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;

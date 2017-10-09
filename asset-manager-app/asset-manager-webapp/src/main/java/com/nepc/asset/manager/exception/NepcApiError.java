@@ -1,4 +1,4 @@
-package com.asset.manager.exception;
+package com.nepc.asset.manager.exception;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;

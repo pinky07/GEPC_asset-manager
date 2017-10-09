@@ -1,4 +1,4 @@
-package com.asset.manager.dao.impl;
+package com.nepc.asset.manager.dao.impl;
 
 import org.hibernate.Criteria;
 import org.hibernate.Query;

@@ -1,4 +1,4 @@
-package com.asset.manager.exception;
+package com.nepc.asset.manager.exception;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.Ordered;
