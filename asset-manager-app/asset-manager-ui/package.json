@@ -90,8 +90,10 @@
     ]
   },
   "lint-staged": {
+    "gitDir": "../../",
     "src/**/*.js": [
-      "eslint --fix"
+      "eslint --fix",
+      "git add"
     ]
   }
 }
