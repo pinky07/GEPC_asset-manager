@@ -1,4 +1,4 @@
-package com.asset.manager.entity;
+package com.nepc.asset.manager.entity;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

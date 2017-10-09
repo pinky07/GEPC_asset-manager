@@ -1,4 +1,4 @@
-package com.asset.manager.hibernate;
+package com.nepc.asset.manager.hibernate;
 
 import lombok.NoArgsConstructor;
 import org.hibernate.Hibernate;

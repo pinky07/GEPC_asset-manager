@@ -1,4 +1,4 @@
-package com.asset.manager;
+package com.nepc.asset.manager;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

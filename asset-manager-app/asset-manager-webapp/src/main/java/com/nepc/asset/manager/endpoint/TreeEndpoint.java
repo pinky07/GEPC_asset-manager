@@ -1,4 +1,4 @@
-package com.asset.manager.endpoint;
+package com.nepc.asset.manager.endpoint;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
