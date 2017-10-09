@@ -3,7 +3,6 @@ import TreeService from '../services/treeService';
 
 const INITIAL_STATE = {
   tree: {
-    name: '',
     data: [],
   },
   selectedSegment: {},
@@ -11,14 +10,18 @@ const INITIAL_STATE = {
   selectedPlan: {},
   selectedNode: undefined,
   selectedBetaGroup: undefined,
-  searchedNodeTitle: '',
+  searchResult: undefined,
 };
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case types.GET_TREE_SUCCESS:
-      return { ...state, tree: action.tree };
-    case types.SELECTED_NODE:
+    case types.GET_TREE_SUCCESS: {
+      return {
+        ...state,
+        tree: action.tree,
+      };
+    }
+    case types.SELECTED_NODE: {
       return {
         ...state,
         selectedNode: {
@@ -26,50 +29,99 @@ export default (state = INITIAL_STATE, action) => {
           maxDepth: TreeService().getMaxDepthNode(action.payload.node),
         },
       };
-    case types.CHANGE_TREE:
-      return { ...state, tree: { ...state.tree, data: action.treeData } };
-    case types.UPDATE_DETAILS_NODE: {
-      const selectedNode = { ...state.selectedNode, node: action.node };
+    }
+    case types.CHANGE_TREE: {
       return {
         ...state,
-        selectedNode,
+        tree: {
+          ...state.tree,
+          data: action.treeData,
+        },
+      };
+    }
+    case types.UPDATE_DETAILS_NODE: {
+      const selectedNode = {
+        ...state.selectedNode,
+        node: action.node,
+      };
+      return {
+        ...state,
         tree: {
           ...state.tree,
           data: TreeService().updateNode(state.tree, selectedNode),
         },
+        selectedNode,
       };
     }
-    case types.GET_BETA_GROUPS_SUCCESS:
-      return { ...state, betaGroups: action.betaGroups };
-    case types.SELECTED_BETA_GROUP:
-      return { ...state, selectedBetaGroup: action.betaGroup };
-    case types.ADD_ABOVE_NODE:
+    case types.GET_BETA_GROUPS_SUCCESS: {
       return {
         ...state,
-        tree: { ...state.tree, data: TreeService().addAboveNode(state) },
+        betaGroups: action.betaGroups,
       };
-    case types.ADD_SIBLING_NODE:
+    }
+    case types.SELECTED_BETA_GROUP: {
       return {
         ...state,
-        tree: { ...state.tree, data: TreeService().addSiblingNode(state) },
+        selectedBetaGroup: action.betaGroup,
       };
-    case types.ADD_BELOW_NODE:
+    }
+    case types.ADD_ABOVE_NODE: {
       return {
         ...state,
-        tree: { ...state.tree, data: TreeService().addBelowNode(state) },
+        tree: {
+          ...state.tree,
+          data: TreeService().addAboveNode(state),
+        },
       };
-    case types.DELETE_BELOW_NODE:
+    }
+    case types.ADD_SIBLING_NODE: {
       return {
         ...state,
-        tree: { ...state.tree, data: TreeService().deleteBelowNode(state) },
+        tree: {
+          ...state.tree,
+          data: TreeService().addSiblingNode(state),
+        },
       };
-    case types.DELETE_NODE:
+    }
+    case types.ADD_BELOW_NODE: {
       return {
         ...state,
-        tree: { ...state.tree, data: TreeService().deleteNode(state) },
+        tree: {
+          ...state.tree,
+          data: TreeService().addBelowNode(state),
+        },
+      };
+    }
+    case types.DELETE_BELOW_NODE: {
+      return {
+        ...state,
+        tree: {
+          ...state.tree,
+          data: TreeService().deleteBelowNode(state),
+        },
+      };
+    }
+    case types.DELETE_NODE: {
+      return {
+        ...state,
+        tree: {
+          ...state.tree,
+          data: TreeService().deleteNode(state),
+        },
         selectedNode: undefined,
       };
-    case types.JUMP_LEVEL:
+    }
+    case types.DELETE_TREE: {
+      return {
+        ...state,
+        tree: {
+          ...state.tree,
+          data: [],
+        },
+        selectedNode: undefined,
+      };
+    }
+    case types.JUMP_LEVEL: {
       return {
         ...state,
         tree: {
@@ -77,7 +129,8 @@ export default (state = INITIAL_STATE, action) => {
           data: TreeService().jumpLevel(action.level, state),
         },
       };
-    case types.TOGGLE_NODE_AT_PATH:
+    }
+    case types.TOGGLE_NODE_AT_PATH: {
       return {
         ...state,
         tree: {
@@ -85,7 +138,8 @@ export default (state = INITIAL_STATE, action) => {
           data: TreeService().toggleNodeAtPath(state.tree, action),
         },
       };
-    case types.ADD_NODE_FROM_GRID:
+    }
+    case types.ADD_NODE_FROM_GRID: {
       return {
         ...state,
         tree: {
@@ -93,12 +147,22 @@ export default (state = INITIAL_STATE, action) => {
           data: TreeService().addNodeToRoot(state.tree),
         },
       };
-    case types.SEARCH_NODE:
+    }
+    case types.SEARCH_NODE: {
+      let { treeData: data, matches } = TreeService().searchNode(
+        state.tree,
+        action.title
+      );
       return {
         ...state,
-        searchedNodeTitle: action.title,
+        tree: {
+          data,
+        },
+        searchResult: matches.length > 0 && matches[0],
       };
-    default:
+    }
+    default: {
       return state;
+    }
   }
 };

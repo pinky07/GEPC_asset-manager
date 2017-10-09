@@ -21,17 +21,82 @@ exports[`nodeDetails component renders correctly 1`] = `
         <InputGroupAddon
           tag="div"
         >
+          AA Category
+        </InputGroupAddon>
+        <Input
+          disabled={false}
+          onChange={[Function]}
+          tag="p"
+          type="select"
+        >
+          <option>
+            AA Category 1
+          </option>
+          <option>
+            AA Category 2
+          </option>
+          <option>
+            AA Category 3
+          </option>
+        </Input>
+      </InputGroup>
+      <InputGroup
+        tag="div"
+      >
+        <InputGroupAddon
+          tag="div"
+        >
+          AA Benchmark
+        </InputGroupAddon>
+        <Input
+          disabled={false}
+          onChange={[Function]}
+          tag="p"
+          type="select"
+        >
+          <option>
+            AA Benchmark 1
+          </option>
+          <option>
+            AA Benchmark 2
+          </option>
+          <option>
+            AA Benchmark 3
+          </option>
+        </Input>
+      </InputGroup>
+      <InputGroup
+        tag="div"
+      >
+        <InputGroupAddon
+          tag="div"
+        >
           Node Name
         </InputGroupAddon>
         <Input
-          onBlur={[Function]}
+          disabled={false}
           onChange={[Function]}
           tag="p"
           type="text"
           value="test selected node"
         />
       </InputGroup>
-      <br />
+      <InputGroup
+        tag="div"
+      >
+        <InputGroupAddon
+          tag="div"
+        >
+          Chart Abbreviation
+        </InputGroupAddon>
+        <Input
+          disabled={false}
+          onChange={[Function]}
+          tag="p"
+          type="text"
+          value="Chart Abbreviation"
+        />
+      </InputGroup>
       <InputGroup
         tag="div"
       >
@@ -42,19 +107,28 @@ exports[`nodeDetails component renders correctly 1`] = `
         </InputGroupAddon>
         <Input
           disabled={false}
+          onChange={[Function]}
           tag="p"
-          type="text"
-          value="abc"
-        />
+          type="select"
+        >
+          <option>
+            Short Code 1
+          </option>
+          <option>
+            Short Code 2
+          </option>
+          <option>
+            Short Code 3
+          </option>
+        </Input>
       </InputGroup>
-      <br />
       <InputGroup
         tag="div"
       >
         <InputGroupAddon
           tag="div"
         >
-          CRM Invest Prod
+          CRM InvProd
         </InputGroupAddon>
         <Input
           disabled={false}
@@ -62,7 +136,6 @@ exports[`nodeDetails component renders correctly 1`] = `
           type="text"
         />
       </InputGroup>
-      <br />
       <InputGroup
         tag="div"
       >
@@ -79,14 +152,13 @@ exports[`nodeDetails component renders correctly 1`] = `
           value="100%"
         />
       </InputGroup>
-      <br />
       <InputGroup
         tag="div"
       >
         <InputGroupAddon
           tag="div"
         >
-          Actual MV
+          Actual Market Value
         </InputGroupAddon>
         <Input
           disabled={false}
@@ -96,37 +168,6 @@ exports[`nodeDetails component renders correctly 1`] = `
           value="0.8"
         />
       </InputGroup>
-      <br />
-      <InputGroup
-        tag="div"
-      >
-        <InputGroupAddon
-          tag="div"
-        >
-          Assumption
-        </InputGroupAddon>
-        <Input
-          disabled={false}
-          tag="p"
-          type="text"
-        />
-      </InputGroup>
-      <br />
-      <InputGroup
-        tag="div"
-      >
-        <InputGroupAddon
-          tag="div"
-        >
-          Return Series
-        </InputGroupAddon>
-        <Input
-          disabled={false}
-          tag="p"
-          type="text"
-        />
-      </InputGroup>
-      <br />
       <InputGroup
         tag="div"
       >
@@ -135,12 +176,15 @@ exports[`nodeDetails component renders correctly 1`] = `
         >
           Color Assignment
         </InputGroupAddon>
-        <ColorPicker
-          changeColor={[Function]}
-          disabled={false}
-        />
+        <div
+          className="colorPickerWrapper"
+        >
+          <ColorPicker
+            changeColor={[Function]}
+            disabled={false}
+          />
+        </div>
       </InputGroup>
-      <br />
       <InputGroup
         tag="div"
       >
@@ -151,18 +195,50 @@ exports[`nodeDetails component renders correctly 1`] = `
         </InputGroupAddon>
         <Input
           disabled={false}
+          onChange={[Function]}
           tag="p"
-          type="text"
-        />
+          type="select"
+        >
+          <option>
+            Daily
+          </option>
+          <option>
+            Monthly
+          </option>
+          <option>
+            Yearly
+          </option>
+        </Input>
       </InputGroup>
-      <br />
       <InputGroup
         tag="div"
       >
         <InputGroupAddon
           tag="div"
         >
-          Active/Pasive
+          Active/Passive
+        </InputGroupAddon>
+        <Input
+          disabled={false}
+          onChange={[Function]}
+          tag="p"
+          type="select"
+        >
+          <option>
+            Active
+          </option>
+          <option>
+            Passive
+          </option>
+        </Input>
+      </InputGroup>
+      <InputGroup
+        tag="div"
+      >
+        <InputGroupAddon
+          tag="div"
+        >
+          Current Expense Ratio
         </InputGroupAddon>
         <Input
           disabled={false}
@@ -170,22 +246,6 @@ exports[`nodeDetails component renders correctly 1`] = `
           type="text"
         />
       </InputGroup>
-      <br />
-      <InputGroup
-        tag="div"
-      >
-        <InputGroupAddon
-          tag="div"
-        >
-          Expense Ratio
-        </InputGroupAddon>
-        <Input
-          disabled={false}
-          tag="p"
-          type="text"
-        />
-      </InputGroup>
-      <br />
       <InputGroup
         tag="div"
       >

@@ -20,22 +20,27 @@ export const columns = [
   {
     field: 'aa_model_benchmark',
     headerName: 'AAMB',
-    width: 150,
+    width: 200,
   },
   {
     field: 'policy_value',
     headerName: 'Policy',
-    width: 150,
+    width: 200,
   },
   {
     field: 'actual_mv',
     headerName: 'Value',
-    width: 150,
+    width: 200,
   },
   {
     field: 'mixA',
     headerName: 'Mix A',
-    width: 150,
+    width: 200,
     editable: true,
+  },
+  {
+    field: 'dummy',
+    headerName: '',
+    width: 200,
   },
 ];

@@ -95,31 +95,67 @@ export class NodeDetails extends React.Component {
         <Card>
           <CardBlock>
             <CardTitle>Node Details</CardTitle>
+
+            <InputGroup>
+              <InputGroupAddon>AA Category</InputGroupAddon>
+              <Input
+                type="select"
+                onChange={event => this.onChangeInput(event, 'aa_category')} // TODO Review this!
+                disabled={this.isRootNode()}>
+                <option>AA Category 1</option>
+                <option>AA Category 2</option>
+                <option>AA Category 3</option>
+              </Input>
+            </InputGroup>
+
+            <InputGroup>
+              <InputGroupAddon>AA Benchmark</InputGroupAddon>
+              <Input
+                type="select"
+                onChange={event => this.onChangeInput(event, 'aa_benchmark')} // TODO Review this!
+                disabled={this.isRootNode()}>
+                <option>AA Benchmark 1</option>
+                <option>AA Benchmark 2</option>
+                <option>AA Benchmark 3</option>
+              </Input>
+            </InputGroup>
+
             <InputGroup>
               <InputGroupAddon>Node Name</InputGroupAddon>
               <Input
                 value={this.state.node.accountgroupname}
                 onChange={event =>
                   this.onChangeInput(event, 'accountgroupname')}
-                onBlur={this.onBlurTest}
+                disabled={this.isRootNode()}
               />
             </InputGroup>
-            <br />
+
+            <InputGroup>
+              <InputGroupAddon>Chart Abbreviation</InputGroupAddon>
+              <Input
+                value="Chart Abbreviation"
+                onChange={event =>
+                  this.onChangeInput(event, 'chart_abbreviation')} // TODO Review this!
+                disabled={this.isRootNode()}
+              />
+            </InputGroup>
 
             <InputGroup>
               <InputGroupAddon>Short Code</InputGroupAddon>
               <Input
-                value={this.state.node.accountgroupshortname}
-                disabled={this.isRootNode()}
-              />
+                type="select"
+                onChange={event => this.onChangeInput(event, 'short_code')} // TODO Review this!
+                disabled={this.isRootNode()}>
+                <option>Short Code 1</option>
+                <option>Short Code 2</option>
+                <option>Short Code 3</option>
+              </Input>
             </InputGroup>
-            <br />
 
             <InputGroup>
-              <InputGroupAddon>CRM Invest Prod</InputGroupAddon>
+              <InputGroupAddon>CRM InvProd</InputGroupAddon>
               <Input disabled={this.isRootNode()} />
             </InputGroup>
-            <br />
 
             <InputGroup>
               <InputGroupAddon>Policy Weight</InputGroupAddon>
@@ -129,56 +165,58 @@ export class NodeDetails extends React.Component {
                 disabled={this.isRootNode()}
               />
             </InputGroup>
-            <br />
 
             <InputGroup>
-              <InputGroupAddon>Actual MV</InputGroupAddon>
+              <InputGroupAddon>Actual Market Value</InputGroupAddon>
               <Input
                 value={this.state.node.actual_mv || ''}
                 onChange={this.onChangeActual}
                 disabled={this.isRootNode()}
               />
             </InputGroup>
-            <br />
-
-            <InputGroup>
-              <InputGroupAddon>Assumption</InputGroupAddon>
-              <Input disabled={this.isRootNode()} />
-            </InputGroup>
-            <br />
-
-            <InputGroup>
-              <InputGroupAddon>Return Series</InputGroupAddon>
-              <Input disabled={this.isRootNode()} />
-            </InputGroup>
-            <br />
 
             <InputGroup>
               <InputGroupAddon>Color Assignment</InputGroupAddon>
-              <ColorPicker
-                changeColor={this.changeColorAssignment}
-                disabled={this.isRootNode()}
-              />
+              <div
+                className={
+                  this.isRootNode()
+                    ? 'colorPickerWrapper disabled'
+                    : 'colorPickerWrapper'
+                }>
+                <ColorPicker
+                  changeColor={this.changeColorAssignment}
+                  disabled={this.isRootNode()}
+                />
+              </div>
             </InputGroup>
-            <br />
 
             <InputGroup>
               <InputGroupAddon>Liquidity</InputGroupAddon>
-              <Input disabled={this.isRootNode()} />
+              <Input
+                type="select"
+                onChange={event => this.onChangeInput(event, 'liquidity')} // TODO Review this!
+                disabled={this.isRootNode()}>
+                <option>Daily</option>
+                <option>Monthly</option>
+                <option>Yearly</option>
+              </Input>
             </InputGroup>
-            <br />
 
             <InputGroup>
-              <InputGroupAddon>Active/Pasive</InputGroupAddon>
-              <Input disabled={this.isRootNode()} />
+              <InputGroupAddon>Active/Passive</InputGroupAddon>
+              <Input
+                type="select"
+                onChange={event => this.onChangeInput(event, 'active_passive')} // TODO Review this!
+                disabled={this.isRootNode()}>
+                <option>Active</option>
+                <option>Passive</option>
+              </Input>
             </InputGroup>
-            <br />
 
             <InputGroup>
-              <InputGroupAddon>Expense Ratio</InputGroupAddon>
+              <InputGroupAddon>Current Expense Ratio</InputGroupAddon>
               <Input disabled={this.isRootNode()} />
             </InputGroup>
-            <br />
 
             <InputGroup>
               <InputGroupAddon>Cost Basis</InputGroupAddon>

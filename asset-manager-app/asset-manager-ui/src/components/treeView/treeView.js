@@ -5,12 +5,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import SortableTree from 'react-sortable-tree';
 
-import {
-  getAllocationTree,
-  selectNode,
-  updateTree,
-  searchNode,
-} from '../../actions';
+import { getAllocationTree, selectNode, updateTree } from '../../actions';
 import Constants from '../../services/constants';
 import NodeDetails from './nodeDetails';
 import NodeMenu from './nodeMenu';
@@ -18,14 +13,19 @@ import TreeNodeRenderer from './treeNodeRenderer';
 
 export class TreeView extends React.Component {
   componentWillReceiveProps(nextProps) {
-    if (nextProps.tree !== this.props.tree) {
+    const { tree, searchResult } = nextProps;
+    if (tree !== this.props.tree) {
       if (!this.props.selectedNode) {
         this.props.selectNode({
-          node: nextProps.tree.data[0],
+          node: tree.data[0],
           treeIndex: 0,
           path: [0],
         });
       }
+    }
+
+    if (searchResult !== this.props.searchResult) {
+      this.props.selectNode(searchResult);
     }
   }
 
@@ -45,7 +45,7 @@ export class TreeView extends React.Component {
   };
 
   render() {
-    const { tree, searchedNodeTitle } = this.props;
+    const { tree } = this.props;
     return (
       <div className="allocationTree">
         <Row>
@@ -59,8 +59,6 @@ export class TreeView extends React.Component {
                 buttons: this.treeButtons(rowInfo),
               })}
               nodeContentRenderer={TreeNodeRenderer}
-              searchQuery={searchedNodeTitle}
-              searchFocusOffset={0}
             />
             <NodeMenu />
           </Col>
@@ -79,12 +77,11 @@ TreeView.propTypes = {
   getAllocationTree: PropTypes.func.isRequired,
   selectNode: PropTypes.func.isRequired,
   updateTree: PropTypes.func.isRequired,
-  searchedNodeTitle: PropTypes.string,
+  searchResult: PropTypes.object,
 };
 
 TreeView.defaultProps = {
   tree: {
-    name: '',
     data: [],
   },
 };
@@ -99,5 +96,4 @@ export default connect(mapStateToProps, {
   getAllocationTree,
   selectNode,
   updateTree,
-  searchNode,
 })(TreeView);

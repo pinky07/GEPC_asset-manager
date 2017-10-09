@@ -2,11 +2,15 @@ import {
   addNodeUnderParent,
   changeNodeAtPath,
   removeNodeAtPath,
+  find,
+  toggleExpandedForAll,
+  defaultSearchMethod,
+  defaultGetNodeKey,
 } from 'react-sortable-tree';
 
 const treeService = () => {
-  const _newNode = ({ clientName, planName }) => {
-    const DEFAULT_NODE_NAME = 'Node';
+  const _newNode = ({ clientName, planName }, isRoot = false) => {
+    const DEFAULT_NODE_NAME = isRoot ? 'Composite' : 'Node';
     let newNode = {
       clientname: clientName,
       planname: planName,
@@ -25,6 +29,10 @@ const treeService = () => {
     };
     newNode.title = () => newNode.accountgroupname;
     return newNode;
+  };
+
+  const addRootNode = () => {
+    return _newNode({}, true);
   };
 
   const updateNode = (tree, selectedNode) => {
@@ -164,6 +172,23 @@ const treeService = () => {
 
   const isRootNode = node => node && node.treeIndex === 0;
 
+  const searchNode = (tree, searchQuery) => {
+    let treeData = toggleExpandedForAll({
+      treeData: tree.data,
+      expanded: false,
+    });
+
+    return find({
+      getNodeKey: defaultGetNodeKey,
+      treeData,
+      searchQuery,
+      searchMethod: defaultSearchMethod,
+      searchFocusOffset: 0,
+      expandAllMatchPaths: true,
+      expandFocusMatchPaths: false,
+    });
+  };
+
   return {
     addAboveNode,
     addSiblingNode,
@@ -176,6 +201,8 @@ const treeService = () => {
     toggleNodeAtPath,
     isRootNode,
     addNodeToRoot,
+    addRootNode,
+    searchNode,
   };
 };
 

@@ -3,6 +3,10 @@
     padding: 20px;
   }
 
+  .input-group {
+    margin-bottom: 15px;
+  }
+
   .input-group-addon {
     background-color: $blue-1;
     color: white;
@@ -10,13 +14,13 @@
     font-weight: bold;
   }
 
-  .card,
-  input.form-control {
-    border-color: $green;
-  }
-
   .card-title {
     text-align: center;
     margin-bottom: 1em;
+  }
+
+  input:disabled,
+  select:disabled {
+    cursor: not-allowed
   }
 }

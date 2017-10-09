@@ -2,6 +2,7 @@ import { getTreeFromFlatData, getFlatDataFromTree } from 'react-sortable-tree';
 import _ from 'lodash';
 
 import assetAllocationService from '../services/assetAllocationService';
+import treeService from '../services/treeService';
 
 const assetsAllocationModel = () => {
   /**
@@ -43,16 +44,19 @@ const assetsAllocationModel = () => {
    */
   const getTree = () => {
     return new Promise((resolve, reject) => {
-      const assetsAllocation = _.forEach(
-        this._assetsAllocation.elements,
-        item => {
+      const { elements } = this._assetsAllocation;
+      let data = [];
+      if (elements.length > 0) {
+        const assetsAllocation = _.forEach(elements, item => {
           item.title = item.accountgroupname;
           return item;
-        }
-      );
+        });
+        data = _getTree(assetsAllocation);
+      } else {
+        data = [treeService().addRootNode()];
+      }
       resolve({
-        name: this._assetsAllocation.name,
-        data: _getTree(assetsAllocation),
+        data,
       });
     });
   };
@@ -71,14 +75,13 @@ const assetsAllocationModel = () => {
           ignoreCollapsed: false,
         });
         gridData = _.map(flatData, item => {
-          item.node.assetCategory = 'Equity';
+          item.node.assetCategory = item.node.level === 0 ? '' : 'Equity';
           return item.node;
         });
       }
-      const data = gridData.filter((item, index) => {
-        return item.showOnGrid && index !== 0;
-      });
-      resolve(data);
+      resolve(
+        _.filter(gridData, (item, index) => item.showOnGrid && index !== 0)
+      );
     });
   };
 

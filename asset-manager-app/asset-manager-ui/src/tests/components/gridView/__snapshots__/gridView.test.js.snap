@@ -8,8 +8,6 @@ exports[`gridView component renders correctly 1`] = `
     tag="div"
   >
     <Col
-      lg="12"
-      md="12"
       tag="div"
       widths={
         Array [
@@ -20,6 +18,7 @@ exports[`gridView component renders correctly 1`] = `
           "xl",
         ]
       }
+      xs="12"
     >
       <Select
         addLabelText="Add \\"{label}\\"?"
@@ -78,9 +77,6 @@ exports[`gridView component renders correctly 1`] = `
     tag="div"
   >
     <Col
-      className=""
-      lg="9"
-      md="9"
       tag="div"
       widths={
         Array [
@@ -91,6 +87,7 @@ exports[`gridView component renders correctly 1`] = `
           "xl",
         ]
       }
+      xs="12"
     >
       <ContextMenuProvider
         className=""
@@ -124,23 +121,28 @@ exports[`gridView component renders correctly 1`] = `
                 Object {
                   "field": "aa_model_benchmark",
                   "headerName": "AAMB",
-                  "width": 150,
+                  "width": 200,
                 },
                 Object {
                   "field": "policy_value",
                   "headerName": "Policy",
-                  "width": 150,
+                  "width": 200,
                 },
                 Object {
                   "field": "actual_mv",
                   "headerName": "Value",
-                  "width": 150,
+                  "width": 200,
                 },
                 Object {
                   "editable": true,
                   "field": "mixA",
                   "headerName": "Mix A",
-                  "width": 150,
+                  "width": 200,
+                },
+                Object {
+                  "field": "dummy",
+                  "headerName": "",
+                  "width": 200,
                 },
               ]
             }
@@ -152,23 +154,6 @@ exports[`gridView component renders correctly 1`] = `
           <Connect(GridContextMenu) />
         </div>
       </ContextMenuProvider>
-    </Col>
-    <Col
-      lg="3"
-      md="3"
-      tag="div"
-      widths={
-        Array [
-          "xs",
-          "sm",
-          "md",
-          "lg",
-          "xl",
-        ]
-      }
-    >
-      <MixStatistics />
-      <MixDetails />
     </Col>
   </Row>
 </div>

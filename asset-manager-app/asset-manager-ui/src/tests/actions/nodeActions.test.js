@@ -9,7 +9,6 @@ describe('node actions', () => {
   const createMockStore = configureMockStore([thunk]);
   const mockStore = {
     tree: {
-      name: '',
       data: [],
     },
     selectedNode: undefined,
@@ -109,6 +108,45 @@ describe('node actions', () => {
     ];
 
     store.dispatch(nodeActions.updateDetailsNode({ ...selectedNode }));
+    expect(store.getActions()).toEqual(expectedActions);
+  });
+
+  it('toggle a node at path', () => {
+    const node = selectedNode;
+    const path = selectedNode.path;
+    const expectedActions = [
+      {
+        type: types.TOGGLE_NODE_AT_PATH,
+        node,
+        path,
+      },
+    ];
+
+    store.dispatch(nodeActions.toggleNodeAtPath(node, path));
+    expect(store.getActions()).toEqual(expectedActions);
+  });
+
+  it('add a node from grid', () => {
+    const expectedActions = [
+      {
+        type: types.ADD_NODE_FROM_GRID,
+      },
+    ];
+
+    store.dispatch(nodeActions.addNodeFromGrid());
+    expect(store.getActions()).toEqual(expectedActions);
+  });
+
+  it('search a node by title', () => {
+    const title = 'test title';
+    const expectedActions = [
+      {
+        type: types.SEARCH_NODE,
+        title,
+      },
+    ];
+
+    store.dispatch(nodeActions.searchNode(title));
     expect(store.getActions()).toEqual(expectedActions);
   });
 });

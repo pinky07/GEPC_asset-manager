@@ -28,27 +28,47 @@ export class Menu extends React.Component {
    */
   render() {
     const { treeViewSelected } = this.props;
+    const { data } = this.props.tree;
+    const treeWithData = data && data.length > 0;
 
     let buttons = [];
     if (treeViewSelected) {
       buttons = [
-        { name: 'Load IF Tree', function: this.props.loadIFTree },
+        {
+          name: 'Load IF Tree',
+          function: this.props.loadIFTree,
+          disabled: treeWithData,
+        },
         {
           name: 'Load IF Market Values',
           function: this.props.loadIFMarketValues,
+          disabled: false,
         },
-        { name: 'Copy Tree', function: this.props.copyTree },
+        {
+          name: 'Copy Tree',
+          function: this.props.copyTree,
+          disabled: false,
+        },
         {
           name: 'Copy Tree (w/o managers)',
           function: this.props.copyTreeWithoutManager,
+          disabled: false,
         },
-        { name: 'Delete Tree', function: this.props.deleteTree },
-        { name: 'New Tree', function: this.props.newTree },
+        {
+          name: 'Delete Tree',
+          function: this.props.deleteTree,
+          disabled: !treeWithData,
+        },
+        {
+          name: 'New Tree',
+          function: this.props.newTree,
+          disabled: treeWithData,
+        },
       ];
     } else {
       buttons = [
-        { name: 'Preview', function: this.props.preview },
-        { name: 'Import Mix', function: this.props.importMix },
+        { name: 'Preview', function: this.props.preview, disabled: false },
+        { name: 'Import Mix', function: this.props.importMix, disabled: false },
       ];
     }
 
@@ -56,7 +76,11 @@ export class Menu extends React.Component {
       <div className="app-menu">
         <div className="buttons">
           {buttons.map((button, index) => (
-            <Button key={index} color="primary" onClick={button.function}>
+            <Button
+              key={index}
+              color="primary"
+              onClick={button.function}
+              disabled={button.disabled}>
               {button.name}
             </Button>
           ))}
@@ -68,6 +92,7 @@ export class Menu extends React.Component {
 
 Menu.propTypes = {
   treeViewSelected: PropTypes.bool.isRequired,
+  tree: PropTypes.object.isRequired,
   copyTree: PropTypes.func.isRequired,
   copyTreeWithoutManager: PropTypes.func.isRequired,
   deleteTree: PropTypes.func.isRequired,
@@ -84,7 +109,9 @@ Menu.propTypes = {
  * @param {*} state 
  */
 const mapStateToProps = state => {
-  return {};
+  return {
+    ...state.allocationTree,
+  };
 };
 
 /**

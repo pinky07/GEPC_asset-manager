@@ -29,7 +29,6 @@ exports[`treeView component renders correctly 1`] = `
         maxDepth={10}
         nodeContentRenderer={[Function]}
         onChange={[Function]}
-        searchFocusOffset={0}
         treeData={Array []}
       />
       <Connect(NodeMenu) />

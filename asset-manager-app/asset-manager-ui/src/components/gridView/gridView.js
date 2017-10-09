@@ -6,15 +6,13 @@ import React from 'react';
 import Select from 'react-select';
 import { ContextMenuProvider } from 'react-contexify';
 
+import GridContextMenu from './gridContextMenu';
 import { columns } from './columnsDef';
-import MixDetails from './mixDetails';
-import MixStatistics from './mixStatistics';
 import {
   getPlanAnalysisLens,
   selectPlanAnalysis,
   getAllocationGrid,
 } from '../../actions';
-import GridContextMenu from './gridContextMenu';
 
 export class GridView extends React.Component {
   constructor(props) {
@@ -50,7 +48,7 @@ export class GridView extends React.Component {
     return (
       <div className="gridView">
         <Row>
-          <Col lg="12" md="12">
+          <Col xs="12">
             <Select
               searchable
               clearable={false}
@@ -65,7 +63,7 @@ export class GridView extends React.Component {
           </Col>
         </Row>
         <Row>
-          <Col lg="9" md="9" className="">
+          <Col xs="12">
             <ContextMenuProvider id="grid_menu_id" event="onContextMenu">
               <div className="gridContainer ag-fresh">
                 <AgGridReact
@@ -78,10 +76,6 @@ export class GridView extends React.Component {
                 <GridContextMenu />
               </div>
             </ContextMenuProvider>
-          </Col>
-          <Col lg="3" md="3">
-            <MixStatistics />
-            <MixDetails />
           </Col>
         </Row>
       </div>

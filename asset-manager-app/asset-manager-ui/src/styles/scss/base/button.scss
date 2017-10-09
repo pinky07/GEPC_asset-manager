@@ -19,6 +19,16 @@
     cursor: pointer;
     box-shadow: none;
   }
+
+  &.disabled {
+    background-color: $gray-1;
+
+    &:hover {
+      background-color: $gray-1;
+      cursor:  not-allowed;
+      box-shadow: none;
+    }
+  }
 }
 
 .btn-primary {

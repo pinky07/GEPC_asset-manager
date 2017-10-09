@@ -1,11 +1,11 @@
 .content {
   & > .row:first-child {
-    border-bottom: 1px solid $green;
+    border-bottom: 1px solid $gray-2;
     margin-bottom: 20px;
   }
 
   .nav.nav-tabs {
-    padding: 20px 0 0 0;
+    padding: 10px 0 0 0;
   }
 
   .nav-tabs {
@@ -14,7 +14,7 @@
       color: white;
       background-color: $blue-1;
       font-weight: bold;
-      padding: 4px 12px 12px 12px;
+      padding: 4px 12px 10px 12px;
 
       &.active,
       &:hover,
@@ -22,6 +22,14 @@
         border: none;
         color: white;
         background-color: $green;
+      }
+
+      &:hover.active {
+        cursor: default,
+      }
+
+      &:hover:not(.active) {
+        cursor: pointer;
       }
     }
   }

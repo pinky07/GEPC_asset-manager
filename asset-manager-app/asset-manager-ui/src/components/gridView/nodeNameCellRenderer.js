@@ -7,8 +7,8 @@ import { searchNode, showTreeView } from '../../actions';
 
 export class NodeNameCellRenderer extends React.Component {
   search = () => {
-    this.props.showTreeView();
     this.props.searchNode(this.props.value);
+    this.props.showTreeView();
   };
 
   render() {

@@ -215,7 +215,6 @@ export const colorPickerInitialState = {
 
 export const treeReducerDefaultState = {
   tree: {
-    name: '',
     data: [],
   },
   selectedSegment: {},
@@ -223,5 +222,5 @@ export const treeReducerDefaultState = {
   selectedPlan: {},
   selectedNode: undefined,
   selectedBetaGroup: undefined,
-  searchedNodeTitle: '',
+  searchResult: undefined,
 };
