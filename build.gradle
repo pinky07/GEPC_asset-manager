@@ -1,5 +1,8 @@
+
+// Gradle version and distribution type
 task wrapper(type: Wrapper) {
-    gradleVersion = "4.0"
+    gradleVersion = '4.2.1'
+    wrapper.distributionType = Wrapper.DistributionType.ALL
 }
 
 subprojects {
@@ -18,7 +21,6 @@ subprojects {
         compile group: 'org.modelmapper.extensions', name: 'modelmapper-spring', version: '1.1.0'
         compile group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jsr310', version: '2.9.1'
         testCompile group: 'org.testng', name: 'testng', version: '6.11'
-
     }
 }
 
