@@ -1,5 +1,9 @@
 import NodeNameCellRenderer from './nodeNameCellRenderer';
 
+const sortAscending = '<i class="fa fa-sort-asc fa-3" aria-hidden="true"/>';
+const sortDescending = '<i class="fa fa-sort-desc fa-3" aria-hidden="true"/>';
+const sortUnSort = '<i class="fa fa-refresh fa-3" aria-hidden="true"/>';
+
 export const columns = [
   {
     field: 'accountgroupname',
@@ -8,7 +12,7 @@ export const columns = [
     cellRendererFramework: NodeNameCellRenderer,
     sortingOrder: [null, null],
     icons: {
-      sortUnSort: '<i class="fa fa-refresh fa-3" aria-hidden="true"/>',
+      sortUnSort,
     },
   },
   {
@@ -17,8 +21,8 @@ export const columns = [
     width: 184,
     sortingOrder: ['asc','desc'],
     icons: {
-      sortAscending: '<i class="fa fa-sort-asc fa-3" aria-hidden="true"/>',
-      sortDescending: '<i class="fa fa-sort-desc fa-3" aria-hidden="true"/>',
+      sortAscending,
+      sortDescending,
     },
   },
   {
@@ -27,8 +31,8 @@ export const columns = [
     width: 350,
     sortingOrder: ['asc','desc'],
     icons: {
-      sortAscending: '<i class="fa fa-sort-asc fa-3" aria-hidden="true"/>',
-      sortDescending: '<i class="fa fa-sort-desc fa-3" aria-hidden="true"/>',
+      sortAscending,
+      sortDescending,
     },
   },
   {
@@ -37,8 +41,8 @@ export const columns = [
     width: 200,
     sortingOrder: ['asc','desc'],
     icons: {
-      sortAscending: '<i class="fa fa-sort-asc fa-3" aria-hidden="true"/>',
-      sortDescending: '<i class="fa fa-sort-desc fa-3" aria-hidden="true"/>',
+      sortAscending,
+      sortDescending,
     },
   },
   {
@@ -47,8 +51,8 @@ export const columns = [
     width: 200,
     sortingOrder: ['asc','desc'],
     icons: {
-      sortAscending: '<i class="fa fa-sort-asc fa-3" aria-hidden="true"/>',
-      sortDescending: '<i class="fa fa-sort-desc fa-3" aria-hidden="true"/>',
+      sortAscending,
+      sortDescending,
     },
   },
   {
@@ -57,8 +61,8 @@ export const columns = [
     width: 200,
     sortingOrder: ['asc','desc'],
     icons: {
-      sortAscending: '<i class="fa fa-sort-asc fa-3" aria-hidden="true"/>',
-      sortDescending: '<i class="fa fa-sort-desc fa-3" aria-hidden="true"/>',
+      sortAscending,
+      sortDescending,
     },
   },
 ];
