@@ -120,6 +120,23 @@ export const getAllAssetCategories = () => {
 };
 
 /**
+ * Retrieves Asset Allocation Modeling Benchmarks from the backend and dispatches an
+ * action with the retrieved data.
+ */
+export const getAllAssetAllocationModelingBenchmarks = () => {
+  return dispatch => {
+    return lookupService()
+      .getAllAssetAllocationModelingBenchmarks()
+      .then(all => {
+        dispatch({
+          type: types.GET_ALL_ASSET_ALLOCATION_MODELING_BENCHMARKS_SUCCESS,
+          payload: all,
+        });
+      });
+  };
+};
+
+/**
  * Dispatches action for activating the tree view
  */
 export const showTreeView = () => {

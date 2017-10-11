@@ -38,6 +38,10 @@ export const GET_ASSET_CATEGORIES_FROM_LDI_FAIL =
   'getAssetCategoriesFromLDIFail';
 export const GET_ALL_ASSET_CATEGORIES_SUCCESS = 'getAllAssetCategoriesSuccess';
 export const GET_ALL_ASSET_CATEGORIES_FAIL = 'getAllAssetCategoriesFail';
+export const GET_ALL_ASSET_ALLOCATION_MODELING_BENCHMARKS_SUCCESS =
+  'getAllAssetAllocationModelingBenchmarksSuccess';
+export const GET_ALL_ASSET_ALLOCATION_MODELING_BENCHMARKS_FAIL =
+  'getAllAssetAllocationModelingBenchmarksFail';
 
 //Grid actions
 export const GET_PLAN_ANALYSIS_SUCCESS = 'getPlanAnalysisSuccess';

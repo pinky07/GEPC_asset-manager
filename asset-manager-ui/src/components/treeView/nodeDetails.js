@@ -13,7 +13,11 @@ import Select from 'react-select';
 
 import ColorPicker from './colorPicker';
 import TreeService from '../../services/treeService';
-import { updateDetailsNode, getAllAssetCategories } from '../../actions';
+import {
+  updateDetailsNode,
+  getAllAssetCategories,
+  getAllAssetAllocationModelingBenchmarks,
+} from '../../actions';
 
 /**
  * Renders the selected node details.
@@ -40,19 +44,20 @@ export class NodeDetails extends React.Component {
     };
     this.state = {
       node: this.node,
-      selectedAACategoryValue: undefined,
-      selectedAABenchmarkValue: undefined,
     };
   }
 
   /**
-   * Invoked immediately after a component is mounted.
+   * Invoked immediately after a component is mounted. Dispatches actions to
+   * download data required by this component.
    * 
    * @memberof NodeDetails
    */
   componentDidMount() {
     // Dispatch an action to fecth Asset Allocation Categories
     this.props.getAllAssetCategories();
+    // Dispatch an action to fetch Asset Allocation Modeling Benchmarks
+    this.props.getAllAssetAllocationModelingBenchmarks();
   }
 
   componentWillReceiveProps(nextProps) {
@@ -88,10 +93,9 @@ export class NodeDetails extends React.Component {
    * @param {object} selectedOption Option selected by the user
    */
   onChangeAACategory = selectedOption => {
-    let selectedOptionValue = undefined;
+    let selectedOptionValue = null;
     if (selectedOption) {
       selectedOptionValue = selectedOption.value;
-      this.props.getAssetAllocationMarketBenchmark(selectedOption.value);
     }
     this.setState(
       {
@@ -100,7 +104,6 @@ export class NodeDetails extends React.Component {
           ...this.state.node,
           aa_category: selectedOptionValue,
         },
-        selectedAACategoryValue: selectedOptionValue,
       },
       () => this.props.updateDetailsNode(this.state.node)
     );
@@ -113,14 +116,20 @@ export class NodeDetails extends React.Component {
    * @memberof NodeDetails
    */
   onChangeAABenchmark = selectedOption => {
-    let selectedOptionValue = undefined;
+    let selectedOptionValue = null;
     if (selectedOption) {
       selectedOptionValue = selectedOption.value;
     }
-    this.setState({
-      ...this.state,
-      selectedAABenchmarkValue: selectedOptionValue,
-    });
+    this.setState(
+      {
+        ...this.state,
+        node: {
+          ...this.state.node,
+          aa_model_benchmark: selectedOptionValue,
+        },
+      },
+      () => this.props.updateDetailsNode(this.state.node)
+    );
   };
 
   onChangePolicy(event) {
@@ -160,15 +169,23 @@ export class NodeDetails extends React.Component {
     );
   };
 
+  mapItem2Option(item) {
+    let option = {};
+    option.value = item.name;
+    option.label = item.name;
+    return option;
+  }
+
   render() {
     const { isLoading } = this.props;
-    const allAssetCategories = this.props.assetCategories.all;
-    const allAssetCategoriesOptions = allAssetCategories.map(item => {
-      let option = {};
-      option.value = item.name;
-      option.label = item.name;
-      return option;
-    });
+    const { node } = this.state;
+
+    const allAssetCategoriesOptions = this.props.assetAllocationCategories.all.map(
+      this.mapItem2Option
+    );
+    const allAssetAllocationModelingBenchmarksOptions = this.props.assetAllocationModelingBenchmarks.map(
+      this.mapItem2Option
+    );
 
     return (
       <div className="nodeDetails">
@@ -181,7 +198,7 @@ export class NodeDetails extends React.Component {
               <Select
                 isLoading={isLoading}
                 name="aa_category"
-                value={this.state.selectedAACategoryValue}
+                value={node.aa_category}
                 options={allAssetCategoriesOptions}
                 onChange={this.onChangeAACategory}
                 disabled={this.isRootNode()}
@@ -193,12 +210,10 @@ export class NodeDetails extends React.Component {
               <Select
                 isLoading={isLoading}
                 name="aa_benchmark"
-                value={this.state.selectedAABenchmarkValue}
-                options={allAssetCategoriesOptions}
+                value={node.aa_model_benchmark}
+                options={allAssetAllocationModelingBenchmarksOptions}
                 onChange={this.onChangeAABenchmark}
-                disabled={
-                  this.isRootNode() || !this.state.selectedAACategoryValue
-                }
+                disabled={this.isRootNode()}
               />
             </InputGroup>
 
@@ -312,26 +327,29 @@ export class NodeDetails extends React.Component {
 }
 
 NodeDetails.propTypes = {
-  assetAllocationCategories: PropTypes.array.isRequired,
-  assetAllocationMarketBenchmarks: PropTypes.array.isRequired,
-  assetCategories: PropTypes.object.isRequired,
+  // From store
+  assetAllocationCategories: PropTypes.object.isRequired,
+  assetAllocationModelingBenchmarks: PropTypes.array.isRequired,
   isLoading: PropTypes.bool.isRequired,
   selectedNode: PropTypes.object,
+  // Actions
   updateDetailsNode: PropTypes.func.isRequired,
   getAllAssetCategories: PropTypes.func.isRequired,
+  getAllAssetAllocationModelingBenchmarks: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => {
   return {
-    selectedNode: state.allocationTree.selectedNode,
     assetAllocationCategories: state.shared.assetAllocationCategories,
-    assetAllocationMarketBenchmarks:
-      state.shared.assetAllocationMarketBenchmarks,
-    assetCategories: state.shared.assetCategories,
+    assetAllocationModelingBenchmarks:
+    state.shared.assetAllocationModelingBenchmarks,
+    isLoading: state.shared.isLoading,
+    selectedNode: state.allocationTree.selectedNode,
   };
 };
 
 export default connect(mapStateToProps, {
   updateDetailsNode,
   getAllAssetCategories,
+  getAllAssetAllocationModelingBenchmarks,
 })(NodeDetails);

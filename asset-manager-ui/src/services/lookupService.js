@@ -1,8 +1,9 @@
 import _ from 'lodash';
 
-import betaGroups from '../data/grid/assetCategoriesBetaGroup.json';
-import goalOriented from '../data/grid/assetCategoriesGoalOriented.json';
-import ldi from '../data/grid/assetCategoriesLDI.json';
+import betaGroups from '../data/grid/assetAllocationCategoriesBetaGroup.json';
+import goalOriented from '../data/grid/assetAllocationCategoriesGoalOriented.json';
+import ldi from '../data/grid/assetAllocationCategoriesLDI.json';
+import modelingBenchmarks from '../data/grid/assetAllocationModelingBenchmarks.json';
 import planAnalysisLens from '../data/grid/planAnalysisLens.json';
 
 /**
@@ -18,7 +19,7 @@ const lookupService = () => {
    *
    * @return A promise that resolves all categories from Beta Groups
    */
-  const getAssetCategoriesFromBetaGroups = () => {
+  const getAssetAllocationCategoriesFromBetaGroups = () => {
     return new Promise((resolve, reject) => {
       resolve(betaGroups);
     });
@@ -29,7 +30,7 @@ const lookupService = () => {
    * 
    * @return A promise that resolves all categories from Goal Oriented
    */
-  const getAssetCategoriesFromGoalOriented = () => {
+  const getAssetAllocationCategoriesFromGoalOriented = () => {
     return new Promise((resolve, reject) => {
       resolve(goalOriented);
     });
@@ -40,7 +41,7 @@ const lookupService = () => {
    * 
    * @return A Promise that resolves all categories from LDI
    */
-  const getAssetCategoriesFromLDI = () => {
+  const getAssetAllocationCategoriesFromLDI = () => {
     return new Promise((resolve, reject) => {
       resolve(ldi);
     });
@@ -59,6 +60,17 @@ const lookupService = () => {
   };
 
   /**
+   * Retrieves all asset allocation modeling benchmarks.
+   * 
+   * @return A promise that resolves all asset allocation modeling benchmarks
+   */
+  const getAllAssetAllocationModelingBenchmarks = () => {
+    return new Promise((resolve, reject) => {
+      resolve(modelingBenchmarks);
+    });
+  };
+
+  /**
    * Returns all plan analysis lens.
    * 
    * @return A Promise that resolves all plan analysis lens 
@@ -73,10 +85,11 @@ const lookupService = () => {
    * List of exported methods
    */
   return {
-    getAssetCategoriesFromBetaGroups,
-    getAssetCategoriesFromGoalOriented,
-    getAssetCategoriesFromLDI,
+    getAssetAllocationCategoriesFromBetaGroups,
+    getAssetAllocationCategoriesFromGoalOriented,
+    getAssetAllocationCategoriesFromLDI,
     getAllAssetCategories,
+    getAllAssetAllocationModelingBenchmarks,
     getPlanAnalysisLens,
   };
 };

@@ -7,13 +7,13 @@ const INITIAL_STATE = {
     elements: [],
     hasGrid: false,
   },
-  assetAllocationCategories: [],
-  assetCategories: {
+  assetAllocationCategories: {
     betaGroups: [],
     goalOriented: [],
     ldi: [],
     all: [],
   },
+  assetAllocationModelingBenchmarks: [],
   isLoading: false,
   isTreeViewActive: false,
 };
@@ -50,8 +50,8 @@ export default (state = INITIAL_STATE, action) => {
     case types.GET_ASSET_CATEGORIES_FROM_BETA_GROUPS_SUCCESS: {
       return {
         ...state,
-        assetCategories: {
-          ...state.assetCategories,
+        assetAllocationCategories: {
+          ...state.assetAllocationCategories,
           betaGroups: action.payload,
         },
       };
@@ -61,8 +61,8 @@ export default (state = INITIAL_STATE, action) => {
     case types.GET_ASSET_CATEGORIES_FROM_GOAL_ORIENTED_SUCCESS: {
       return {
         ...state,
-        assetCategories: {
-          ...state.assetCategories,
+        assetAllocationCategories: {
+          ...state.assetAllocationCategories,
           goalOriented: action.payload,
         },
       };
@@ -72,8 +72,8 @@ export default (state = INITIAL_STATE, action) => {
     case types.GET_ASSET_CATEGORIES_FROM_LDI_SUCCESS: {
       return {
         ...state,
-        assetCategories: {
-          ...state.assetCategories,
+        assetAllocationCategories: {
+          ...state.assetAllocationCategories,
           ldi: action.payload,
         },
       };
@@ -83,13 +83,22 @@ export default (state = INITIAL_STATE, action) => {
     case types.GET_ALL_ASSET_CATEGORIES_SUCCESS: {
       return {
         ...state,
-        assetCategories: {
-          ...state.assetCategories,
+        assetAllocationCategories: {
+          ...state.assetAllocationCategories,
           all: action.payload,
         },
       };
     }
     // case types.GET_ALL_ASSET_CATEGORIES_FAIL: {
+    // }
+
+    case types.GET_ALL_ASSET_ALLOCATION_MODELING_BENCHMARKS_SUCCESS: {
+      return {
+        ...state,
+        assetAllocationModelingBenchmarks: action.payload,
+      };
+    }
+    // case types.GET_ALL_ASSET_ALLOCATION_MODELING_BENCHMARKS_FAIL: {
     // }
     default: {
       return state;
