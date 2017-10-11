@@ -29,8 +29,8 @@ describe('columns definition', () => {
 
   describe('the second column', () => {
     const secondColumn = columns[1];
-    it('should be the assetCategory', () => {
-      const fieldName = 'assetCategory';
+    it('should be the aa_category', () => {
+      const fieldName = 'aa_category';
       expect(secondColumn.field).toEqual(fieldName);
     });
 
