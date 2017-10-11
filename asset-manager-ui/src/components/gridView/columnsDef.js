@@ -8,7 +8,7 @@ export const columns = [
     cellRendererFramework: NodeNameCellRenderer,
   },
   {
-    field: 'assetCategory',
+    field: 'aa_category',
     headerName: 'Asset Category',
     width: 184,
   },
