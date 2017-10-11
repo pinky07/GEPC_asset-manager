@@ -5,6 +5,13 @@ export const sharedReducerDefaultState = {
     elements: [],
     hasGrid: false,
   },
+  assetAllocationCategories: [],
+  assetCategories: {
+    betaGroups: [],
+    goalOriented: [],
+    ldi: [],
+    all: [],
+  },
   isLoading: false,
   isTreeViewActive: false,
 };

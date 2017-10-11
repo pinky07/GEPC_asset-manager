@@ -9,12 +9,27 @@ import {
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import React from 'react';
+import Select from 'react-select';
 
-import TreeService from '../../services/treeService';
-import { updateDetailsNode } from '../../actions';
 import ColorPicker from './colorPicker';
+import TreeService from '../../services/treeService';
+import { updateDetailsNode, getAllAssetCategories } from '../../actions';
 
+/**
+ * Renders the selected node details.
+ * 
+ * @author Francisco Zuñiga
+ * @author Rubén Jiménez
+ * @class NodeDetails
+ * @extends {React.Component}
+ */
 export class NodeDetails extends React.Component {
+  /**
+   * Creates an instance of NodeDetails.
+   * 
+   * @param {any} props Properties passed to this Component.
+   * @memberof NodeDetails
+   */
   constructor(props) {
     super(props);
     this.node = {
@@ -25,7 +40,19 @@ export class NodeDetails extends React.Component {
     };
     this.state = {
       node: this.node,
+      selectedAACategoryValue: undefined,
+      selectedAABenchmarkValue: undefined,
     };
+  }
+
+  /**
+   * Invoked immediately after a component is mounted.
+   * 
+   * @memberof NodeDetails
+   */
+  componentDidMount() {
+    // Dispatch an action to fecth Asset Allocation Categories
+    this.props.getAllAssetCategories();
   }
 
   componentWillReceiveProps(nextProps) {
@@ -49,6 +76,50 @@ export class NodeDetails extends React.Component {
     }
     this.setState({
       node,
+    });
+  };
+
+  /**
+   * When the user changes the AA Category, this method will receive the 
+   * selected option or undefined if no option present in the list was selected.
+   * If an option is actually selected, an action to load the market benchmarks
+   * will be dispatched.
+   * 
+   * @param {object} selectedOption Option selected by the user
+   */
+  onChangeAACategory = selectedOption => {
+    let selectedOptionValue = undefined;
+    if (selectedOption) {
+      selectedOptionValue = selectedOption.value;
+      this.props.getAssetAllocationMarketBenchmark(selectedOption.value);
+    }
+    this.setState(
+      {
+        ...this.state,
+        node: {
+          ...this.state.node,
+          aa_category: selectedOptionValue,
+        },
+        selectedAACategoryValue: selectedOptionValue,
+      },
+      () => this.props.updateDetailsNode(this.state.node)
+    );
+  };
+
+  /**
+   * When the user changes the AA Benchmark, this method will receive the
+   * selected option or undefined if no option present in the list was selected.
+   * 
+   * @memberof NodeDetails
+   */
+  onChangeAABenchmark = selectedOption => {
+    let selectedOptionValue = undefined;
+    if (selectedOption) {
+      selectedOptionValue = selectedOption.value;
+    }
+    this.setState({
+      ...this.state,
+      selectedAABenchmarkValue: selectedOptionValue,
     });
   };
 
@@ -90,6 +161,15 @@ export class NodeDetails extends React.Component {
   };
 
   render() {
+    const { isLoading } = this.props;
+    const allAssetCategories = this.props.assetCategories.all;
+    const allAssetCategoriesOptions = allAssetCategories.map(item => {
+      let option = {};
+      option.value = item.name;
+      option.label = item.name;
+      return option;
+    });
+
     return (
       <div className="nodeDetails">
         <Card>
@@ -98,26 +178,28 @@ export class NodeDetails extends React.Component {
 
             <InputGroup>
               <InputGroupAddon>AA Category</InputGroupAddon>
-              <Input
-                type="select"
-                onChange={event => this.onChangeInput(event, 'aa_category')} // TODO Review this!
-                disabled={this.isRootNode()}>
-                <option>AA Category 1</option>
-                <option>AA Category 2</option>
-                <option>AA Category 3</option>
-              </Input>
+              <Select
+                isLoading={isLoading}
+                name="aa_category"
+                value={this.state.selectedAACategoryValue}
+                options={allAssetCategoriesOptions}
+                onChange={this.onChangeAACategory}
+                disabled={this.isRootNode()}
+              />
             </InputGroup>
 
             <InputGroup>
               <InputGroupAddon>AA Benchmark</InputGroupAddon>
-              <Input
-                type="select"
-                onChange={event => this.onChangeInput(event, 'aa_benchmark')} // TODO Review this!
-                disabled={this.isRootNode()}>
-                <option>AA Benchmark 1</option>
-                <option>AA Benchmark 2</option>
-                <option>AA Benchmark 3</option>
-              </Input>
+              <Select
+                isLoading={isLoading}
+                name="aa_benchmark"
+                value={this.state.selectedAABenchmarkValue}
+                options={allAssetCategoriesOptions}
+                onChange={this.onChangeAABenchmark}
+                disabled={
+                  this.isRootNode() || !this.state.selectedAACategoryValue
+                }
+              />
             </InputGroup>
 
             <InputGroup>
@@ -230,14 +312,26 @@ export class NodeDetails extends React.Component {
 }
 
 NodeDetails.propTypes = {
+  assetAllocationCategories: PropTypes.array.isRequired,
+  assetAllocationMarketBenchmarks: PropTypes.array.isRequired,
+  assetCategories: PropTypes.object.isRequired,
+  isLoading: PropTypes.bool.isRequired,
   selectedNode: PropTypes.object,
   updateDetailsNode: PropTypes.func.isRequired,
+  getAllAssetCategories: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => {
   return {
     selectedNode: state.allocationTree.selectedNode,
+    assetAllocationCategories: state.shared.assetAllocationCategories,
+    assetAllocationMarketBenchmarks:
+      state.shared.assetAllocationMarketBenchmarks,
+    assetCategories: state.shared.assetCategories,
   };
 };
 
-export default connect(mapStateToProps, { updateDetailsNode })(NodeDetails);
+export default connect(mapStateToProps, {
+  updateDetailsNode,
+  getAllAssetCategories,
+})(NodeDetails);

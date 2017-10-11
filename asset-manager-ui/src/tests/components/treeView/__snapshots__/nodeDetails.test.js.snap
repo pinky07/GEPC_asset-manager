@@ -23,22 +23,52 @@ exports[`nodeDetails component renders correctly 1`] = `
         >
           AA Category
         </InputGroupAddon>
-        <Input
+        <Select
+          addLabelText="Add \\"{label}\\"?"
+          arrowRenderer={[Function]}
+          autosize={true}
+          backspaceRemoves={true}
+          backspaceToRemoveMessage="Press backspace to remove {label}"
+          clearAllText="Clear all"
+          clearRenderer={[Function]}
+          clearValueText="Clear value"
+          clearable={true}
+          closeOnSelect={true}
+          deleteRemoves={true}
+          delimiter=","
           disabled={false}
+          escapeClearsValue={true}
+          filterOptions={[Function]}
+          ignoreAccents={true}
+          ignoreCase={true}
+          inputProps={Object {}}
+          isLoading={false}
+          joinValues={false}
+          labelKey="label"
+          matchPos="any"
+          matchProp="any"
+          menuBuffer={0}
+          menuRenderer={[Function]}
+          multi={false}
+          name="aa_category"
+          noResultsText="No results found"
+          onBlurResetsInput={true}
           onChange={[Function]}
-          tag="p"
-          type="select"
-        >
-          <option>
-            AA Category 1
-          </option>
-          <option>
-            AA Category 2
-          </option>
-          <option>
-            AA Category 3
-          </option>
-        </Input>
+          onCloseResetsInput={true}
+          onSelectResetsInput={true}
+          openOnClick={true}
+          optionComponent={[Function]}
+          options={Array []}
+          pageSize={5}
+          placeholder="Select..."
+          required={false}
+          scrollMenuIntoView={true}
+          searchable={true}
+          simpleValue={false}
+          tabSelectsValue={true}
+          valueComponent={[Function]}
+          valueKey="value"
+        />
       </InputGroup>
       <InputGroup
         tag="div"
@@ -48,22 +78,52 @@ exports[`nodeDetails component renders correctly 1`] = `
         >
           AA Benchmark
         </InputGroupAddon>
-        <Input
-          disabled={false}
+        <Select
+          addLabelText="Add \\"{label}\\"?"
+          arrowRenderer={[Function]}
+          autosize={true}
+          backspaceRemoves={true}
+          backspaceToRemoveMessage="Press backspace to remove {label}"
+          clearAllText="Clear all"
+          clearRenderer={[Function]}
+          clearValueText="Clear value"
+          clearable={true}
+          closeOnSelect={true}
+          deleteRemoves={true}
+          delimiter=","
+          disabled={true}
+          escapeClearsValue={true}
+          filterOptions={[Function]}
+          ignoreAccents={true}
+          ignoreCase={true}
+          inputProps={Object {}}
+          isLoading={false}
+          joinValues={false}
+          labelKey="label"
+          matchPos="any"
+          matchProp="any"
+          menuBuffer={0}
+          menuRenderer={[Function]}
+          multi={false}
+          name="aa_benchmark"
+          noResultsText="No results found"
+          onBlurResetsInput={true}
           onChange={[Function]}
-          tag="p"
-          type="select"
-        >
-          <option>
-            AA Benchmark 1
-          </option>
-          <option>
-            AA Benchmark 2
-          </option>
-          <option>
-            AA Benchmark 3
-          </option>
-        </Input>
+          onCloseResetsInput={true}
+          onSelectResetsInput={true}
+          openOnClick={true}
+          optionComponent={[Function]}
+          options={Array []}
+          pageSize={5}
+          placeholder="Select..."
+          required={false}
+          scrollMenuIntoView={true}
+          searchable={true}
+          simpleValue={false}
+          tabSelectsValue={true}
+          valueComponent={[Function]}
+          valueKey="value"
+        />
       </InputGroup>
       <InputGroup
         tag="div"

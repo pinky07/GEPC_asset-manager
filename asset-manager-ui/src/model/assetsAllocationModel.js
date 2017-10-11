@@ -91,9 +91,7 @@ const assetsAllocationModel = () => {
   const save = assetsAllocation => {
     return assetAllocationService()
       .saveAllocations(assetsAllocation)
-      .then(() => {
-        //console.log(treeData);
-      });
+      .then(() => {});
   };
 
   return {

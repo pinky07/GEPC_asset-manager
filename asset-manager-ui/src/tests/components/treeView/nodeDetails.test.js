@@ -5,6 +5,15 @@ import toJSON from 'enzyme-to-json';
 import { NodeDetails } from '../../../components/treeView/nodeDetails';
 
 const props = {
+  assetAllocationCategories: [],
+  assetAllocationMarketBenchmarks: [],
+  assetCategories: {
+    betaGroups: [],
+    goalOriented: [],
+    ldi: [],
+    all: [],
+  },
+  isLoading: false,
   selectedNode: {
     node: {
       policy_value: '100',
@@ -13,7 +22,9 @@ const props = {
       accountgroupname: 'test selected node',
     },
   },
+
   updateDetailsNode: jest.fn(),
+  getAllAssetCategories: jest.fn(),
 };
 
 describe('nodeDetails component', () => {

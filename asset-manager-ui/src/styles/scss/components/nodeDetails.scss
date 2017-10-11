@@ -20,7 +20,28 @@
   }
 
   input:disabled,
-  select:disabled {
-    cursor: not-allowed
+  select:disabled,
+  .Select.is-disabled > .Select-control {
+    cursor: not-allowed;
+    background-color: #e9ecef;
+  }
+
+  .Select {
+    width: 100%;
+    font-weight: 400;
+  }
+
+  .Select-control {
+    // This matches the Bootstrap style of an Input next to an InputGroupAddon
+    height: 2.25rem; 
+    border-top-left-radius: 0;
+    border-top-right-radius: 0.25rem;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0.25rem;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+  }
+
+  .Select-menu-outer {
+    z-index: 99;
   }
 }

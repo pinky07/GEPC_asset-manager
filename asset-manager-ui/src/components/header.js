@@ -28,9 +28,7 @@ export class Header extends React.Component {
    * 
    * @memberof Header
    */
-  help = event => {
-    // console.log('Help button clicked!');
-  };
+  help = event => {};
 
   /**
    * Renders this component
