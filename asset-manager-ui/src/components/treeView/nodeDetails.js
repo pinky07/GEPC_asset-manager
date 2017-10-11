@@ -293,9 +293,12 @@ export class NodeDetails extends React.Component {
                 type="select"
                 onChange={event => this.onChangeInput(event, 'liquidity')} // TODO Review this!
                 disabled={this.isRootNode()}>
-                <option>Daily</option>
+                <option>Daily/Weekly</option>
                 <option>Monthly</option>
-                <option>Yearly</option>
+                <option>Quarterly</option>
+                <option>Semi-Annually</option>
+                <option>Annually</option>
+                <option>Illiquid</option>
               </Input>
             </InputGroup>
 

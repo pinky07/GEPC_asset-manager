@@ -260,13 +260,22 @@ exports[`nodeDetails component renders correctly 1`] = `
           type="select"
         >
           <option>
-            Daily
+            Daily/Weekly
           </option>
           <option>
             Monthly
           </option>
           <option>
-            Yearly
+            Quarterly
+          </option>
+          <option>
+            Semi-Annually
+          </option>
+          <option>
+            Annually
+          </option>
+          <option>
+            Illiquid
           </option>
         </Input>
       </InputGroup>

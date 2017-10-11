@@ -1,22 +1,18 @@
 [
   {
     "id": 1,
-    "name": "Goal Oriented 1"
+    "name": "Wealth Preservation"
   },
   {
     "id": 2,
-    "name": "Goal Oriented 2"
+    "name": "Aspirational Growth"
   },
   {
     "id": 3,
-    "name": "Goal Oriented 3"
+    "name": "Lifestyle Maintenance"
   },
   {
     "id": 4,
-    "name": "Goal Oriented 4"
-  },
-  {
-    "id": 5,
-    "name": "Goal Oriented 5"
+    "name": "Charitable Support"
   }
 ]
