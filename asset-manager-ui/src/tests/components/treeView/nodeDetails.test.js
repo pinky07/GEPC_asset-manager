@@ -5,14 +5,14 @@ import toJSON from 'enzyme-to-json';
 import { NodeDetails } from '../../../components/treeView/nodeDetails';
 
 const props = {
-  assetAllocationCategories: [],
-  assetAllocationMarketBenchmarks: [],
-  assetCategories: {
+  // From store
+  assetAllocationCategories: {
     betaGroups: [],
     goalOriented: [],
     ldi: [],
     all: [],
   },
+  assetAllocationModelingBenchmarks: [],
   isLoading: false,
   selectedNode: {
     node: {
@@ -22,9 +22,10 @@ const props = {
       accountgroupname: 'test selected node',
     },
   },
-
+  // Actions
   updateDetailsNode: jest.fn(),
   getAllAssetCategories: jest.fn(),
+  getAllAssetAllocationModelingBenchmarks: jest.fn(),
 };
 
 describe('nodeDetails component', () => {
