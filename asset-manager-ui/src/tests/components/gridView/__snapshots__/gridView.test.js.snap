@@ -106,42 +106,78 @@ exports[`gridView component renders correctly 1`] = `
                   "cellRendererFramework": [Function],
                   "field": "accountgroupname",
                   "headerName": "Node Name",
+                  "icons": Object {
+                    "sortUnSort": "<i class=\\"fa fa-refresh fa-3\\" aria-hidden=\\"true\\"/>",
+                  },
+                  "sortingOrder": Array [
+                    null,
+                    null,
+                  ],
                   "width": 350,
                 },
                 Object {
                   "field": "aa_category",
                   "headerName": "Asset Category",
+                  "icons": Object {
+                    "sortAscending": "<i class=\\"fa fa-sort-asc fa-3\\" aria-hidden=\\"true\\"/>",
+                    "sortDescending": "<i class=\\"fa fa-sort-desc fa-3\\" aria-hidden=\\"true\\"/>",
+                  },
+                  "sortingOrder": Array [
+                    "asc",
+                    "desc",
+                  ],
                   "width": 184,
                 },
                 Object {
                   "field": "accountgroupname",
                   "headerName": "Asset Class Alias",
+                  "icons": Object {
+                    "sortAscending": "<i class=\\"fa fa-sort-asc fa-3\\" aria-hidden=\\"true\\"/>",
+                    "sortDescending": "<i class=\\"fa fa-sort-desc fa-3\\" aria-hidden=\\"true\\"/>",
+                  },
+                  "sortingOrder": Array [
+                    "asc",
+                    "desc",
+                  ],
                   "width": 350,
                 },
                 Object {
                   "field": "aa_model_benchmark",
                   "headerName": "AAMB",
+                  "icons": Object {
+                    "sortAscending": "<i class=\\"fa fa-sort-asc fa-3\\" aria-hidden=\\"true\\"/>",
+                    "sortDescending": "<i class=\\"fa fa-sort-desc fa-3\\" aria-hidden=\\"true\\"/>",
+                  },
+                  "sortingOrder": Array [
+                    "asc",
+                    "desc",
+                  ],
                   "width": 200,
                 },
                 Object {
                   "field": "policy_value",
                   "headerName": "Policy",
+                  "icons": Object {
+                    "sortAscending": "<i class=\\"fa fa-sort-asc fa-3\\" aria-hidden=\\"true\\"/>",
+                    "sortDescending": "<i class=\\"fa fa-sort-desc fa-3\\" aria-hidden=\\"true\\"/>",
+                  },
+                  "sortingOrder": Array [
+                    "asc",
+                    "desc",
+                  ],
                   "width": 200,
                 },
                 Object {
                   "field": "actual_mv",
                   "headerName": "Value",
-                  "width": 200,
-                },
-                Object {
-                  "editable": true,
-                  "field": "mixA",
-                  "headerName": "Mix A",
-                  "width": 200,
-                },
-                Object {
-                  "field": "dummy",
-                  "headerName": "",
+                  "icons": Object {
+                    "sortAscending": "<i class=\\"fa fa-sort-asc fa-3\\" aria-hidden=\\"true\\"/>",
+                    "sortDescending": "<i class=\\"fa fa-sort-desc fa-3\\" aria-hidden=\\"true\\"/>",
+                  },
+                  "sortingOrder": Array [
+                    "asc",
+                    "desc",
+                  ],
                   "width": 200,
                 },
               ]
