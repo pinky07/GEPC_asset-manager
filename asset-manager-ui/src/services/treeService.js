@@ -9,7 +9,10 @@ import {
 } from 'react-sortable-tree';
 
 const treeService = () => {
-  const _newNode = ({ clientName, planName }, isRoot = false) => {
+  const _newNode = (
+    { clientName = '', planName = '' } = {},
+    isRoot = false
+  ) => {
     const DEFAULT_NODE_NAME = isRoot ? 'Composite' : 'Node';
     let newNode = {
       clientname: clientName,
@@ -21,7 +24,7 @@ const treeService = () => {
       accountgroupperformanceenddate: null,
       level: 0,
       id: 0,
-      parent_object_id: '',
+      parent_object_id: isRoot ? '0' : '',
       as_of: '',
       policy_value: 0,
       aa_model_benchmark: null,
@@ -89,16 +92,26 @@ const treeService = () => {
   };
 
   const addNodeToRoot = tree => {
-    const node = tree.data[0];
+    let treeData = [];
+    let node = {};
+    let parent_object_id = '0';
+
+    if (tree.data.length !== 0) {
+      node = tree.data[0];
+      parent_object_id = node.parent_object_id;
+      treeData = tree.data;
+    } else {
+      treeData = [addRootNode()];
+    }
 
     return addNodeUnderParent({
-      treeData: tree.data,
+      treeData,
       parentKey: 0,
       expandParent: true,
       getNodeKey: ({ treeIndex }) => treeIndex,
       newNode: {
         ..._newNode(node),
-        parent_object_id: node.parent_object_id,
+        parent_object_id,
         showOnGrid: true,
       },
     }).treeData;

@@ -1,6 +1,6 @@
 {
   "name": "Bose Tree",
-  "mixes": [],
+  "mixes": ["mix 1"],
   "elements": [
     {
       "clientname": "Bose",
@@ -34,7 +34,12 @@
       "policy_value": 43,
       "aa_category": null, 
       "aa_model_benchmark": null,
-      "actual_mv": null
+      "actual_mv": null,
+      "mix":  {
+        "mix1": {
+          "value": 12
+        }
+      }
     },
     {
       "clientname": "Bose",

@@ -2,15 +2,28 @@ import * as types from '../actions/types';
 
 const INITIAL_STATE = {
   gridData: [],
+  mixes: [],
   planAnalysisLens: [],
 };
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case types.GET_GRID_SUCCESS:
-      return { ...state, gridData: action.gridData };
+      return {
+        ...state,
+        gridData: action.gridData,
+        mixes: action.mixes,
+      };
     case types.GET_PLAN_ANALYSIS_SUCCESS:
-      return { ...state, planAnalysisLens: action.planAnalysisLens };
+      return {
+        ...state,
+        planAnalysisLens: action.planAnalysisLens,
+      };
+    case types.ADD_MIX:
+      return {
+        ...state,
+        mixes: [`Mix ${state.mixes.length + 1}`, ...state.mixes],
+      };
     default:
       return state;
   }

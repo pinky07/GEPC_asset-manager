@@ -5,7 +5,7 @@ describe('columns definition', () => {
     const columnCount = 6;
     expect(columns.length).toEqual(columnCount);
   });
- 
+
   describe('the first column', () => {
     const firstColumn = columns[0];
     it('should be the accountgroupname', () => {
@@ -25,6 +25,11 @@ describe('columns definition', () => {
     it('should have no value for descending sort', () => {
       expect(firstColumn.sortingOrder[1]).toEqual(null);
     });
+
+    it('should be pinned to the left', () => {
+      const pinnedValue = 'left';
+      expect(firstColumn.pinned).toEqual(pinnedValue);
+    });
   });
 
   describe('the second column', () => {
@@ -40,13 +45,18 @@ describe('columns definition', () => {
     });
 
     it('should have right value for ascending sort', () => {
-      const sortOder = 'asc'
+      const sortOder = 'asc';
       expect(secondColumn.sortingOrder[0]).toEqual(sortOder);
     });
 
     it('should have the right value for descending sort', () => {
-      const sortOder = 'desc'
+      const sortOder = 'desc';
       expect(secondColumn.sortingOrder[1]).toEqual(sortOder);
+    });
+
+    it('should be pinned to the left', () => {
+      const pinnedValue = 'left';
+      expect(secondColumn.pinned).toEqual(pinnedValue);
     });
   });
 
@@ -63,13 +73,18 @@ describe('columns definition', () => {
     });
 
     it('should have right value for ascending sort', () => {
-      const sortOder = 'asc'
+      const sortOder = 'asc';
       expect(thirdColumn.sortingOrder[0]).toEqual(sortOder);
     });
 
     it('should have the right value for descending sort', () => {
-      const sortOder = 'desc'
+      const sortOder = 'desc';
       expect(thirdColumn.sortingOrder[1]).toEqual(sortOder);
+    });
+
+    it('should be pinned to the left', () => {
+      const pinnedValue = 'left';
+      expect(thirdColumn.pinned).toEqual(pinnedValue);
     });
   });
 
@@ -86,13 +101,18 @@ describe('columns definition', () => {
     });
 
     it('should have right value for ascending sort', () => {
-      const sortOder = 'asc'
+      const sortOder = 'asc';
       expect(forthColumn.sortingOrder[0]).toEqual(sortOder);
     });
 
     it('should have the right value for descending sort', () => {
-      const sortOder = 'desc'
+      const sortOder = 'desc';
       expect(forthColumn.sortingOrder[1]).toEqual(sortOder);
+    });
+
+    it('should be pinned to the left', () => {
+      const pinnedValue = 'left';
+      expect(forthColumn.pinned).toEqual(pinnedValue);
     });
   });
 
@@ -109,13 +129,18 @@ describe('columns definition', () => {
     });
 
     it('should have right value for ascending sort', () => {
-      const sortOder = 'asc'
+      const sortOder = 'asc';
       expect(fifthColumn.sortingOrder[0]).toEqual(sortOder);
     });
 
     it('should have the right value for descending sort', () => {
-      const sortOder = 'desc'
+      const sortOder = 'desc';
       expect(fifthColumn.sortingOrder[1]).toEqual(sortOder);
+    });
+
+    it('should be pinned to the left', () => {
+      const pinnedValue = 'left';
+      expect(fifthColumn.pinned).toEqual(pinnedValue);
     });
   });
 
@@ -132,13 +157,18 @@ describe('columns definition', () => {
     });
 
     it('should have right value for ascending sort', () => {
-      const sortOder = 'asc'
+      const sortOder = 'asc';
       expect(sixthColumn.sortingOrder[0]).toEqual(sortOder);
     });
 
     it('should have the right value for descending sort', () => {
-      const sortOder = 'desc'
+      const sortOder = 'desc';
       expect(sixthColumn.sortingOrder[1]).toEqual(sortOder);
+    });
+
+    it('should be pinned to the left', () => {
+      const pinnedValue = 'left';
+      expect(sixthColumn.pinned).toEqual(pinnedValue);
     });
   });
 });
