@@ -10,25 +10,24 @@ import java.math.BigInteger;
 import java.util.List;
 
 @Entity
-@Table(name = "LIQUIDITY")
+@Table(name = "AAMB_CURATION_TYPE")
 @EqualsAndHashCode(callSuper=false)
 @ToString
-public class Liquidity extends BaseEntity
+public class AambCurationType extends BaseEntity
 {
 	@Setter
 	@Getter
 	@Id
-	@Column(name = "LIQUIDITY_PK", unique = true, nullable = false)
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "AAMB_Curation_TYPE_PK", nullable = false)
 	private BigInteger id;
 
 	@Setter
 	@Getter
-	@Column(name = "Liquidity_Name", length = 250)
-	private String liquidityName;
+	@Column(name = "AAMB_Curation_TYPE_Name", length = 160,nullable = false)
+	private String  aambCurationTypeName;
 
 	@Setter
 	@Getter
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "liquidity")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "aambAudienceType")
 	private List<AssetAllocationModelingBenchMark> assetAllocationModelingBenchMarks;
 }
