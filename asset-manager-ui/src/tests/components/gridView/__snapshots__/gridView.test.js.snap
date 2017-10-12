@@ -116,7 +116,7 @@ exports[`gridView component renders correctly 1`] = `
                   "width": 350,
                 },
                 Object {
-                  "field": "assetCategory",
+                  "field": "aa_category",
                   "headerName": "Asset Category",
                   "icons": Object {
                     "sortAscending": "<i class=\\"fa fa-sort-asc fa-3\\" aria-hidden=\\"true\\"/>",

@@ -91,10 +91,12 @@
     ]
   },
   "lint-staged": {
-    "gitDir": "../../",
-    "src/**/*.js": [
-      "eslint --fix",
-      "git add"
-    ]
+    "gitDir": "../",
+    "linters": {
+      "src/**/*.js": [
+        "eslint --fix",
+        "git add"
+      ]
+    }
   }
 }

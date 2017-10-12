@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "name": "Cash"
+  },
+  {
+    "id": 2,
+    "name": "Equity"
+  },
+  {
+    "id": 3,
+    "name": "Debt"
+  }
+]

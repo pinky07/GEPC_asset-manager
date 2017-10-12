@@ -16,7 +16,7 @@ export const columns = [
     },
   },
   {
-    field: 'assetCategory',
+    field: 'aa_category',
     headerName: 'Asset Category',
     width: 184,
     sortingOrder: ['asc','desc'],
