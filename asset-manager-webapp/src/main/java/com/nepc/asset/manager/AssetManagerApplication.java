@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan("com.asset.manager")
+@ComponentScan("com.nepc.asset.manager")
 public class AssetManagerApplication
 {
 
