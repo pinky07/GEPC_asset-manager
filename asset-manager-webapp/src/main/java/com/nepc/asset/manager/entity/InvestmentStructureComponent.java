@@ -87,4 +87,16 @@ public class InvestmentStructureComponent extends BaseEntity
 	@Getter
 	@Column(name = "Short_Description", length = 160)
 	private String shortDescription;
+
+	@Setter
+	@Getter
+	@ManyToOne
+	@JoinColumn(name = "FK__INVESTMEN__BETA___5BE2A6F2")
+	private BetaGroup betaGroup;
+
+	@Setter
+	@Getter
+	@ManyToOne
+	@JoinColumn(name = "FK__INVESTMEN__INVES__5535A963")
+	private InvestmentStructureComponentType investmentStructureComponentType;
 }

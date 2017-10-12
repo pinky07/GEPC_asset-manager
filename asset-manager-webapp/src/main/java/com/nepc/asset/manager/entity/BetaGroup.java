@@ -30,4 +30,9 @@ public class BetaGroup extends BaseEntity
 	@Getter
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "betaGroup")
 	private List<AssetAllocationModelingBenchMark> assetAllocationModelingBenchMarks;
+
+	@Setter
+	@Getter
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "betaGroup")
+	private List<InvestmentStructureComponent> investmentStructureComponents;
 }

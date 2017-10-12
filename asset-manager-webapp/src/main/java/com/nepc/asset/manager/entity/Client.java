@@ -5,13 +5,11 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "CLIENT")
@@ -114,4 +112,9 @@ public class Client extends BaseEntity
 	@Getter
 	@Column(name = "Estimated_Manageable_Assets_Amounts_As_Of_Date")
 	private Date estimatedManageableAssetsAmountsAsOfDate;
+
+	@Setter
+	@Getter
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "plan")
+	private List<Plan> plans;
 }

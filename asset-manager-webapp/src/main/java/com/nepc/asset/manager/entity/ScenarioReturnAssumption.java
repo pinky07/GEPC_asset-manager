@@ -5,10 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 
@@ -33,4 +30,16 @@ public class ScenarioReturnAssumption extends BaseEntity
 	@Getter
 	@Column(name = "Period_Num", nullable = false)
 	private int PeriodNum;
+
+	@Setter
+	@Getter
+	@ManyToOne
+	@JoinColumn(name = "FK__SCENARIO___Assum__6A30C649")
+	private Assumption assumption;
+
+	@Setter
+	@Getter
+	@ManyToOne
+	@JoinColumn(name = "FK__SCENARIO___ASSUM__6C190EBB")
+	private AssumptionType assumptionType;
 }

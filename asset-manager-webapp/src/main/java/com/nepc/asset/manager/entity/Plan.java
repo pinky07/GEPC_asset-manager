@@ -5,10 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Date;
@@ -213,4 +210,10 @@ public class Plan extends BaseEntity
 	@Getter
 	@Column(name = "AA_Display_Order")
 	private int aaDisplayOrder;
+
+	@Setter
+	@Getter
+	@ManyToOne
+	@JoinColumn(name = "FK__PLAN__CLIENT_PK__60A75C0F")
+	private Client client;
 }

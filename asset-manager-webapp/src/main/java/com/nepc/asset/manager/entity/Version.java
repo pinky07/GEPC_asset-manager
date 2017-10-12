@@ -8,6 +8,7 @@ import lombok.ToString;
 import javax.persistence.*;
 import java.math.BigInteger;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "VERSION")
@@ -41,4 +42,9 @@ public class Version extends BaseEntity
 	@Getter
 	@Column(name = "Taxability_Ind", columnDefinition = "char(1)", nullable = false)
 	private char iTaxability_Ind;
+
+	@Setter
+	@Getter
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "version")
+	private List<AssumptionValueSet> assumptionValueSets;
 }

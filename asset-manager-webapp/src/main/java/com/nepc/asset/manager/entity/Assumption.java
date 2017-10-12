@@ -30,4 +30,19 @@ public class Assumption extends BaseEntity
 	@Getter
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "assumption")
 	private List<AssetAllocationModelingBenchMark> assetAllocationModelingBenchMarks;
+
+	@Setter
+	@Getter
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "assumption")
+	private List<AssumptionValueSet> assumptionValueSets;
+
+	@Setter
+	@Getter
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "assumption")
+	private List<ScenarioReturnAssumption> scenarioReturnAssumptions;
+
+	@Setter
+	@Getter
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "assumption")
+	private List<Correlation> correlations;
 }

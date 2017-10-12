@@ -5,10 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 
@@ -73,4 +70,16 @@ public class AssumptionValueSet extends BaseEntity
 	@Getter
 	@Column(name = "Duration_Period",columnDefinition="float(53)")
 	private double durationPeriod;
+
+	@Setter
+	@Getter
+	@ManyToOne
+	@JoinColumn(name = "FK__ASSUMPTIO__Assum__6383C8BA")
+	private Assumption assumption;
+
+	@Setter
+	@Getter
+	@ManyToOne
+	@JoinColumn(name = "FK__ASSUMPTIO__Versi__628FA481")
+	private Version version;
 }

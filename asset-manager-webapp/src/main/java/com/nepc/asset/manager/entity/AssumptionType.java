@@ -5,11 +5,9 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.math.BigInteger;
+import java.util.List;
 
 @Entity
 @Table(name = "ASSUMPTION_TYPE")
@@ -27,4 +25,9 @@ public class AssumptionType extends BaseEntity
 	@Getter
 	@Column(name = "Assumption_Type_Name", length = 160,nullable = false)
 	private String assumptionTypeName;
+
+	@Setter
+	@Getter
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "assumption")
+	private List<ScenarioReturnAssumption> scenarioReturnAssumptions;
 }
