@@ -6,7 +6,7 @@ import { NodeMenu } from '../../../components/treeView/nodeMenu';
 import { selectedNode } from '../../fixtures/tree';
 
 let props = {
-  selectedNode: { ...selectedNode.node },
+  selectedNode: { ...selectedNode },
   jumpLevel: jest.fn(),
   deleteNode: jest.fn(),
   deleteBelowNode: jest.fn(),

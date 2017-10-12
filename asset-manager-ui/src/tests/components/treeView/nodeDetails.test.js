@@ -3,6 +3,7 @@ import { shallow } from 'enzyme';
 import toJSON from 'enzyme-to-json';
 
 import { NodeDetails } from '../../../components/treeView/nodeDetails';
+import { selectedNode } from '../../fixtures/tree';
 
 const props = {
   // From store
@@ -14,14 +15,7 @@ const props = {
   },
   assetAllocationModelingBenchmarks: [],
   isLoading: false,
-  selectedNode: {
-    node: {
-      policy_value: '100',
-      actual_mv: '0.8',
-      accountgroupshortname: 'abc',
-      accountgroupname: 'test selected node',
-    },
-  },
+  selectedNode: { ...selectedNode },
   // Actions
   updateDetailsNode: jest.fn(),
   getAllAssetCategories: jest.fn(),
@@ -34,5 +28,28 @@ describe('nodeDetails component', () => {
 
   it('renders correctly', () => {
     expect(toJSON(wrapper)).toMatchSnapshot();
+  });
+
+  describe('when clicking an item', () => {
+    beforeEach(() => {
+      wrapper = shallow(<NodeDetails {...props} />);
+      wrapper.setProps({ ...props });
+    });
+
+    it('the first select should call the updateDetailsNode function', () => {
+      wrapper
+        .find('Select')
+        .at(0)
+        .simulate('change');
+      expect(props.updateDetailsNode).toHaveBeenCalled();
+    });
+
+    it('the second select should call the updateDetailsNode function', () => {
+      wrapper
+        .find('Select')
+        .at(1)
+        .simulate('change');
+      expect(props.updateDetailsNode).toHaveBeenCalled();
+    });
   });
 });

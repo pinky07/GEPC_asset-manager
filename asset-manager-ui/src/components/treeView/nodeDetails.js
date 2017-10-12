@@ -37,10 +37,21 @@ export class NodeDetails extends React.Component {
   constructor(props) {
     super(props);
     this.node = {
-      policy_value: '',
-      actual_mv: '',
-      accountgroupshortname: '',
+      clientname: '',
+      planname: '',
+      accountgrouptype: '',
+      accountgroupid: '',
       accountgroupname: '',
+      accountgroupshortname: '',
+      accountgroupperformanceenddate: null,
+      level: 0,
+      id: 0,
+      parent_object_id: '',
+      as_of: '',
+      policy_value: 0,
+      aa_category: null,
+      aa_model_benchmark: null,
+      actual_mv: null,
     };
     this.state = {
       node: this.node,
@@ -61,6 +72,7 @@ export class NodeDetails extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    console.log('LOL!');
     if (nextProps.selectedNode) {
       const { node } = nextProps.selectedNode;
       this.setState({
@@ -187,6 +199,9 @@ export class NodeDetails extends React.Component {
       this.mapItem2Option
     );
 
+    console.log('Props', this.props);
+    console.log('Node', node);
+    
     return (
       <div className="nodeDetails">
         <Card>
@@ -345,7 +360,7 @@ const mapStateToProps = state => {
   return {
     assetAllocationCategories: state.shared.assetAllocationCategories,
     assetAllocationModelingBenchmarks:
-    state.shared.assetAllocationModelingBenchmarks,
+      state.shared.assetAllocationModelingBenchmarks,
     isLoading: state.shared.isLoading,
     selectedNode: state.allocationTree.selectedNode,
   };
