@@ -9,7 +9,7 @@ const sortUnSort = '<i class="fa fa-refresh fa-3" aria-hidden="true"/>';
 export const percentageFormatter = params => {
   let { value } = params;
   if (typeof value === 'string') {
-    value = value.substring(2).replace(/,/gi,'');
+    value = value.substring(2).replace(/,/gi, '');
     value = Number(value);
   }
   return isNaN(value)
@@ -74,12 +74,11 @@ export const columns = [
       sortAscending,
       sortDescending,
     },
-    pinned: 'left',
     valueFormatter: percentageFormatter,
   },
   {
     field: 'actual_mv',
-    headerName: 'Value',
+    headerName: 'Actual',
     width: 200,
     headerComponentFramework: ValueHeaderRenderer,
     sortingOrder: ['asc', 'desc'],
@@ -87,7 +86,6 @@ export const columns = [
       sortAscending,
       sortDescending,
     },
-    pinned: 'left',
     valueFormatter: percentageFormatter,
   },
 ];

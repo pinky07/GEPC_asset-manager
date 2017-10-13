@@ -56,7 +56,7 @@ export class GridView extends React.Component {
 
   onClick = event => {
     const text = event.target.innerText;
-    if (text.includes('Value') || text.includes('Mix')) {
+    if (text.includes('Actual') || text.includes('Mix')) {
       event.stopPropagation();
     }
   };

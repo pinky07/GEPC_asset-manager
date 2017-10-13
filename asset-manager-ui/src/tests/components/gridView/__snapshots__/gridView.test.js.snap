@@ -167,7 +167,6 @@ exports[`gridView component renders correctly 1`] = `
                     "sortAscending": "<i class=\\"fa fa-sort-asc fa-3\\" aria-hidden=\\"true\\"/>",
                     "sortDescending": "<i class=\\"fa fa-sort-desc fa-3\\" aria-hidden=\\"true\\"/>",
                   },
-                  "pinned": "left",
                   "sortingOrder": Array [
                     "asc",
                     "desc",
@@ -178,12 +177,11 @@ exports[`gridView component renders correctly 1`] = `
                 Object {
                   "field": "actual_mv",
                   "headerComponentFramework": [Function],
-                  "headerName": "Value",
+                  "headerName": "Actual",
                   "icons": Object {
                     "sortAscending": "<i class=\\"fa fa-sort-asc fa-3\\" aria-hidden=\\"true\\"/>",
                     "sortDescending": "<i class=\\"fa fa-sort-desc fa-3\\" aria-hidden=\\"true\\"/>",
                   },
-                  "pinned": "left",
                   "sortingOrder": Array [
                     "asc",
                     "desc",

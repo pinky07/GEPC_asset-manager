@@ -142,9 +142,8 @@ describe('columns definition', () => {
       expect(fifthColumn.sortingOrder[1]).toEqual(sortOder);
     });
 
-    it('should be pinned to the left', () => {
-      const pinnedValue = 'left';
-      expect(fifthColumn.pinned).toEqual(pinnedValue);
+    it('should not be pinned', () => {
+      expect(mixColumn.pinned).toEqual(undefined);
     });
 
     it('should have a value formatter set', () => {
@@ -160,7 +159,7 @@ describe('columns definition', () => {
     });
 
     it('should display the correct column name', () => {
-      const headerName = 'Value';
+      const headerName = 'Actual';
       expect(sixthColumn.headerName).toEqual(headerName);
     });
 
@@ -174,27 +173,15 @@ describe('columns definition', () => {
       expect(sixthColumn.sortingOrder[1]).toEqual(sortOder);
     });
 
-    it('should be pinned to the left', () => {
-      const pinnedValue = 'left';
-      expect(sixthColumn.pinned).toEqual(pinnedValue);
+    it('should not be pinned', () => {
+      expect(mixColumn.pinned).toEqual(undefined);
     });
 
     it('should have a value formatter set', () => {
       expect(sixthColumn.valueFormatter).toBeDefined();
     });
   });
-  /*
- field: 'mix',
- width: 200,
- editable: true,
- headerName: 'Mix',
- headerComponentFramework: MixHeaderRenderer,
- sortingOrder: ['asc', 'desc'],
- icons: {
- sortAscending,
- sortDescending,
- },
- */
+
   describe('the mix column', () => {
     it('should be the mix field', () => {
       const fieldName = 'mix';
