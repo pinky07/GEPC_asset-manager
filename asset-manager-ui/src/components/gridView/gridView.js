@@ -36,6 +36,7 @@ export class GridView extends React.Component {
       let columnDefs = [];
       nextProps.mixes.forEach(mix => {
         mixColumn.headerName = mix;
+        mixColumn.field = mix.replace(' ', '').toLowerCase();
         columnDefs.push({ ...mixColumn });
       });
       columnDefs = [...columns, ...columnDefs];

@@ -1,11 +1,19 @@
 import NodeNameCellRenderer from './nodeNameCellRenderer';
 import MixHeaderRenderer from './mixHeaderRenderer';
 import ValueHeaderRenderer from './valueHeaderRenderer';
-import MixCellRenderer from './mixCellRenderer';
 
 const sortAscending = '<i class="fa fa-sort-asc fa-3" aria-hidden="true"/>';
 const sortDescending = '<i class="fa fa-sort-desc fa-3" aria-hidden="true"/>';
 const sortUnSort = '<i class="fa fa-refresh fa-3" aria-hidden="true"/>';
+
+export const percentageFormatter = params => {
+  return isNaN(params.value)
+    ? ''
+    : Number(params.value / 100).toLocaleString(undefined, {
+        style: 'percent',
+        minimumFractionDigits: 0,
+      });
+};
 
 export const columns = [
   {
@@ -62,6 +70,7 @@ export const columns = [
       sortDescending,
     },
     pinned: 'left',
+    valueFormatter: percentageFormatter,
   },
   {
     field: 'actual_mv',
@@ -74,6 +83,7 @@ export const columns = [
       sortDescending,
     },
     pinned: 'left',
+    valueFormatter: percentageFormatter,
   },
 ];
 
@@ -83,13 +93,10 @@ export const mixColumn = {
   editable: true,
   headerName: 'Mix',
   headerComponentFramework: MixHeaderRenderer,
-  cellRendererFramework: MixCellRenderer,
   sortingOrder: ['asc', 'desc'],
   icons: {
     sortAscending,
     sortDescending,
   },
-  valueParser: this.numberParser,
+  valueFormatter: percentageFormatter,
 };
-
-const numberParser = params => Number(params.newValue);

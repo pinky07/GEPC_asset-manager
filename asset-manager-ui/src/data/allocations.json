@@ -1,6 +1,6 @@
 {
   "name": "Bose Tree",
-  "mixes": ["mix 1"],
+  "mixes": ["Mix 1"],
   "elements": [
     {
       "clientname": "Bose",
@@ -15,7 +15,7 @@
       "parent_object_id": "2728654E-489C-406E-90F6-6D1458449A6A",
       "as_of": "6/30/17",
       "policy_value": 100,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": null,
       "actual_mv": null
     },
@@ -32,14 +32,10 @@
       "parent_object_id": "733094AB-70F2-48FC-B026-4A580704466E",
       "as_of": "6/30/17",
       "policy_value": 43,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": null,
       "actual_mv": null,
-      "mix":  {
-        "mix1": {
-          "value": 12
-        }
-      }
+      "mix1": 12
     },
     {
       "clientname": "Bose",
@@ -54,7 +50,7 @@
       "parent_object_id": "733094AB-70F2-48FC-B026-4A580704466E",
       "as_of": "6/30/17",
       "policy_value": 26,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": null,
       "actual_mv": null
     },
@@ -71,7 +67,7 @@
       "parent_object_id": "733094AB-70F2-48FC-B026-4A580704466E",
       "as_of": "6/30/17",
       "policy_value": 4,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": null,
       "actual_mv": null
     },
@@ -88,7 +84,7 @@
       "parent_object_id": "733094AB-70F2-48FC-B026-4A580704466E",
       "as_of": "6/30/17",
       "policy_value": 8,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": null,
       "actual_mv": null
     },
@@ -105,7 +101,7 @@
       "parent_object_id": "733094AB-70F2-48FC-B026-4A580704466E",
       "as_of": "6/30/17",
       "policy_value": 9,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": null,
       "actual_mv": null
     },
@@ -122,7 +118,7 @@
       "parent_object_id": "733094AB-70F2-48FC-B026-4A580704466E",
       "as_of": "6/30/17",
       "policy_value": 5,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": null,
       "actual_mv": null
     },
@@ -139,7 +135,7 @@
       "parent_object_id": "733094AB-70F2-48FC-B026-4A580704466E",
       "as_of": "6/30/17",
       "policy_value": 6,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": null,
       "actual_mv": null
     },
@@ -156,7 +152,7 @@
       "parent_object_id": "733094AB-70F2-48FC-B026-4A580704466E",
       "as_of": "6/30/17",
       "policy_value": 0,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": null,
       "actual_mv": null
     },
@@ -173,7 +169,7 @@
       "parent_object_id": "733094AB-70F2-48FC-B026-4A580704466E",
       "as_of": "6/30/17",
       "policy_value": null,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": null,
       "actual_mv": null
     },
@@ -190,7 +186,7 @@
       "parent_object_id": "A254D892-4EB7-4B51-A103-25EFBD0A9FDB",
       "as_of": "6/30/17",
       "policy_value": 19,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": null,
       "actual_mv": null
     },
@@ -207,7 +203,7 @@
       "parent_object_id": "A254D892-4EB7-4B51-A103-25EFBD0A9FDB",
       "as_of": "6/30/17",
       "policy_value": 24,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": null,
       "actual_mv": null
     },
@@ -224,7 +220,7 @@
       "parent_object_id": "46DAE20B-DD82-4621-8484-223550102D8E",
       "as_of": "6/30/17",
       "policy_value": 26,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": null,
       "actual_mv": null
     },
@@ -241,7 +237,7 @@
       "parent_object_id": "3C642512-BB80-4427-8888-C0BD398E1E8F",
       "as_of": "6/30/17",
       "policy_value": null,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": "EMD Blended",
       "actual_mv": "* 28,822,539.96"
     },
@@ -258,7 +254,7 @@
       "parent_object_id": "3C642512-BB80-4427-8888-C0BD398E1E8F",
       "as_of": "6/30/17",
       "policy_value": null,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": null,
       "actual_mv": null
     },
@@ -275,7 +271,7 @@
       "parent_object_id": "209F68AF-C821-4EA3-949C-FF93B11B0D82",
       "as_of": "6/30/17",
       "policy_value": 8,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": null,
       "actual_mv": null
     },
@@ -292,7 +288,7 @@
       "parent_object_id": "10E1A7E0-E18C-4A87-ACD7-DB078E185997",
       "as_of": "6/30/17",
       "policy_value": null,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": "Putnam Total Return",
       "actual_mv": "* 45,646,141.05"
     },
@@ -309,7 +305,7 @@
       "parent_object_id": "10E1A7E0-E18C-4A87-ACD7-DB078E185997",
       "as_of": "6/30/17",
       "policy_value": null,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": null,
       "actual_mv": null
     },
@@ -326,7 +322,7 @@
       "parent_object_id": "10E1A7E0-E18C-4A87-ACD7-DB078E185997",
       "as_of": "6/30/17",
       "policy_value": null,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": "AQR GRASP",
       "actual_mv": "* 27,363,649.00"
     },
@@ -343,7 +339,7 @@
       "parent_object_id": "048F21B7-12EC-40EB-B107-F96D981B485D",
       "as_of": "6/30/17",
       "policy_value": 4,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": null,
       "actual_mv": null
     },
@@ -360,7 +356,7 @@
       "parent_object_id": "60E1D8F0-CF35-49E7-A41A-0097F0B3A8AF",
       "as_of": "6/30/17",
       "policy_value": null,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": null,
       "actual_mv": null
     },
@@ -377,7 +373,7 @@
       "parent_object_id": "60E1D8F0-CF35-49E7-A41A-0097F0B3A8AF",
       "as_of": "6/30/17",
       "policy_value": null,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": null,
       "actual_mv": null
     },
@@ -394,7 +390,7 @@
       "parent_object_id": "60E1D8F0-CF35-49E7-A41A-0097F0B3A8AF",
       "as_of": "6/30/17",
       "policy_value": null,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": null,
       "actual_mv": null
     },
@@ -411,7 +407,7 @@
       "parent_object_id": "60E1D8F0-CF35-49E7-A41A-0097F0B3A8AF",
       "as_of": "6/30/17",
       "policy_value": null,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": null,
       "actual_mv": null
     },
@@ -428,7 +424,7 @@
       "parent_object_id": "05943EF7-3D19-49FC-8478-9E7AF0C73D2A",
       "as_of": "6/30/17",
       "policy_value": null,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": null,
       "actual_mv": null
     },
@@ -445,7 +441,7 @@
       "parent_object_id": "05943EF7-3D19-49FC-8478-9E7AF0C73D2A",
       "as_of": "6/30/17",
       "policy_value": null,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": null,
       "actual_mv": null
     },
@@ -462,7 +458,7 @@
       "parent_object_id": "05943EF7-3D19-49FC-8478-9E7AF0C73D2A",
       "as_of": "6/30/17",
       "policy_value": null,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": null,
       "actual_mv": null
     },
@@ -479,7 +475,7 @@
       "parent_object_id": "EC6A4720-FD2A-49DB-A1F4-8A0F2235DF0E",
       "as_of": "6/30/17",
       "policy_value": null,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": null,
       "actual_mv": null
     },
@@ -496,7 +492,7 @@
       "parent_object_id": "EC6A4720-FD2A-49DB-A1F4-8A0F2235DF0E",
       "as_of": "6/30/17",
       "policy_value": null,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": null,
       "actual_mv": null
     },
@@ -513,7 +509,7 @@
       "parent_object_id": "EC6A4720-FD2A-49DB-A1F4-8A0F2235DF0E",
       "as_of": "6/30/17",
       "policy_value": null,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": null,
       "actual_mv": null
     },
@@ -530,7 +526,7 @@
       "parent_object_id": "EC6A4720-FD2A-49DB-A1F4-8A0F2235DF0E",
       "as_of": "6/30/17",
       "policy_value": null,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": null,
       "actual_mv": null
     },
@@ -547,7 +543,7 @@
       "parent_object_id": "EC6A4720-FD2A-49DB-A1F4-8A0F2235DF0E",
       "as_of": "6/30/17",
       "policy_value": null,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": null,
       "actual_mv": null
     },
@@ -564,7 +560,7 @@
       "parent_object_id": "EC6A4720-FD2A-49DB-A1F4-8A0F2235DF0E",
       "as_of": "6/30/17",
       "policy_value": null,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": null,
       "actual_mv": null
     },
@@ -581,7 +577,7 @@
       "parent_object_id": "EC6A4720-FD2A-49DB-A1F4-8A0F2235DF0E",
       "as_of": "6/30/17",
       "policy_value": null,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": null,
       "actual_mv": null
     },
@@ -598,7 +594,7 @@
       "parent_object_id": "EC6A4720-FD2A-49DB-A1F4-8A0F2235DF0E",
       "as_of": "6/30/17",
       "policy_value": null,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": null,
       "actual_mv": null
     },
@@ -615,7 +611,7 @@
       "parent_object_id": "EC6A4720-FD2A-49DB-A1F4-8A0F2235DF0E",
       "as_of": "6/30/17",
       "policy_value": null,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": null,
       "actual_mv": null
     },
@@ -632,7 +628,7 @@
       "parent_object_id": "EC6A4720-FD2A-49DB-A1F4-8A0F2235DF0E",
       "as_of": "6/30/17",
       "policy_value": null,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": null,
       "actual_mv": null
     },
@@ -649,7 +645,7 @@
       "parent_object_id": "EC6A4720-FD2A-49DB-A1F4-8A0F2235DF0E",
       "as_of": "6/30/17",
       "policy_value": null,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": null,
       "actual_mv": null
     },
@@ -666,7 +662,7 @@
       "parent_object_id": "EC6A4720-FD2A-49DB-A1F4-8A0F2235DF0E",
       "as_of": "6/30/17",
       "policy_value": null,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": null,
       "actual_mv": null
     },
@@ -683,7 +679,7 @@
       "parent_object_id": "EC6A4720-FD2A-49DB-A1F4-8A0F2235DF0E",
       "as_of": "6/30/17",
       "policy_value": null,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": null,
       "actual_mv": null
     },
@@ -700,7 +696,7 @@
       "parent_object_id": "EC6A4720-FD2A-49DB-A1F4-8A0F2235DF0E",
       "as_of": "6/30/17",
       "policy_value": null,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": null,
       "actual_mv": null
     },
@@ -717,7 +713,7 @@
       "parent_object_id": "EC6A4720-FD2A-49DB-A1F4-8A0F2235DF0E",
       "as_of": "6/30/17",
       "policy_value": null,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": null,
       "actual_mv": null
     },
@@ -734,7 +730,7 @@
       "parent_object_id": "EC6A4720-FD2A-49DB-A1F4-8A0F2235DF0E",
       "as_of": "6/30/17",
       "policy_value": null,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": null,
       "actual_mv": null
     },
@@ -751,7 +747,7 @@
       "parent_object_id": "EC6A4720-FD2A-49DB-A1F4-8A0F2235DF0E",
       "as_of": "6/30/17",
       "policy_value": null,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": null,
       "actual_mv": null
     },
@@ -768,7 +764,7 @@
       "parent_object_id": "4EAC3E7B-91ED-435D-BB20-E182611FB355",
       "as_of": "6/30/17",
       "policy_value": 14,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": null,
       "actual_mv": null
     },
@@ -785,7 +781,7 @@
       "parent_object_id": "4EAC3E7B-91ED-435D-BB20-E182611FB355",
       "as_of": "6/30/17",
       "policy_value": 5,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": null,
       "actual_mv": null
     },
@@ -819,7 +815,7 @@
       "parent_object_id": "DF9DE4C8-69C3-4C29-B553-DC1A7AD52220",
       "as_of": "6/30/17",
       "policy_value": null,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": "Core Bonds",
       "actual_mv": "* 12,660,650.55"
     },
@@ -836,7 +832,7 @@
       "parent_object_id": "DF9DE4C8-69C3-4C29-B553-DC1A7AD52220",
       "as_of": "6/30/17",
       "policy_value": null,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": "20+ YR STRIPS",
       "actual_mv": "* 66,534,852.46"
     },
@@ -853,7 +849,7 @@
       "parent_object_id": "DF9DE4C8-69C3-4C29-B553-DC1A7AD52220",
       "as_of": "6/30/17",
       "policy_value": null,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": "Long Credit",
       "actual_mv": "* 71,500,069.00"
     },
@@ -870,7 +866,7 @@
       "parent_object_id": "DF9DE4C8-69C3-4C29-B553-DC1A7AD52220",
       "as_of": "6/30/17",
       "policy_value": null,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": null,
       "actual_mv": null
     },
@@ -887,7 +883,7 @@
       "parent_object_id": "DF9DE4C8-69C3-4C29-B553-DC1A7AD52220",
       "as_of": "6/30/17",
       "policy_value": null,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": "TIPS",
       "actual_mv": "* 26,674,944.05"
     },
@@ -904,7 +900,7 @@
       "parent_object_id": "902044F6-98B0-411E-B55B-D94C07F720A1",
       "as_of": "6/30/17",
       "policy_value": null,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": "PIMCO All Asset",
       "actual_mv": "* 33,279,413.92"
     },
@@ -921,7 +917,7 @@
       "parent_object_id": "902044F6-98B0-411E-B55B-D94C07F720A1",
       "as_of": "6/30/17",
       "policy_value": null,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": "GMO BFAF",
       "actual_mv": "* 35,401,552.41"
     },
@@ -938,7 +934,7 @@
       "parent_object_id": "902044F6-98B0-411E-B55B-D94C07F720A1",
       "as_of": "6/30/17",
       "policy_value": null,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": null,
       "actual_mv": null
     },
@@ -955,7 +951,7 @@
       "parent_object_id": "7C30CB66-DA37-4639-B66C-752C1E77D829",
       "as_of": "6/30/17",
       "policy_value": null,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": "Real Estate (Core)",
       "actual_mv": "* 14,673,657.00"
     },
@@ -972,7 +968,7 @@
       "parent_object_id": "7C30CB66-DA37-4639-B66C-752C1E77D829",
       "as_of": "6/30/17",
       "policy_value": null,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": "Real Estate (Core)",
       "actual_mv": "* 13,520,771.00"
     },
@@ -989,7 +985,7 @@
       "parent_object_id": "7C2B83E5-F78A-4068-AE5C-65ABBB09FB95",
       "as_of": "6/30/17",
       "policy_value": null,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": "Private Equity",
       "actual_mv": "* 6,851,753.00"
     },
@@ -1006,7 +1002,7 @@
       "parent_object_id": "7C2B83E5-F78A-4068-AE5C-65ABBB09FB95",
       "as_of": "6/30/17",
       "policy_value": null,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": "Private Equity",
       "actual_mv": "* 877,993.00"
     },
@@ -1023,7 +1019,7 @@
       "parent_object_id": "7C2B83E5-F78A-4068-AE5C-65ABBB09FB95",
       "as_of": "6/30/17",
       "policy_value": null,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": "Private Equity",
       "actual_mv": "* 1,732,657.00"
     },
@@ -1040,7 +1036,7 @@
       "parent_object_id": "7C2B83E5-F78A-4068-AE5C-65ABBB09FB95",
       "as_of": "6/30/17",
       "policy_value": null,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": "Private Equity",
       "actual_mv": "* 2,342,505.00"
     },
@@ -1057,7 +1053,7 @@
       "parent_object_id": "7C2B83E5-F78A-4068-AE5C-65ABBB09FB95",
       "as_of": "6/30/17",
       "policy_value": null,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": "Private Equity",
       "actual_mv": "* 2,305,071.16"
     },
@@ -1074,7 +1070,7 @@
       "parent_object_id": "7C2B83E5-F78A-4068-AE5C-65ABBB09FB95",
       "as_of": "6/30/17",
       "policy_value": null,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": null,
       "actual_mv": null
     },
@@ -1091,7 +1087,7 @@
       "parent_object_id": "7C2B83E5-F78A-4068-AE5C-65ABBB09FB95",
       "as_of": "6/30/17",
       "policy_value": null,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": null,
       "actual_mv": null
     },
@@ -1108,7 +1104,7 @@
       "parent_object_id": "FFC5A0AE-7FB0-4675-8490-DF6CECA113BF",
       "as_of": "6/30/17",
       "policy_value": null,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": "Real Estate (Core)",
       "actual_mv": "* 2,359,469.00"
     },
@@ -1125,7 +1121,7 @@
       "parent_object_id": "24F3DB68-6EA0-40FA-992E-20A0ABBA5F3D",
       "as_of": "6/30/17",
       "policy_value": null,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": "Private Real Assets",
       "actual_mv": "* 2,890,583.00"
     },
@@ -1142,7 +1138,7 @@
       "parent_object_id": "95647723-802C-4FFD-BD09-E181EC980844",
       "as_of": "6/30/17",
       "policy_value": null,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": "Private Debt",
       "actual_mv": "* 6,120,479.56"
     },
@@ -1159,7 +1155,7 @@
       "parent_object_id": "95647723-802C-4FFD-BD09-E181EC980844",
       "as_of": "6/30/17",
       "policy_value": null,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": "Private Debt",
       "actual_mv": "* 2,804,640.00"
     },
@@ -1176,7 +1172,7 @@
       "parent_object_id": "95647723-802C-4FFD-BD09-E181EC980844",
       "as_of": "6/30/17",
       "policy_value": null,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": "Hedge Funds - Credit",
       "actual_mv": "* 1,613,381.00"
     },
@@ -1193,7 +1189,7 @@
       "parent_object_id": "95647723-802C-4FFD-BD09-E181EC980844",
       "as_of": "6/30/17",
       "policy_value": null,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": "Hedge Funds - Credit",
       "actual_mv": "* 6,429,417.09"
     },
@@ -1210,7 +1206,7 @@
       "parent_object_id": "95647723-802C-4FFD-BD09-E181EC980844",
       "as_of": "6/30/17",
       "policy_value": null,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": "Private Equity",
       "actual_mv": "* 1,369,325.00"
     },
@@ -1227,7 +1223,7 @@
       "parent_object_id": "8C5295DB-A5A1-4805-ADA6-054C0058B26B",
       "as_of": "6/30/17",
       "policy_value": null,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": "Large Cap Equities",
       "actual_mv": "* 23,003,465.00"
     },
@@ -1244,7 +1240,7 @@
       "parent_object_id": "8C5295DB-A5A1-4805-ADA6-054C0058B26B",
       "as_of": "6/30/17",
       "policy_value": null,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": "Large Cap Equities",
       "actual_mv": "* 49,095,436.32"
     },
@@ -1261,7 +1257,7 @@
       "parent_object_id": "8C5295DB-A5A1-4805-ADA6-054C0058B26B",
       "as_of": "6/30/17",
       "policy_value": null,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": "Large Cap Equities",
       "actual_mv": "* 22,589,585.92"
     },
@@ -1295,7 +1291,7 @@
       "parent_object_id": "8C5295DB-A5A1-4805-ADA6-054C0058B26B",
       "as_of": "6/30/17",
       "policy_value": null,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": null,
       "actual_mv": null
     },
@@ -1312,7 +1308,7 @@
       "parent_object_id": "8C5295DB-A5A1-4805-ADA6-054C0058B26B",
       "as_of": "6/30/17",
       "policy_value": null,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": null,
       "actual_mv": null
     },
@@ -1329,7 +1325,7 @@
       "parent_object_id": "8C5295DB-A5A1-4805-ADA6-054C0058B26B",
       "as_of": "6/30/17",
       "policy_value": null,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": null,
       "actual_mv": null
     },
@@ -1346,7 +1342,7 @@
       "parent_object_id": "4465934A-A685-4B6C-BE5A-247864FCFC2B",
       "as_of": "6/30/17",
       "policy_value": null,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": "Small/Mid Cap Equities",
       "actual_mv": "* 14,661,435.36"
     },
@@ -1363,7 +1359,7 @@
       "parent_object_id": "4465934A-A685-4B6C-BE5A-247864FCFC2B",
       "as_of": "6/30/17",
       "policy_value": null,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": "Small/Mid Cap Equities",
       "actual_mv": "* 15,737,814.09"
     },
@@ -1380,7 +1376,7 @@
       "parent_object_id": "4465934A-A685-4B6C-BE5A-247864FCFC2B",
       "as_of": "6/30/17",
       "policy_value": null,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": null,
       "actual_mv": null
     },
@@ -1397,7 +1393,7 @@
       "parent_object_id": "5AE3D5EA-84F9-4F63-8818-4E3ABD236A90",
       "as_of": "6/30/17",
       "policy_value": 17,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": null,
       "actual_mv": null
     },
@@ -1414,7 +1410,7 @@
       "parent_object_id": "5AE3D5EA-84F9-4F63-8818-4E3ABD236A90",
       "as_of": "6/30/17",
       "policy_value": 7,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": null,
       "actual_mv": null
     },
@@ -1431,7 +1427,7 @@
       "parent_object_id": "7E916462-EAD8-4C57-9623-C665DC2EBC48",
       "as_of": "6/30/17",
       "policy_value": null,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": "Int'l Equities (Unhedged)",
       "actual_mv": "* 90,711,319.52"
     },
@@ -1448,7 +1444,7 @@
       "parent_object_id": "7E916462-EAD8-4C57-9623-C665DC2EBC48",
       "as_of": "6/30/17",
       "policy_value": null,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": "Int'l Sm Cap Equities (Unhedged)",
       "actual_mv": "* 34,343,218.48"
     },
@@ -1465,7 +1461,7 @@
       "parent_object_id": "7E916462-EAD8-4C57-9623-C665DC2EBC48",
       "as_of": "6/30/17",
       "policy_value": null,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": null,
       "actual_mv": null
     },
@@ -1482,7 +1478,7 @@
       "parent_object_id": "D3C86E39-8FE4-4186-AD2B-0DE737E3DCD1",
       "as_of": "6/30/17",
       "policy_value": null,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": "Emerging Int'l Equities",
       "actual_mv": "* 22,488,496.91"
     },
@@ -1499,7 +1495,7 @@
       "parent_object_id": "D3C86E39-8FE4-4186-AD2B-0DE737E3DCD1",
       "as_of": "6/30/17",
       "policy_value": null,
-      "aa_category": null, 
+      "aa_category": null,
       "aa_model_benchmark": "Emerging Int'l Sm Cap Equities",
       "actual_mv": "* 25,884,637.87"
     }

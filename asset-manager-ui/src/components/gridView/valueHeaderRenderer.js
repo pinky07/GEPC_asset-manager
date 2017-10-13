@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 import MixMenu from './mixMenu';
 
-class ValueHeaderRenderer extends React.Component {
+export class ValueHeaderRenderer extends React.Component {
   renderHeaderText() {
     return (
       <div className="ag-header-cell-label">

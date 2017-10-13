@@ -3,15 +3,19 @@ import { connect } from 'react-redux';
 import { ContextMenu, Item } from 'react-contexify';
 import PropTypes from 'prop-types';
 
-import { addMix } from '../../actions';
+import { addMix, removeMix } from '../../actions';
 
 export class MixMenu extends React.Component {
+  removeMix = () => {
+    this.props.removeMix(this.props.mixName);
+  };
+
   render() {
     if (this.props.isMixHeader) {
       return (
         <ContextMenu id={this.props.menuId}>
           <Item onClick={this.props.addMix}>Add Mix</Item>
-          <Item>Delete Mix</Item>
+          <Item onClick={this.removeMix}>Delete Mix</Item>
         </ContextMenu>
       );
     }
@@ -26,8 +30,10 @@ export class MixMenu extends React.Component {
 
 MixMenu.propTypes = {
   addMix: PropTypes.func.isRequired,
+  removeMix: PropTypes.func.isRequired,
   isMixHeader: PropTypes.bool,
   menuId: PropTypes.string,
+  mixName: PropTypes.string,
 };
 
-export default connect(null, { addMix })(MixMenu);
+export default connect(null, { addMix, removeMix })(MixMenu);

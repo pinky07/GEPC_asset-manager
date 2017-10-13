@@ -72,7 +72,6 @@ export class NodeDetails extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log('LOL!');
     if (nextProps.selectedNode) {
       const { node } = nextProps.selectedNode;
       this.setState({
@@ -199,9 +198,6 @@ export class NodeDetails extends React.Component {
       this.mapItem2Option
     );
 
-    console.log('Props', this.props);
-    console.log('Node', node);
-    
     return (
       <div className="nodeDetails">
         <Card>

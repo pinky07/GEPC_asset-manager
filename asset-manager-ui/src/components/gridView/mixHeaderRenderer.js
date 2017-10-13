@@ -14,10 +14,16 @@ export class MixHeaderRenderer extends React.Component {
         <NavLink href="#" onClick={this.props.showMixPanel}>
           {this.props.column.colDef.headerName}
         </NavLink>
-        <ContextMenuProvider id={`mix_menu_${this.props.column.colDef.headerName}`} event="onClick">
+        <ContextMenuProvider
+          id={`mix_menu_${this.props.column.colDef.headerName}`}
+          event="onClick">
           <div>
             <button>...</button>
-            <MixMenu isMixHeader menuId={`mix_menu_${this.props.column.colDef.headerName}`} />
+            <MixMenu
+              isMixHeader
+              menuId={`mix_menu_${this.props.column.colDef.headerName}`}
+              mixName={this.props.column.colDef.headerName}
+            />
           </div>
         </ContextMenuProvider>
       </div>
@@ -26,6 +32,9 @@ export class MixHeaderRenderer extends React.Component {
 }
 
 MixHeaderRenderer.propTypes = {
+  column: PropTypes.shape({
+    colDef: PropTypes.object,
+  }).isRequired,
   showMixPanel: PropTypes.func.isRequired,
 };
 
