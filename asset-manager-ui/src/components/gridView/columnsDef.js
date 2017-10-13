@@ -7,9 +7,14 @@ const sortDescending = '<i class="fa fa-sort-desc fa-3" aria-hidden="true"/>';
 const sortUnSort = '<i class="fa fa-refresh fa-3" aria-hidden="true"/>';
 
 export const percentageFormatter = params => {
-  return isNaN(params.value)
+  let { value } = params;
+  if (typeof value === 'string') {
+    value = value.substring(2).replace(/,/gi,'');
+    value = Number(value);
+  }
+  return isNaN(value)
     ? ''
-    : Number(params.value / 100).toLocaleString(undefined, {
+    : Number(value / 100).toLocaleString(undefined, {
         style: 'percent',
         minimumFractionDigits: 0,
       });

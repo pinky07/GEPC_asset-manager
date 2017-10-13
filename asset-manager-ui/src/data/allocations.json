@@ -1,6 +1,6 @@
 {
   "name": "Bose Tree",
-  "mixes": ["Mix 1"],
+  "mixes": [],
   "elements": [
     {
       "clientname": "Bose",
@@ -34,8 +34,7 @@
       "policy_value": 43,
       "aa_category": null,
       "aa_model_benchmark": null,
-      "actual_mv": null,
-      "mix1": 12
+      "actual_mv": 88
     },
     {
       "clientname": "Bose",
@@ -1480,7 +1479,7 @@
       "policy_value": null,
       "aa_category": null,
       "aa_model_benchmark": "Emerging Int'l Equities",
-      "actual_mv": "* 22,488,496.91"
+      "actual_mv": "22,488,496.91"
     },
     {
       "clientname": "Bose",
@@ -1497,7 +1496,7 @@
       "policy_value": null,
       "aa_category": null,
       "aa_model_benchmark": "Emerging Int'l Sm Cap Equities",
-      "actual_mv": "* 25,884,637.87"
+      "actual_mv": "25,884,637.87"
     }
   ]
 }
