@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`mixHeaderRenderer component renders correctly 1`] = `
+<div
+  className="ag-header-cell-label"
+>
+  <NavLink
+    href="#"
+    onClick={[Function]}
+    tag="a"
+  >
+    Mix 1
+  </NavLink>
+  <ContextMenuProvider
+    className=""
+    event="onClick"
+    id="mix_menu_Mix 1"
+    renderTag="div"
+    style={Object {}}
+  >
+    <div>
+      <button>
+        ...
+      </button>
+      <Connect(MixMenu)
+        isMixHeader={true}
+        menuId="mix_menu_Mix 1"
+        mixName="Mix 1"
+      />
+    </div>
+  </ContextMenuProvider>
+</div>
+`;

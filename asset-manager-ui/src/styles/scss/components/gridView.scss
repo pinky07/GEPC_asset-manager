@@ -39,6 +39,19 @@
     }
   }
 
+  .ag-header-cell-label {
+    .nav-link {
+      color: white;
+    }
+
+    button {
+      color: #fff;
+      font-weight: bold;
+      background-color: #004879;
+      border: none;
+    }
+  }
+
   i {
     display: inline-block;
     color: white;
