@@ -4,13 +4,13 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.util.List;
 
 @Entity
 @Table(name = "INVESTMENT_STRUCTURE")
@@ -38,4 +38,16 @@ public class InvestmentStructure extends BaseEntity
 	@Getter
 	@Column(name = "Plan_Funded_Amount",precision = 12,scale = 2)
 	private BigDecimal planFundedAmount;
+
+	@Setter
+	@Getter
+	@ManyToOne
+	@JoinColumn(name = "PLAN_PK")
+	@NotFound(action= NotFoundAction.IGNORE)
+	private Plan plan;
+
+	@Setter
+	@Getter
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "investmentStructure")
+	private List<InvestmentStructureComponent> investmentStructureComponents;
 }

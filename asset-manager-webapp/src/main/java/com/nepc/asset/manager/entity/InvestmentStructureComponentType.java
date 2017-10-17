@@ -6,11 +6,10 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
-import java.math.BigInteger;
 import java.util.List;
 
 @Entity
-@Table(name = "INVESTMENT_STRUCTURE_COMPONENT_TYPE_PK")
+@Table(name = "INVESTMENT_STRUCTURE_COMPONENT_TYPE")
 @EqualsAndHashCode(callSuper=false)
 @ToString
 public class InvestmentStructureComponentType extends BaseEntity
@@ -19,7 +18,7 @@ public class InvestmentStructureComponentType extends BaseEntity
 	@Getter
 	@Id
 	@Column(name = "INVESTMENT_STRUCTURE_COMPONENT_TYPE_PK",  nullable = false)
-	private BigInteger id;
+	private char id;
 
 	@Setter
 	@Getter

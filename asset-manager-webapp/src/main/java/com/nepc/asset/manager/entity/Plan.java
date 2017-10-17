@@ -6,12 +6,14 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Date;
+import java.util.List;
 
 @Entity
-@Table(name = "PLAN")
+@Table(name = "\"PLAN\"")
 @EqualsAndHashCode(callSuper=false)
 @ToString
 public class Plan extends BaseEntity
@@ -25,7 +27,7 @@ public class Plan extends BaseEntity
 	@Setter
 	@Getter
 	@Column(name = "NEPC_Plan_Code", length = 160)
-	private String NepcPlanCode;
+	private String nepcPlanCode;
 
 	@Setter
 	@Getter
@@ -49,7 +51,7 @@ public class Plan extends BaseEntity
 
 	@Setter
 	@Getter
-	@Column(name = "Plan_Active_Ind", nullable = false,columnDefinition = "char(1)")
+	@Column(name = "Plan_Active_Ind", nullable = false, columnDefinition = "char(1)")
 	private char planActiveInd;
 
 	@Setter
@@ -116,6 +118,7 @@ public class Plan extends BaseEntity
 	@Getter
 	@Column(name = "Fiscal_Month_Num")
 	private int fiscalMonthNum;
+
 	@Setter
 	@Getter
 	@Column(name = "Total_NEPC_and_Extrinsic_Assets", precision = 12, scale = 2)
@@ -128,6 +131,7 @@ public class Plan extends BaseEntity
 
 	@Setter
 	@Getter
+	@Size(max = 10)
 	@Column(name = "Risk_Profile",length = 10)
 	private String riskProfile;
 
@@ -138,7 +142,8 @@ public class Plan extends BaseEntity
 
 	@Setter
 	@Getter
-	@Column(name = "Assets_Restriction", nullable = false,length = 160)
+	@Size(max = 160)
+	@Column(name = "Assets_Restriction", nullable = false, length = 160)
 	private String assetsRestriction;
 
 	@Setter
@@ -214,6 +219,16 @@ public class Plan extends BaseEntity
 	@Setter
 	@Getter
 	@ManyToOne
-	@JoinColumn(name = "FK__PLAN__CLIENT_PK__60A75C0F")
+	@JoinColumn(name = "CLIENT_PK")
 	private Client client;
+
+	@Setter
+	@Getter
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "plan")
+	private List<InvestmentStructure> investmentStructures;
+
+	@Setter
+	@Getter
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "plan")
+	private List<PlanHolding> planHoldings;
 }

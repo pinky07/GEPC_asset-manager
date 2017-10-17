@@ -13,7 +13,7 @@ import java.util.List;
 @Table(name = "LIQUIDITY")
 @EqualsAndHashCode(callSuper=false)
 @ToString
-public class Liquidity extends BaseEntity
+public class Liquidity
 {
 	@Setter
 	@Getter
@@ -31,4 +31,9 @@ public class Liquidity extends BaseEntity
 	@Getter
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "liquidity")
 	private List<AssetAllocationModelingBenchMark> assetAllocationModelingBenchMarks;
+
+	@Setter
+	@Getter
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "liquidity")
+	private List<InvestmentStructureComponent> investmentStructureComponents;
 }

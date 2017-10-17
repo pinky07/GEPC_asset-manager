@@ -4,13 +4,13 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.math.BigInteger;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "MIX")
@@ -36,9 +36,8 @@ public class Mix extends BaseEntity
 
 	@Setter
 	@Getter
-	@Column(name = "Session_ID", nullable = false)
-	private int sessionId;
-
+	@Column(name = "Session_ID")
+	private Integer sessionId;
 
 	@Setter
 	@Getter
@@ -49,4 +48,21 @@ public class Mix extends BaseEntity
 	@Getter
 	@Column(name = "Mix_Description",length = 250, nullable = false)
 	private String mixDescription;
+
+	@Setter
+	@Getter
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "mix")
+	private List<InvestmentStructureMixComponent> investmentStructureMixComponents;
+
+	@Setter
+	@Getter
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "mix")
+	private List<MixSummaryFact> mixSummaryFacts;
+
+	@Setter
+	@Getter
+	@ManyToOne
+	@JoinColumn(name = "Mix_Type_PK")
+	@NotFound(action= NotFoundAction.IGNORE)
+	private MixType mixType;
 }

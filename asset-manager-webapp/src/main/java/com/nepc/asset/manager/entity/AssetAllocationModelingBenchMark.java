@@ -6,6 +6,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.math.BigInteger;
 import java.util.List;
 
@@ -23,74 +24,76 @@ public class AssetAllocationModelingBenchMark extends BaseEntity
 
 	@Setter
 	@Getter
-	@Column(name = "AAMB_Name", nullable = false)
-	private int aambName;
+	@Size(max = 160)
+	@Column(name = "AAMB_Name", length = 160)
+	private String aambName;
 
 	@Setter
 	@Getter
-	@Column(name = "Derived_Ind",columnDefinition = "char(1)",nullable = false)
+	@Column(name = "Derived_Ind", nullable = false)
 	private char derivedInd;
-	//
+
 	@Setter
 	@Getter
-	@Column(name = "Custom_Asset_Ind",columnDefinition = "char(1)" ,nullable = false)
+	@Column(name = "Custom_Asset_Ind", nullable = false)
 	private char customAssetInd;
 
 	@Setter
 	@Getter
-	@Column(name = "Sensitivity_Ind",columnDefinition = "char(1)", nullable = false)
+	@Column(name = "Sensitivity_Ind", nullable = false)
 	private char sensitivityInd;
 
 	@Setter
 	@Getter
-	@Column(name = "Admin_Asset_Ind",columnDefinition = "char(1)",nullable = false)
+	@Column(name = "Admin_Asset_Ind", nullable = false)
 	private char adminAssetInd;
 
 	@Setter
 	@Getter
-	@Column(name = "AAMB_Description",length = 250)
+	@Column(name = "AAMB_Description", length = 250)
 	private String aambDescription;
 
 	@Setter
 	@Getter
 	@ManyToOne
-	@JoinColumn(name = "FK__ASSET_ALL__AAMB___52593CB8")
+	@JoinColumn(name = "AAMB_Audience_Type_PK")
 	private AambAudienceType aambAudienceType;
 
 	@Setter
 	@Getter
 	@ManyToOne
-	@JoinColumn(name = "FK__ASSET_ALL__AAMB___4BAC3F29")
+	@JoinColumn(name = "AAMB_Curation_TYPE_PK")
 	private AambCurationType aambCurationType;
 
-	@Setter
+	//TODO this relationship is not working
+	/*@Setter
 	@Getter
 	@ManyToOne
-	@JoinColumn(name = "FK__ASSET_ALL__Assum__4D94879B")
-	private Assumption assumption;
+	@JoinColumn(name = "Assumption_PK", nullable = false)
+	private Assumption assumption;*/
 
 	@Setter
 	@Getter
 	@ManyToOne
-	@JoinColumn(name = "FK__ASSET_ALL__BETA___5070F446")
+	@JoinColumn(name = "BETA_GROUP_PK", nullable = false)
 	private BetaGroup betaGroup;
 
 	@Setter
 	@Getter
 	@ManyToOne
-	@JoinColumn(name = "FK__ASSET_ALL__LDI_C__4F7CD00D")
+	@JoinColumn(name = "LDI_Category_PK", nullable = false )
 	private LdiCategory ldiCategory;
 
 	@Setter
 	@Getter
 	@ManyToOne
-	@JoinColumn(name = "FK__ASSET_ALL__Goal___4E88ABD4")
+	@JoinColumn(name = "Goal_Based_Category_PK", nullable = false)
 	private GoalBasedCategory goalBasedCategory;
 
 	@Setter
 	@Getter
 	@ManyToOne
-	@JoinColumn(name = "FK__ASSET_ALL__LIQUI__4CA06362")
+	@JoinColumn(name = "LIQUIDITY_PK", nullable = false)
 	private Liquidity liquidity;
 
 	@Setter
@@ -98,5 +101,13 @@ public class AssetAllocationModelingBenchMark extends BaseEntity
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "assetAllocationModelingBenchMark")
 	private List<DerivedBenchMarkComponent> derivedBenchMarkComponents;
 
+	@Setter
+	@Getter
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "assetAllocationModelingBenchMark")
+	private List<InvestmentStructureComponent> investmentStructureComponents;
 
+	@Setter
+	@Getter
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "assetAllocationModelingBenchMark")
+	private List<MixDetailFact> mixDetailFacts;
 }

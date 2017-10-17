@@ -41,10 +41,25 @@ public class Version extends BaseEntity
 	@Setter
 	@Getter
 	@Column(name = "Taxability_Ind", columnDefinition = "char(1)", nullable = false)
-	private char iTaxability_Ind;
+	private char taxability_Ind;
 
 	@Setter
 	@Getter
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "version")
 	private List<AssumptionValueSet> assumptionValueSets;
+
+	@Setter
+	@Getter
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "version")
+	private List<ScenarioReturnAssumption> scenarioReturnAssumptions;
+
+	@Setter
+	@Getter
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "version")
+	private List<MixDetailFact> mixDetailFacts;
+
+	@Setter
+	@Getter
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "version")
+	private List<MixSummaryFact> mixSummaryFacts;
 }

@@ -5,11 +5,9 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.math.BigInteger;
+import java.util.List;
 
 @Entity
 @Table(name = "SCENARIO")
@@ -32,4 +30,14 @@ public class Scenario extends BaseEntity
 	@Getter
 	@Column(name = "Scenario_Desc", length = 250)
 	private String scenarioDesc;
+
+	@Setter
+	@Getter
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "scenario")
+	private List<ScenarioReturnAssumption> scenarioReturnAssumptions;
+
+	@Setter
+	@Getter
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "scenario")
+	private List<MixDetailFact> mixDetailFacts;
 }

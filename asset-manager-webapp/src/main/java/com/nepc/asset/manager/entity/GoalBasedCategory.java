@@ -30,4 +30,9 @@ public class GoalBasedCategory extends BaseEntity
 	@Getter
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "goalBasedCategory")
 	private List<AssetAllocationModelingBenchMark> assetAllocationModelingBenchMarks;
+
+	@Setter
+	@Getter
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "goalBasedCategory")
+	private List<InvestmentStructureComponent> investmentStructureComponents;
 }

@@ -6,11 +6,13 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.math.BigInteger;
 import java.util.List;
 
 @Entity
-@Table(name = "ASSUMPTION_TYPE")
+@Table(name = "ASSUMPTION")
 @EqualsAndHashCode(callSuper=false)
 @ToString
 public class Assumption extends BaseEntity
@@ -23,13 +25,15 @@ public class Assumption extends BaseEntity
 
 	@Setter
 	@Getter
-	@Column(name = "Assumption_Name", length = 160,nullable = false)
+	@NotNull
+	@Size(max = 160)
+	@Column(name = "Assumption_Name", length = 160, nullable = false)
 	private String assumptionName;
 
-	@Setter
+	/*@Setter
 	@Getter
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "assumption")
-	private List<AssetAllocationModelingBenchMark> assetAllocationModelingBenchMarks;
+	private List<AssetAllocationModelingBenchMark> assetAllocationModelingBenchMarks;*/
 
 	@Setter
 	@Getter

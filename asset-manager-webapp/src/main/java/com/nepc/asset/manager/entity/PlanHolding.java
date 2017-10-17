@@ -5,12 +5,12 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.math.BigInteger;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "PLAN_HOLDING")
@@ -21,18 +21,20 @@ public class PlanHolding extends BaseEntity
 	@Setter
 	@Getter
 	@Id
-	@Column(name = "PLAN_HOLDING_PK", nullable = false)
-	private BigInteger id;
+	@NotNull
+	@Size(max = 50)
+	@Column(name = "PLAN_HOLDING_PK", nullable = false, length = 50)
+	private String id;
 
 	@Setter
 	@Getter
-	@Column(name = "PLAN_PK", nullable = false)
-	private int planPK;
+	@Column(name = "INVESTABLE_VEHICLE_PK")
+	private int investableVehiclePK;
 
 	@Setter
 	@Getter
 	@Column(name = "Investable_Vehicle_Units_Number")
-	private int InvestableVehicleUnitsNumber;
+	private int investableVehicleUnitsNumber;
 
 	@Setter
 	@Getter
@@ -91,11 +93,17 @@ public class PlanHolding extends BaseEntity
 
 	@Setter
 	@Getter
-	@Column(name = "INVESTABLE_VEHICLE_PK",nullable = false)
-	private int InvestableVehiclePK;
+	@Column(name = "IF_Plan_Holding_Name", length = 40)
+	private String ifPlanHoldingName;
 
 	@Setter
 	@Getter
-	@Column(name = "IF_Plan_Holding_Name", length = 40)
-	private String ifPlanHoldingName;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "planHolding")
+	private List<InvestmentStructureComponent> investmentStructureComponents;
+
+	@Setter
+	@Getter
+	@ManyToOne
+	@JoinColumn(name = "PLAN_PK")
+	private Plan plan;
 }

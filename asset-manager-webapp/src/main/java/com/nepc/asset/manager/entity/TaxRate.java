@@ -5,10 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -48,4 +45,10 @@ public class TaxRate extends BaseEntity
 	@Getter
 	@Column(name = "Display_to_User_Ind_Y_N", nullable = false, columnDefinition = "char(1)")
 	private Date displayToUserIndYN;
+
+	@Setter
+	@Getter
+	@ManyToOne
+	@JoinColumn(name = "Tax_Jurisdiction_PK")
+	private TaxJurisdiction taxJurisdiction;
 }

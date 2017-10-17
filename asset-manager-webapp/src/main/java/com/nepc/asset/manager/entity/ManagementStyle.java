@@ -5,10 +5,8 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "MANAGEMENT_STYLE")
@@ -26,4 +24,9 @@ public class ManagementStyle extends BaseEntity
 	@Getter
 	@Column(name = "Management_Style_Name", length = 10,nullable = false)
 	private String managementStyleName;
+
+	@Setter
+	@Getter
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "managementStyle")
+	private List<InvestmentStructureComponent> investmentStructureComponents;
 }

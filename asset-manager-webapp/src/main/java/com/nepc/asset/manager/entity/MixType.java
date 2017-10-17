@@ -5,11 +5,9 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.math.BigInteger;
+import java.util.List;
 
 @Entity
 @Table(name = "MIX_TYPE")
@@ -27,4 +25,9 @@ public class MixType extends BaseEntity
 	@Getter
 	@Column(name = "Mix_Type_Name", nullable = false,length = 10)
 	private String mixTypeName;
+
+	@Setter
+	@Getter
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "mixType")
+	private List<Mix> mixes;
 }

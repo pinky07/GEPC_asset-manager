@@ -3,6 +3,8 @@ package com.nepc.asset.manager.entity;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.Type;
+import org.hibernate.type.BinaryType;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -20,15 +22,14 @@ public abstract class BaseEntity implements Serializable
 
 	@Setter
 	@Getter
-	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="Active_Ind_TS", nullable = false)
 	private Date activeIndTS;
 
-	@Setter
+	//TODO figure out how to map a Timestamp
+	/*@Setter
 	@Getter
-	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="Created_TS", nullable = false)
-	private Date createdTS;
+	private BinaryType createdTS;*/
 
 	@Setter
 	@Getter
@@ -37,13 +38,11 @@ public abstract class BaseEntity implements Serializable
 
 	@Setter
 	@Getter
-	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="Modified_TS", nullable = false)
 	private Date modifiedTS;
 
 	@Setter
 	@Getter
-	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="Archived_TS")
 	private Date archivedTS;
 

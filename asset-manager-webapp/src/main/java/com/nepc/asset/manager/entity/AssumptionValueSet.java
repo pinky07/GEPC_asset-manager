@@ -74,12 +74,12 @@ public class AssumptionValueSet extends BaseEntity
 	@Setter
 	@Getter
 	@ManyToOne
-	@JoinColumn(name = "FK__ASSUMPTIO__Assum__6383C8BA")
+	@JoinColumn(name = "Assumption_PK")
 	private Assumption assumption;
 
 	@Setter
 	@Getter
 	@ManyToOne
-	@JoinColumn(name = "FK__ASSUMPTIO__Versi__628FA481")
+	@JoinColumn(name = "Version_PK")
 	private Version version;
 }

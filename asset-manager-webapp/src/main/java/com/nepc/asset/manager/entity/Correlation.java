@@ -28,6 +28,6 @@ public class Correlation extends BaseEntity
 	@Setter
 	@Getter
 	@ManyToOne
-	@JoinColumn(name = "FK__CORRELATI__Assum__656C112C")
+	@JoinColumn(name = "Assumption_PK")
 	private Assumption assumption;
 }

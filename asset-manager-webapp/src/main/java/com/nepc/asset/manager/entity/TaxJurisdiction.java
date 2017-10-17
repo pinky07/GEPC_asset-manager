@@ -5,11 +5,9 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.math.BigInteger;
+import java.util.List;
 
 @Entity
 @Table(name = "TAX_JURISDICTION")
@@ -27,4 +25,9 @@ public class TaxJurisdiction extends BaseEntity
 	@Getter
 	@Column(name = "Tax_Jurisdiction_Name", length = 160,nullable = false)
 	private String  taxJurisdictionName;
+
+	@Setter
+	@Getter
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "taxJurisdiction")
+	private List<TaxRate> taxRates;
 }

@@ -6,6 +6,8 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Date;
@@ -20,22 +22,27 @@ public class Client extends BaseEntity
 	@Setter
 	@Getter
 	@Id
-	@Column(name = "CLIENT_PK", nullable = false)
+	@NotNull
+	@Column(name = "CLIENT_PK")
 	private BigInteger id;
 
 	@Setter
 	@Getter
-	@Column(name = "Preferred_Name_Short",nullable = false,length = 160)
+	@Size(max=160)
+	@NotNull
+	@Column(name = "Preferred_Name_Short")
 	private String  preferredNameShort;
 
 	@Setter
 	@Getter
-	@Column(name = "Preferred_Name_Long",length = 250)
+	@Size(max=250)
+	@Column(name = "Preferred_Name_Long")
 	private String preferredNameLong;
 
 	@Setter
 	@Getter
-	@Column(name = "Legal_Client_Name",length = 160)
+	@Size(max=160)
+	@Column(name = "Legal_Client_Name")
 	private String  legalClientName;
 
 	@Setter
@@ -51,16 +58,18 @@ public class Client extends BaseEntity
 	@Setter
 	@Getter
 	@Column(name = "Estimated_Manageable_Assets_Amount",precision = 12, scale = 2)
-	private BigDecimal  stimatedManageableAssetsAmount;
+	private BigDecimal  estimatedManageableAssetsAmount;
 
 	@Setter
 	@Getter
-	@Column(name = "Stock_Exchange_Ticker",length = 10)
+	@Size(max=10)
+	@Column(name = "Stock_Exchange_Ticker")
 	private String stockExchangeTicker;
 
 	@Setter
 	@Getter
-	@Column(name = "Growth_Category",length = 10)
+	@Size(max=10)
+	@Column(name = "Growth_Category")
 	private String growthCategory;
 
 	@Setter
@@ -75,8 +84,8 @@ public class Client extends BaseEntity
 
 	@Setter
 	@Getter
-	@Column(name = "NEPC_Client_NickName",columnDefinition = "char(10)")
-	private char nepcClientNickName;
+	@Column(name = "NEPC_Client_NickName")
+	private String nepcClientNickName;
 
 	@Setter
 	@Getter
@@ -85,13 +94,14 @@ public class Client extends BaseEntity
 
 	@Setter
 	@Getter
-	@Column(name = "General_Phone", columnDefinition = "char(12)",nullable = false)
-	private char generalPhone;
+	@Size(max=10)
+	@Column(name = "General_Phone", length = 12,nullable = false)
+	private String generalPhone;
 
 	@Setter
 	@Getter
-	@Column(name = "General_Fax",columnDefinition = "char(12)",nullable = false)
-	private char generalFax;
+	@Column(name = "General_Fax", length = 12 ,nullable = false)
+	private String generalFax;
 
 	@Setter
 	@Getter
@@ -115,6 +125,6 @@ public class Client extends BaseEntity
 
 	@Setter
 	@Getter
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "plan")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "client")
 	private List<Plan> plans;
 }

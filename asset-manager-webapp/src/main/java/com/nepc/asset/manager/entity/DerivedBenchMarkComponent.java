@@ -34,6 +34,6 @@ public class DerivedBenchMarkComponent extends BaseEntity
 	@Setter
 	@Getter
 	@ManyToOne
-	@JoinColumn(name = "FK__DERIVED_B__AAMB___6754599E")
+	@JoinColumn(name = "AAMB_Allocation_PK")
 	private AssetAllocationModelingBenchMark assetAllocationModelingBenchMark;
 }

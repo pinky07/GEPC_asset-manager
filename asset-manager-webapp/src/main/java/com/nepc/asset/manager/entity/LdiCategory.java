@@ -30,4 +30,9 @@ public class LdiCategory extends BaseEntity
 	@Getter
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "ldiCategory")
 	private List<AssetAllocationModelingBenchMark> assetAllocationModelingBenchMarks;
+
+	@Setter
+	@Getter
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "ldiCategory")
+	private List<InvestmentStructureComponent> investmentStructureComponents;
 }

@@ -34,12 +34,24 @@ public class ScenarioReturnAssumption extends BaseEntity
 	@Setter
 	@Getter
 	@ManyToOne
-	@JoinColumn(name = "FK__SCENARIO___Assum__6A30C649")
+	@JoinColumn(name = "Assumption_PK")
 	private Assumption assumption;
 
 	@Setter
 	@Getter
 	@ManyToOne
-	@JoinColumn(name = "FK__SCENARIO___ASSUM__6C190EBB")
+	@JoinColumn(name = "ASSUMPTION_TYPE_PK")
 	private AssumptionType assumptionType;
+
+	@Setter
+	@Getter
+	@ManyToOne
+	@JoinColumn(name = "Scenario_ID_PK")
+	private Scenario scenario;
+
+	@Setter
+	@Getter
+	@ManyToOne
+	@JoinColumn(name = "Version_PK")
+	private Version version;
 }
