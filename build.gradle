@@ -1,12 +1,9 @@
-
-// Gradle version and distribution type
 task wrapper(type: Wrapper) {
     gradleVersion = '4.2.1'
     wrapper.distributionType = Wrapper.DistributionType.ALL
 }
 
 subprojects {
-
     apply plugin: "java"
 
     repositories {

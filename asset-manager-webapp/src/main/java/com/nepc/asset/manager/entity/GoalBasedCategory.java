@@ -10,30 +10,29 @@ import java.math.BigInteger;
 import java.util.List;
 
 @Entity
-@Table(name = "LIQUIDITY")
+@Table(name = "GOAL_BASED_CATEGORY")
 @EqualsAndHashCode(callSuper=false)
 @ToString
-public class Liquidity
+public class GoalBasedCategory extends BaseEntity
 {
 	@Setter
 	@Getter
 	@Id
-	@Column(name = "LIQUIDITY_PK", unique = true, nullable = false)
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "Goal_Based_Category_PK", nullable = false)
 	private BigInteger id;
 
 	@Setter
 	@Getter
-	@Column(name = "Liquidity_Name", length = 250)
-	private String liquidityName;
+	@Column(name = "Goal_Based_Category_Name", length = 160,nullable = false)
+	private String goalBasedCategoryName;
 
 	@Setter
 	@Getter
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "liquidity")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "goalBasedCategory")
 	private List<AssetAllocationModelingBenchMark> assetAllocationModelingBenchMarks;
 
 	@Setter
 	@Getter
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "liquidity")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "goalBasedCategory")
 	private List<InvestmentStructureComponent> investmentStructureComponents;
 }

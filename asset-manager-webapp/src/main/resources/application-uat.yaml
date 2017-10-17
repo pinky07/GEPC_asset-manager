@@ -1,5 +1,6 @@
 server:
-  port: 9087
+  port: 9077
+  contextPath: /asset-manager-webapp
 
 spring:
 logging:
@@ -13,7 +14,7 @@ logging:
 
 spring.profiles: dev
 
-spring.datasource.url: jdbc:sqlserver://localhost;databaseName=asset_allocation_v2
+spring.datasource.url: jdbc:sqlserver://localhost;databaseName=AADB_UAT
 spring.datasource.username: NEPCUser
 spring.datasource.password: Admin@123#
 spring.datasource.tomcat.max-wait: 20000

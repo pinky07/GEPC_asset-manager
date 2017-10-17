@@ -16,14 +16,12 @@ task cleanUI(type: Delete) {
     def tree = fileTree('../asset-manager-webapp/src/main/resources/static')
     tree.include '**/*.*'
     tree.each { it.delete() }
-    delete '../asset-manager-webapp/src/main/resources/static/assets'
 }
 
 task cleanStatic(type: Delete) {
     def tree = fileTree('../asset-manager-webapp/src/main/resources/static')
     tree.include '**/*.*'
     tree.each { it.delete() }
-    delete '../asset-manager-webapp/src/main/resources/static/assets'
 }
 
 task npmBuild(type: NpmTask) {
