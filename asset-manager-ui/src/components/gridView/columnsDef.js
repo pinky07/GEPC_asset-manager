@@ -1,8 +1,24 @@
 import NodeNameCellRenderer from './nodeNameCellRenderer';
+import MixHeaderRenderer from './mixHeaderRenderer';
+import ValueHeaderRenderer from './valueHeaderRenderer';
 
 const sortAscending = '<i class="fa fa-sort-asc fa-3" aria-hidden="true"/>';
 const sortDescending = '<i class="fa fa-sort-desc fa-3" aria-hidden="true"/>';
 const sortUnSort = '<i class="fa fa-refresh fa-3" aria-hidden="true"/>';
+
+export const percentageFormatter = params => {
+  let { value } = params;
+  if (typeof value === 'string') {
+    value = value.substring(2).replace(/,/gi, '');
+    value = Number(value);
+  }
+  return isNaN(value)
+    ? ''
+    : Number(value / 100).toLocaleString(undefined, {
+        style: 'percent',
+        minimumFractionDigits: 0,
+      });
+};
 
 export const columns = [
   {
@@ -14,55 +30,76 @@ export const columns = [
     icons: {
       sortUnSort,
     },
+    pinned: 'left',
   },
   {
     field: 'aa_category',
     headerName: 'Asset Category',
     width: 184,
-    sortingOrder: ['asc','desc'],
+    sortingOrder: ['asc', 'desc'],
     icons: {
       sortAscending,
       sortDescending,
     },
+    pinned: 'left',
   },
   {
     field: 'accountgroupname',
     headerName: 'Asset Class Alias',
     width: 350,
-    sortingOrder: ['asc','desc'],
+    sortingOrder: ['asc', 'desc'],
     icons: {
       sortAscending,
       sortDescending,
     },
+    pinned: 'left',
   },
   {
     field: 'aa_model_benchmark',
     headerName: 'AAMB',
     width: 200,
-    sortingOrder: ['asc','desc'],
+    sortingOrder: ['asc', 'desc'],
     icons: {
       sortAscending,
       sortDescending,
     },
+    pinned: 'left',
   },
   {
     field: 'policy_value',
     headerName: 'Policy',
     width: 200,
-    sortingOrder: ['asc','desc'],
+    sortingOrder: ['asc', 'desc'],
     icons: {
       sortAscending,
       sortDescending,
     },
+    valueFormatter: percentageFormatter,
   },
   {
     field: 'actual_mv',
-    headerName: 'Value',
+    headerName: 'Actual',
     width: 200,
-    sortingOrder: ['asc','desc'],
+    headerComponentFramework: ValueHeaderRenderer,
+    sortingOrder: ['asc', 'desc'],
     icons: {
       sortAscending,
       sortDescending,
     },
+    valueFormatter: percentageFormatter,
   },
 ];
+
+export const mixColumn = {
+  field: 'mix',
+  width: 200,
+  editable: true,
+  headerName: 'Mix',
+  headerComponentFramework: MixHeaderRenderer,
+  sortingOrder: ['asc', 'desc'],
+  icons: {
+    sortAscending,
+    sortDescending,
+  },
+  valueFormatter: percentageFormatter,
+};

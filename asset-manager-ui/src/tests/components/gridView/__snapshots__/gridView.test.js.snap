@@ -93,6 +93,8 @@ exports[`gridView component renders correctly 1`] = `
         className=""
         event="onContextMenu"
         id="grid_menu_id"
+        onClick={[Function]}
+        onContextMenu={[Function]}
         renderTag="div"
         style={Object {}}
       >
@@ -109,6 +111,7 @@ exports[`gridView component renders correctly 1`] = `
                   "icons": Object {
                     "sortUnSort": "<i class=\\"fa fa-refresh fa-3\\" aria-hidden=\\"true\\"/>",
                   },
+                  "pinned": "left",
                   "sortingOrder": Array [
                     null,
                     null,
@@ -122,6 +125,7 @@ exports[`gridView component renders correctly 1`] = `
                     "sortAscending": "<i class=\\"fa fa-sort-asc fa-3\\" aria-hidden=\\"true\\"/>",
                     "sortDescending": "<i class=\\"fa fa-sort-desc fa-3\\" aria-hidden=\\"true\\"/>",
                   },
+                  "pinned": "left",
                   "sortingOrder": Array [
                     "asc",
                     "desc",
@@ -135,6 +139,7 @@ exports[`gridView component renders correctly 1`] = `
                     "sortAscending": "<i class=\\"fa fa-sort-asc fa-3\\" aria-hidden=\\"true\\"/>",
                     "sortDescending": "<i class=\\"fa fa-sort-desc fa-3\\" aria-hidden=\\"true\\"/>",
                   },
+                  "pinned": "left",
                   "sortingOrder": Array [
                     "asc",
                     "desc",
@@ -148,6 +153,7 @@ exports[`gridView component renders correctly 1`] = `
                     "sortAscending": "<i class=\\"fa fa-sort-asc fa-3\\" aria-hidden=\\"true\\"/>",
                     "sortDescending": "<i class=\\"fa fa-sort-desc fa-3\\" aria-hidden=\\"true\\"/>",
                   },
+                  "pinned": "left",
                   "sortingOrder": Array [
                     "asc",
                     "desc",
@@ -165,11 +171,13 @@ exports[`gridView component renders correctly 1`] = `
                     "asc",
                     "desc",
                   ],
+                  "valueFormatter": [Function],
                   "width": 200,
                 },
                 Object {
                   "field": "actual_mv",
-                  "headerName": "Value",
+                  "headerComponentFramework": [Function],
+                  "headerName": "Actual",
                   "icons": Object {
                     "sortAscending": "<i class=\\"fa fa-sort-asc fa-3\\" aria-hidden=\\"true\\"/>",
                     "sortDescending": "<i class=\\"fa fa-sort-desc fa-3\\" aria-hidden=\\"true\\"/>",
@@ -178,6 +186,7 @@ exports[`gridView component renders correctly 1`] = `
                     "asc",
                     "desc",
                   ],
+                  "valueFormatter": [Function],
                   "width": 200,
                 },
               ]

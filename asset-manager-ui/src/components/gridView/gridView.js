@@ -7,7 +7,7 @@ import Select from 'react-select';
 import { ContextMenuProvider } from 'react-contexify';
 
 import GridContextMenu from './gridContextMenu';
-import { columns } from './columnsDef';
+import { columns, mixColumn } from './columnsDef';
 import {
   getPlanAnalysisLens,
   selectPlanAnalysis,
@@ -18,7 +18,7 @@ export class GridView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      columnDefs: Array.from(columns),
+      columnDefs: [...columns],
       selectedPlanAnalysis: undefined,
       selectedAliasSelector: undefined,
     };
@@ -32,6 +32,16 @@ export class GridView extends React.Component {
     if (nextProps.tree !== this.props.tree) {
       this.props.getAllocationGrid();
     }
+    if (nextProps.mixes !== this.props.mixes) {
+      let columnDefs = [];
+      nextProps.mixes.forEach(mix => {
+        mixColumn.headerName = mix;
+        mixColumn.field = mix.replace(' ', '').toLowerCase();
+        columnDefs.push({ ...mixColumn });
+      });
+      columnDefs = [...columns, ...columnDefs];
+      this.setState({ columnDefs });
+    }
   }
 
   onGridReady(params) {
@@ -42,6 +52,13 @@ export class GridView extends React.Component {
   changePlanAnalysisLens = plan => {
     this.props.selectPlanAnalysis(plan);
     this.setState({ selectedPlanAnalysis: plan });
+  };
+
+  onClick = event => {
+    const text = event.target.innerText;
+    if (text.includes('Actual') || text.includes('Mix')) {
+      event.stopPropagation();
+    }
   };
 
   render() {
@@ -64,7 +81,11 @@ export class GridView extends React.Component {
         </Row>
         <Row>
           <Col xs="12">
-            <ContextMenuProvider id="grid_menu_id" event="onContextMenu">
+            <ContextMenuProvider
+              id="grid_menu_id"
+              event="onContextMenu"
+              onContextMenu={this.onClick}
+              onClick={this.onClick}>
               <div className="gridContainer ag-fresh">
                 <AgGridReact
                   columnDefs={this.state.columnDefs}
@@ -86,6 +107,7 @@ export class GridView extends React.Component {
 GridView.propTypes = {
   tree: PropTypes.object.isRequired,
   gridData: PropTypes.array.isRequired,
+  mixes: PropTypes.array,
   planAnalysisLens: PropTypes.array.isRequired,
   selectPlanAnalysis: PropTypes.func.isRequired,
   getPlanAnalysisLens: PropTypes.func.isRequired,

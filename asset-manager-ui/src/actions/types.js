@@ -48,6 +48,9 @@ export const GET_PLAN_ANALYSIS_SUCCESS = 'getPlanAnalysisSuccess';
 export const SELECTED_PLAN_ANALYSIS = 'selectedPlanAnalysis';
 export const ADD_NODE_FROM_GRID = 'addNodeFromGrid';
 export const SEARCH_NODE = 'searchNode';
+export const SHOW_MIX_PANEL = 'showMixPanel';
+export const ADD_MIX = 'addMix';
+export const REMOVE_MIX = 'removeMix';
 
 // SpotFire Action Types
 export const FETCH_SPOTFIRE = 'fetchSpotFire';
