@@ -1,6 +1,6 @@
 server:
   port: 8080
-  # contextPath: /asset-manager-webapp
+  contextPath: /asset-manager-webapp
 
 spring.profiles.active: local,default
 

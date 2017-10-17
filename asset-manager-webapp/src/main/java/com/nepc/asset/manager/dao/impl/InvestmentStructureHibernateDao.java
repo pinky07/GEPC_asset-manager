@@ -3,6 +3,7 @@ package com.nepc.asset.manager.dao.impl;
 import com.nepc.asset.manager.dao.InvestmentStructureDao;
 import com.nepc.asset.manager.entity.InvestmentStructure;
 import com.nepc.asset.manager.entity.InvestmentStructureComponent;
+import com.nepc.asset.manager.entity.Plan;
 import com.nepc.asset.manager.hibernate.LazyLoadingUtil;
 import org.apache.log4j.Logger;
 import org.hibernate.Query;
@@ -58,6 +59,8 @@ public class InvestmentStructureHibernateDao
 						.setInvestmentStructureComponents((List<InvestmentStructureComponent>) LazyLoadingUtil
 								.deepHydrate(getCurrentSession(), investmentStructure
 										.getInvestmentStructureComponents()));
+				investmentStructure
+						.setPlan(LazyLoadingUtil.deepHydrate(getCurrentSession(), investmentStructure.getPlan()));
 			}
 
 			return investmentStructure;
