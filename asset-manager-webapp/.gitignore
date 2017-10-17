@@ -27,4 +27,5 @@ dist/
 nbdist/
 .nb-gradle/
 
-gradlew
+### Compiled UI ###
+src/main/resources/public

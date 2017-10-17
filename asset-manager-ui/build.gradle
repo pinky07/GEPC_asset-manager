@@ -11,37 +11,32 @@ node {
 }
 
 task cleanUI(type: Delete) {
-    delete 'node_modules'
     delete 'build'
-    def tree = fileTree('../asset-manager-webapp/src/main/resources/static')
-    tree.include '**/*.*'
-    tree.each { it.delete() }
+    delete '../asset-manager-webapp/src/main/resources/public'
 }
 
-task cleanStatic(type: Delete) {
-    def tree = fileTree('../asset-manager-webapp/src/main/resources/static')
-    tree.include '**/*.*'
-    tree.each { it.delete() }
+task cleanPublic(type: Delete) {
+    delete '../asset-manager-webapp/src/main/resources/public'
 }
 
-task npmBuild(type: NpmTask) {
+task npmBuild(dependsOn: [npm_install, npm_update], type: NpmTask) {
     args = ['run', 'build']
 }
 
-task npmRun(dependsOn: npm_install, type: NpmTask) {
+task npmRun(dependsOn: [npm_install, npm_update], type: NpmTask) {
     args = ['run', 'build']
 }
 
 task buildUI(dependsOn: npmRun) << {
     copy {
         from "build"
-        into '../asset-manager-webapp/src/main/resources/static'
+        into '../asset-manager-webapp/src/main/resources/public'
     }
 }
 
 task compileUI(dependsOn: npmBuild) << {
     copy {
         from "build"
-        into '../asset-manager-webapp/src/main/resources/static'
+        into '../asset-manager-webapp/src/main/resources/public'
     }
 }
