@@ -1,1 +1,2 @@
 call npm start
+pause

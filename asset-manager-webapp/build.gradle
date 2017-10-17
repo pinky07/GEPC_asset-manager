@@ -32,9 +32,13 @@ repositories {
 }
 
 dependencies {
-	compile group: 'io.springfox', name: 'springfox-swagger2', version: '2.7.0'
-	compile "io.springfox:springfox-data-rest:2.7.0"
-	compile 'io.springfox:springfox-swagger-ui:2.7.0'
+    // Lombok
+    compileOnly('org.projectlombok:lombok')
+
+    // Swagger
+    compile group: 'io.springfox', name: 'springfox-swagger2', version: '2.7.0'
+    compile "io.springfox:springfox-data-rest:2.7.0"
+    compile 'io.springfox:springfox-swagger-ui:2.7.0'
 }
 
 ext {

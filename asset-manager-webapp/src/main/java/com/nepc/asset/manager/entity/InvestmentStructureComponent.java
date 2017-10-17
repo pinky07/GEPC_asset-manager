@@ -4,11 +4,16 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "INVESTMENT_STRUCTURE_COMPONENT")
@@ -25,12 +30,14 @@ public class InvestmentStructureComponent extends BaseEntity
 
 	@Setter
 	@Getter
-	@Column(name = "INVESTMENT_STRUCTURE_COMPONENT_Alias", length = 40)
+	@Size(max = 100)
+	@Column(name = "INVESTMENT_STRUCTURE_COMPONENT_Alias", length = 100)
 	private String investmentStructureComponentAlias;
 
 	@Setter
 	@Getter
-	@Column(name = "IF_Short_Name", nullable = false, length = 10)
+	@Size(max = 40)
+	@Column(name = "IF_Short_Name", nullable = false, length = 40)
 	private String ifShortName;
 
 	@Setter
@@ -45,13 +52,14 @@ public class InvestmentStructureComponent extends BaseEntity
 
 	@Setter
 	@Getter
-	@Column(name = "Color_Assignment", length = 10)
+	@Size(max = 15)
+	@Column(name = "Color_Assignment", length = 15)
 	private String colorAssignment;
 
 	@Setter
 	@Getter
-	@Column(name = "Expense_Ratio", nullable = false)
-	private int expenseRatio;
+	@Column(name = "Expense_Ratio")
+	private Integer expenseRatio;
 
 	@Setter
 	@Getter
@@ -60,13 +68,13 @@ public class InvestmentStructureComponent extends BaseEntity
 
 	@Setter
 	@Getter
-	@Column(name = "Cost_Basis", nullable = false)
-	private int costBasis;
+	@Column(name = "Cost_Basis")
+	private Integer costBasis;
 
 	@Setter
 	@Getter
 	@Column(name = "Display_Order")
-	private int displayOrder;
+	private Integer displayOrder;
 
 	@Setter
 	@Getter
@@ -80,11 +88,74 @@ public class InvestmentStructureComponent extends BaseEntity
 
 	@Setter
 	@Getter
-	@Column(name = "Policy_Weight", columnDefinition = "decimal", precision = 7, scale = 4)
-	private BigDecimal policyWeight;
+	@Size(max = 50)
+	@Column(name = "Policy_Weight", length = 50)
+	private String policyWeight;
 
 	@Setter
 	@Getter
+	@Size(max = 160)
 	@Column(name = "Short_Description", length = 160)
 	private String shortDescription;
+
+	@Setter
+	@Getter
+	@ManyToOne
+	@JoinColumn(name = "BETA_GROUP_PK")
+	private BetaGroup betaGroup;
+
+	@Setter
+	@Getter
+	@ManyToOne
+	@JoinColumn(name = "INVESTMENT_STRUCTURE_COMPONENT_TYPE_PK")
+	private InvestmentStructureComponentType investmentStructureComponentType;
+
+	@Setter
+	@Getter
+	@ManyToOne
+	@JoinColumn(name = "LIQUIDITY_PK")
+	private Liquidity liquidity;
+
+	@Setter
+	@Getter
+	@ManyToOne
+	@JoinColumn(name = "LDI_Category_PK")
+	private LdiCategory ldiCategory;
+
+	@Setter
+	@Getter
+	@ManyToOne
+	@JoinColumn(name = "PLAN_HOLDING_PK")
+	@NotFound(action= NotFoundAction.IGNORE)
+	private PlanHolding planHolding;
+
+	@Setter
+	@Getter
+	@ManyToOne
+	@JoinColumn(name = "Goal_Based_Category_PK")
+	private GoalBasedCategory goalBasedCategory;
+
+	@Setter
+	@Getter
+	@ManyToOne
+	@JoinColumn(name = "AAMB_PK")
+	private AssetAllocationModelingBenchMark assetAllocationModelingBenchMark;
+
+	@Setter
+	@Getter
+	@ManyToOne
+	@JoinColumn(name = "INVESTMENT_STRUCTURE_PK")
+	private InvestmentStructure investmentStructure;
+
+	@Setter
+	@Getter
+	@ManyToOne
+	@JoinColumn(name = "MANAGEMENT_STYLE_PK")
+	private ManagementStyle managementStyle;
+
+	@Setter
+	@Getter
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "investmentStructureComponent")
+	private List<InvestmentStructureMixComponent> investmentStructureMixComponents;
+
 }
