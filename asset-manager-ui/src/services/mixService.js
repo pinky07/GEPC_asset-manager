@@ -1,7 +1,15 @@
 import _ from 'lodash';
 
 const mixService = () => {
-  const removeMix = (mixes, gridData, mixName) => {
+  const addMix = ({ mixes }) => {
+    return new Promise((resolve, reject) => {
+      const mixNumber =
+        mixes.length > 0 ? Number(mixes[0].replace('Mix ', '')) + 1 : 1;
+      resolve(`Mix ${mixNumber}`);
+    });
+  };
+
+  const removeMix = ({ mixes, gridData }, mixName) => {
     return new Promise((resolve, reject) => {
       const filteredMixes = _.filter(mixes, mix => mix !== mixName);
       const name = mixName.replace(' ', '').toLowerCase();
@@ -18,6 +26,7 @@ const mixService = () => {
   };
 
   return {
+    addMix,
     removeMix,
   };
 };

@@ -47,6 +47,7 @@ export const GET_ALL_ASSET_ALLOCATION_MODELING_BENCHMARKS_FAIL =
 export const GET_PLAN_ANALYSIS_SUCCESS = 'getPlanAnalysisSuccess';
 export const SELECTED_PLAN_ANALYSIS = 'selectedPlanAnalysis';
 export const ADD_NODE_FROM_GRID = 'addNodeFromGrid';
+export const REMOVE_NODE_FROM_GRID = 'removeNodeFromGrid';
 export const SEARCH_NODE = 'searchNode';
 export const SHOW_MIX_PANEL = 'showMixPanel';
 export const ADD_MIX = 'addMix';

@@ -148,6 +148,15 @@ export default (state = INITIAL_STATE, action) => {
         },
       };
     }
+    case types.REMOVE_NODE_FROM_GRID: {
+      return {
+        ...state,
+        tree: {
+          ...state.tree,
+          data: TreeService().removeNodeFromGrid(state.tree, action.node),
+        },
+      };
+    }
     case types.SEARCH_NODE: {
       let { treeData: data, matches } = TreeService().searchNode(
         state.tree,

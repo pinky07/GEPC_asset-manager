@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 import { ContextMenuProvider } from 'react-contexify';
 import PropTypes from 'prop-types';
 
-import MixMenu from './mixMenu';
-
 export class ValueHeaderRenderer extends React.Component {
   renderHeaderText() {
     return (
@@ -23,7 +21,6 @@ export class ValueHeaderRenderer extends React.Component {
         <ContextMenuProvider id="value_menu_id" event="onContextMenu">
           {this.renderHeaderText()}
         </ContextMenuProvider>
-        <MixMenu isMixHeader={false} />
       </div>
     );
   }

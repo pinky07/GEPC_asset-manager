@@ -49,20 +49,26 @@ export const showMixPanel = () => {
 
 export const addMix = () => {
   return (dispatch, getState) => {
-    const { mixes } = getState().allocationGrid;
-    const mixNumber =
-      mixes.length > 0 ? Number(mixes[0].replace('Mix ', '')) + 1 : 1;
-    dispatch({ type: types.ADD_MIX, mix: `Mix ${mixNumber}` });
+    return mixService()
+      .addMix(getState().allocationGrid)
+      .then(mix => {
+        dispatch({ type: types.ADD_MIX, mix });
+      })
   };
 };
 
 export const removeMix = mixName => {
   return (dispatch, getState) => {
-    const { mixes, gridData } = getState().allocationGrid;
     return mixService()
-      .removeMix(mixes, gridData, mixName)
+      .removeMix(getState().allocationGrid, mixName)
       .then(result => {
         dispatch({ type: types.REMOVE_MIX, result });
       });
+  };
+};
+
+export const removeNodeFromGrid = node => {
+  return dispatch => {
+    dispatch({ type: types.REMOVE_NODE_FROM_GRID, node });
   };
 };

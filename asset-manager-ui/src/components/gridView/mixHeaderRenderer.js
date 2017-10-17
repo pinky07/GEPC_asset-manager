@@ -4,7 +4,7 @@ import { NavLink } from 'reactstrap';
 import { ContextMenuProvider } from 'react-contexify';
 import PropTypes from 'prop-types';
 
-import MixMenu from './mixMenu';
+//import MixMenu from './mixMenu';
 import { showMixPanel } from '../../actions';
 
 export class MixHeaderRenderer extends React.Component {
@@ -15,16 +15,11 @@ export class MixHeaderRenderer extends React.Component {
           {this.props.column.colDef.headerName}
         </NavLink>
         <ContextMenuProvider
-          id={`mix_menu_${this.props.column.colDef.headerName}`}
+          id="mix_menu_id"
+          renderTag="div"
+          data-mix={this.props.column.colDef.headerName}
           event="onClick">
-          <div>
             <button>...</button>
-            <MixMenu
-              isMixHeader
-              menuId={`mix_menu_${this.props.column.colDef.headerName}`}
-              mixName={this.props.column.colDef.headerName}
-            />
-          </div>
         </ContextMenuProvider>
       </div>
     );

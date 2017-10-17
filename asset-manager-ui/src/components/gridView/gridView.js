@@ -4,14 +4,17 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import React from 'react';
 import Select from 'react-select';
-import { ContextMenuProvider } from 'react-contexify';
+import _ from 'lodash';
 
-import GridContextMenu from './gridContextMenu';
+import NodeNameCellMenu from './nodeNameCellMenu';
+import ValueHeaderMenu from './valueHeaderMenu';
+import MixHeaderMenu from './mixHeaderMenu';
 import { columns, mixColumn } from './columnsDef';
 import {
   getPlanAnalysisLens,
   selectPlanAnalysis,
   getAllocationGrid,
+  removeNodeFromGrid,
 } from '../../actions';
 
 export class GridView extends React.Component {
@@ -22,6 +25,8 @@ export class GridView extends React.Component {
       selectedPlanAnalysis: undefined,
       selectedAliasSelector: undefined,
     };
+    this.gridApi = undefined;
+    this.columnApi = undefined;
   }
 
   componentDidMount() {
@@ -44,7 +49,14 @@ export class GridView extends React.Component {
     }
   }
 
-  onGridReady(params) {
+  componentDidUpdate() {
+    if (this.gridApi) {
+      const columnValueId = columns[5].colId;
+      this.gridApi.gridPanel.ensureColumnVisible(columnValueId);
+    }
+  }
+
+  onGridReady = params => {
     this.gridApi = params.api;
     this.columnApi = params.columnApi;
   }
@@ -54,10 +66,21 @@ export class GridView extends React.Component {
     this.setState({ selectedPlanAnalysis: plan });
   };
 
-  onClick = event => {
-    const text = event.target.innerText;
-    if (text.includes('Actual') || text.includes('Mix')) {
-      event.stopPropagation();
+  onCellEditingStopped = event => {
+    const { colDef, value, data } = event;
+
+    if (colDef.field.includes('mix') && value === '') {
+      const keys = Object.keys(data);
+      let totalMixes = keys.reduce((total, key) => {
+        if (key.includes('mix') && data[key] !== '') {
+          total++;
+        }
+        return total;
+      }, 0);
+
+      if (totalMixes === 0) {
+       this.props.removeNodeFromGrid(data);
+      }
     }
   };
 
@@ -81,11 +104,6 @@ export class GridView extends React.Component {
         </Row>
         <Row>
           <Col xs="12">
-            <ContextMenuProvider
-              id="grid_menu_id"
-              event="onContextMenu"
-              onContextMenu={this.onClick}
-              onClick={this.onClick}>
               <div className="gridContainer ag-fresh">
                 <AgGridReact
                   columnDefs={this.state.columnDefs}
@@ -93,10 +111,12 @@ export class GridView extends React.Component {
                   onGridReady={this.onGridReady}
                   headerHeight="35"
                   enableSorting
+                  onCellEditingStopped={this.onCellEditingStopped}
                 />
-                <GridContextMenu />
+                <NodeNameCellMenu />
+                <ValueHeaderMenu />
+                <MixHeaderMenu />
               </div>
-            </ContextMenuProvider>
           </Col>
         </Row>
       </div>
@@ -125,4 +145,5 @@ export default connect(mapStateToProps, {
   getPlanAnalysisLens,
   selectPlanAnalysis,
   getAllocationGrid,
+  removeNodeFromGrid,
 })(GridView);

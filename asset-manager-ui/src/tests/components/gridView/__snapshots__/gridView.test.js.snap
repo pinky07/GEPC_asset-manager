@@ -89,116 +89,109 @@ exports[`gridView component renders correctly 1`] = `
       }
       xs="12"
     >
-      <ContextMenuProvider
-        className=""
-        event="onContextMenu"
-        id="grid_menu_id"
-        onClick={[Function]}
-        onContextMenu={[Function]}
-        renderTag="div"
-        style={Object {}}
+      <div
+        className="gridContainer ag-fresh"
       >
-        <div
-          className="gridContainer ag-fresh"
-        >
-          <AgGridReact
-            columnDefs={
-              Array [
-                Object {
-                  "cellRendererFramework": [Function],
-                  "field": "accountgroupname",
-                  "headerName": "Node Name",
-                  "icons": Object {
-                    "sortUnSort": "<i class=\\"fa fa-refresh fa-3\\" aria-hidden=\\"true\\"/>",
-                  },
-                  "pinned": "left",
-                  "sortingOrder": Array [
-                    null,
-                    null,
-                  ],
-                  "width": 350,
+        <AgGridReact
+          columnDefs={
+            Array [
+              Object {
+                "cellRendererFramework": [Function],
+                "field": "accountgroupname",
+                "headerName": "Node Name",
+                "icons": Object {
+                  "sortUnSort": "<i class=\\"fa fa-refresh fa-3\\" aria-hidden=\\"true\\"/>",
                 },
-                Object {
-                  "field": "aa_category",
-                  "headerName": "Asset Category",
-                  "icons": Object {
-                    "sortAscending": "<i class=\\"fa fa-sort-asc fa-3\\" aria-hidden=\\"true\\"/>",
-                    "sortDescending": "<i class=\\"fa fa-sort-desc fa-3\\" aria-hidden=\\"true\\"/>",
-                  },
-                  "pinned": "left",
-                  "sortingOrder": Array [
-                    "asc",
-                    "desc",
-                  ],
-                  "width": 184,
+                "pinned": "left",
+                "sortingOrder": Array [
+                  null,
+                  null,
+                ],
+                "width": 350,
+              },
+              Object {
+                "field": "aa_category",
+                "headerName": "Asset Category",
+                "icons": Object {
+                  "sortAscending": "<i class=\\"fa fa-sort-asc fa-3\\" aria-hidden=\\"true\\"/>",
+                  "sortDescending": "<i class=\\"fa fa-sort-desc fa-3\\" aria-hidden=\\"true\\"/>",
                 },
-                Object {
-                  "field": "accountgroupname",
-                  "headerName": "Asset Class Alias",
-                  "icons": Object {
-                    "sortAscending": "<i class=\\"fa fa-sort-asc fa-3\\" aria-hidden=\\"true\\"/>",
-                    "sortDescending": "<i class=\\"fa fa-sort-desc fa-3\\" aria-hidden=\\"true\\"/>",
-                  },
-                  "pinned": "left",
-                  "sortingOrder": Array [
-                    "asc",
-                    "desc",
-                  ],
-                  "width": 350,
+                "pinned": "left",
+                "sortingOrder": Array [
+                  "asc",
+                  "desc",
+                ],
+                "width": 184,
+              },
+              Object {
+                "field": "accountgroupname",
+                "headerName": "Asset Class Alias",
+                "icons": Object {
+                  "sortAscending": "<i class=\\"fa fa-sort-asc fa-3\\" aria-hidden=\\"true\\"/>",
+                  "sortDescending": "<i class=\\"fa fa-sort-desc fa-3\\" aria-hidden=\\"true\\"/>",
                 },
-                Object {
-                  "field": "aa_model_benchmark",
-                  "headerName": "AAMB",
-                  "icons": Object {
-                    "sortAscending": "<i class=\\"fa fa-sort-asc fa-3\\" aria-hidden=\\"true\\"/>",
-                    "sortDescending": "<i class=\\"fa fa-sort-desc fa-3\\" aria-hidden=\\"true\\"/>",
-                  },
-                  "pinned": "left",
-                  "sortingOrder": Array [
-                    "asc",
-                    "desc",
-                  ],
-                  "width": 200,
+                "pinned": "left",
+                "sortingOrder": Array [
+                  "asc",
+                  "desc",
+                ],
+                "width": 350,
+              },
+              Object {
+                "field": "aa_model_benchmark",
+                "headerName": "AAMB",
+                "icons": Object {
+                  "sortAscending": "<i class=\\"fa fa-sort-asc fa-3\\" aria-hidden=\\"true\\"/>",
+                  "sortDescending": "<i class=\\"fa fa-sort-desc fa-3\\" aria-hidden=\\"true\\"/>",
                 },
-                Object {
-                  "field": "policy_value",
-                  "headerName": "Policy",
-                  "icons": Object {
-                    "sortAscending": "<i class=\\"fa fa-sort-asc fa-3\\" aria-hidden=\\"true\\"/>",
-                    "sortDescending": "<i class=\\"fa fa-sort-desc fa-3\\" aria-hidden=\\"true\\"/>",
-                  },
-                  "sortingOrder": Array [
-                    "asc",
-                    "desc",
-                  ],
-                  "valueFormatter": [Function],
-                  "width": 200,
+                "pinned": "left",
+                "sortingOrder": Array [
+                  "asc",
+                  "desc",
+                ],
+                "width": 200,
+              },
+              Object {
+                "field": "policy_value",
+                "headerName": "Policy",
+                "icons": Object {
+                  "sortAscending": "<i class=\\"fa fa-sort-asc fa-3\\" aria-hidden=\\"true\\"/>",
+                  "sortDescending": "<i class=\\"fa fa-sort-desc fa-3\\" aria-hidden=\\"true\\"/>",
                 },
-                Object {
-                  "field": "actual_mv",
-                  "headerComponentFramework": [Function],
-                  "headerName": "Actual",
-                  "icons": Object {
-                    "sortAscending": "<i class=\\"fa fa-sort-asc fa-3\\" aria-hidden=\\"true\\"/>",
-                    "sortDescending": "<i class=\\"fa fa-sort-desc fa-3\\" aria-hidden=\\"true\\"/>",
-                  },
-                  "sortingOrder": Array [
-                    "asc",
-                    "desc",
-                  ],
-                  "valueFormatter": [Function],
-                  "width": 200,
+                "sortingOrder": Array [
+                  "asc",
+                  "desc",
+                ],
+                "valueFormatter": [Function],
+                "width": 200,
+              },
+              Object {
+                "colId": "actualCol",
+                "field": "actual_mv",
+                "headerComponentFramework": [Function],
+                "headerName": "Actual",
+                "icons": Object {
+                  "sortAscending": "<i class=\\"fa fa-sort-asc fa-3\\" aria-hidden=\\"true\\"/>",
+                  "sortDescending": "<i class=\\"fa fa-sort-desc fa-3\\" aria-hidden=\\"true\\"/>",
                 },
-              ]
-            }
-            enableSorting={true}
-            headerHeight="35"
-            onGridReady={[Function]}
-            rowData={Array []}
-          />
-          <Connect(GridContextMenu) />
-        </div>
-      </ContextMenuProvider>
+                "sortingOrder": Array [
+                  "asc",
+                  "desc",
+                ],
+                "valueFormatter": [Function],
+                "width": 200,
+              },
+            ]
+          }
+          enableSorting={true}
+          headerHeight="35"
+          onGridReady={[Function]}
+          rowData={Array []}
+        />
+        <Connect(NodeNameCellMenu) />
+        <Connect(ValueHeaderMenu) />
+        <Connect(MixHeaderMenu) />
+      </div>
     </Col>
   </Row>
 </div>
