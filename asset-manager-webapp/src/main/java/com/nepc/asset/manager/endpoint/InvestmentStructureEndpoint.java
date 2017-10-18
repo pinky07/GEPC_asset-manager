@@ -44,7 +44,7 @@ public class InvestmentStructureEndpoint
 	{
 		logger.debug("DELETE /api/v1/trees/{}", id);
 
-		InvestmentStructureDto tree = investmentStructureService.softDelete(id, modifiedBy);
+		InvestmentStructureDto tree = investmentStructureService.softDeleteInvestmentStructure(id, modifiedBy);
 
 		HttpHeaders headers = new HttpHeaders();
 		headers.setLocation(ucBuilder.path("/api/v1/trees/{treeId}").buildAndExpand(tree.getId()).toUri());

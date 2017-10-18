@@ -28,5 +28,5 @@ public interface InvestmentStructureService
 	 * @param modifiedBy Person who executes the change
 	 * @return DTO representing the entity
 	 */
-	InvestmentStructureDto softDelete(BigInteger id, String modifiedBy) throws Exception;
+	InvestmentStructureDto softDeleteInvestmentStructure(BigInteger id, String modifiedBy) throws Exception;
 }

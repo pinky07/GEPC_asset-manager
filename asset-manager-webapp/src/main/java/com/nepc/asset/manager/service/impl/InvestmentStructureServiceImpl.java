@@ -51,7 +51,7 @@ public class InvestmentStructureServiceImpl implements InvestmentStructureServic
 	 * {@inheritDoc}
 	 */
 	@Override
-	public InvestmentStructureDto softDelete(BigInteger id, String modifiedBy)
+	public InvestmentStructureDto softDeleteInvestmentStructure(BigInteger id, String modifiedBy)
 	{
 		// Disable the Investment Structure
 		InvestmentStructure investmentStructure = investmentStructureRepository.getOne(id);
