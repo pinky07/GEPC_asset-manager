@@ -13,7 +13,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "ASSUMPTION")
-@EqualsAndHashCode(callSuper=false)
+@EqualsAndHashCode(callSuper = false)
 @ToString
 public class Assumption extends BaseEntity
 {

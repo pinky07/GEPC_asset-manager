@@ -11,7 +11,7 @@ import java.math.BigInteger;
 
 @Entity
 @Table(name = "SCENARIO_RETURN_ASSUMPTION")
-@EqualsAndHashCode(callSuper=false)
+@EqualsAndHashCode(callSuper = false)
 @ToString
 public class ScenarioReturnAssumption extends BaseEntity
 {
@@ -23,7 +23,7 @@ public class ScenarioReturnAssumption extends BaseEntity
 
 	@Setter
 	@Getter
-	@Column(name = "scenario_return_value", nullable = false,precision = 7, scale = 4)
+	@Column(name = "scenario_return_value", nullable = false, precision = 7, scale = 4)
 	private BigDecimal scenarioReturnValue;
 
 	@Setter

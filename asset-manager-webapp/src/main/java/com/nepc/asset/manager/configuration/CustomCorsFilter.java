@@ -1,4 +1,4 @@
-package com.nepc.asset.manager.config;
+package com.nepc.asset.manager.configuration;
 
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;

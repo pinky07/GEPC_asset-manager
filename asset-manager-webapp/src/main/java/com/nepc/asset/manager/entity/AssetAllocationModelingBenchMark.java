@@ -12,7 +12,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "ASSET_ALLOCATION_MODELING_BENCHMARK")
-@EqualsAndHashCode(callSuper=false)
+@EqualsAndHashCode(callSuper = false)
 @ToString
 public class AssetAllocationModelingBenchMark extends BaseEntity
 {
@@ -81,7 +81,7 @@ public class AssetAllocationModelingBenchMark extends BaseEntity
 	@Setter
 	@Getter
 	@ManyToOne
-	@JoinColumn(name = "LDI_Category_PK", nullable = false )
+	@JoinColumn(name = "LDI_Category_PK", nullable = false)
 	private LdiCategory ldiCategory;
 
 	@Setter

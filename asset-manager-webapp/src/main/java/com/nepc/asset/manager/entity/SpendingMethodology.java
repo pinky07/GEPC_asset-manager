@@ -19,13 +19,13 @@ public class SpendingMethodology extends BaseEntity
 	@Setter
 	@Getter
 	@Id
-	@Column(name = "SPENDING_METHODOLOGY_PK",  nullable = false)
+	@Column(name = "SPENDING_METHODOLOGY_PK", nullable = false)
 	private BigInteger id;
 
 	@Setter
 	@Getter
 	@Size(max = 10)
-	@Column(name = "Spending_Methodology_Name",  length = 10, nullable = false)
+	@Column(name = "Spending_Methodology_Name", length = 10, nullable = false)
 	private String spendingMethodologyName;
 
 	@Setter

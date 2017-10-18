@@ -26,12 +26,12 @@ public class InvestmentStructureMixComponent extends BaseEntity
 	@Setter
 	@Getter
 	@NotNull
-	@Column(name = "Allocation_Percent",nullable = false, precision = 7, scale = 4)
+	@Column(name = "Allocation_Percent", nullable = false, precision = 7, scale = 4)
 	private BigDecimal allocationPercent;
 
 	@Setter
 	@Getter
-	@Column(name="Overwrite_Allocation_Ind", nullable = false)
+	@Column(name = "Overwrite_Allocation_Ind", nullable = false)
 	private char overwriteAllocationInd;
 
 	@Setter

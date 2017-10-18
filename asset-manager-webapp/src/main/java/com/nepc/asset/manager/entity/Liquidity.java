@@ -11,7 +11,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "LIQUIDITY")
-@EqualsAndHashCode(callSuper=false)
+@EqualsAndHashCode(callSuper = false)
 @ToString
 public class Liquidity
 {

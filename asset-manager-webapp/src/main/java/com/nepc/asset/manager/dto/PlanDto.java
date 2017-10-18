@@ -1,7 +1,6 @@
 package com.nepc.asset.manager.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.nepc.asset.manager.entity.InvestmentStructure;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -27,7 +26,7 @@ public class PlanDto extends BaseDto
 
 	@Setter
 	@Getter
-	private String  planPreferredShortName;
+	private String planPreferredShortName;
 
 	@Setter
 	@Getter
@@ -163,7 +162,7 @@ public class PlanDto extends BaseDto
 
 	@Setter
 	@Getter
-	private Date  nepcResponsibleStartDate;
+	private Date nepcResponsibleStartDate;
 
 	@Setter
 	@Getter

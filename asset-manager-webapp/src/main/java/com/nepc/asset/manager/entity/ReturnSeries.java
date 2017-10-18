@@ -13,7 +13,7 @@ import java.math.BigInteger;
 
 @Entity
 @Table(name = "RETURN_SERIES")
-@EqualsAndHashCode(callSuper=false)
+@EqualsAndHashCode(callSuper = false)
 @ToString
 public class ReturnSeries extends BaseEntity
 {
@@ -25,6 +25,6 @@ public class ReturnSeries extends BaseEntity
 
 	@Setter
 	@Getter
-	@Column(name = "Return_Series_Name", length = 250,nullable = false)
-	private String  returnSeriesName;
+	@Column(name = "Return_Series_Name", length = 250, nullable = false)
+	private String returnSeriesName;
 }

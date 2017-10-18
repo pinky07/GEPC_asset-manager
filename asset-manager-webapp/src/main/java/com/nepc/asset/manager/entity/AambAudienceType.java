@@ -10,7 +10,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "AAMB_AUDIENCE_TYPE")
-@EqualsAndHashCode(callSuper=false)
+@EqualsAndHashCode(callSuper = false)
 @ToString
 public class AambAudienceType extends BaseEntity
 {
@@ -22,8 +22,8 @@ public class AambAudienceType extends BaseEntity
 
 	@Setter
 	@Getter
-	@Column(name = "AAMB_Audience_Type_Name", length = 160,nullable = false)
-	private String  aambAudienceTypeName;
+	@Column(name = "AAMB_Audience_Type_Name", length = 160, nullable = false)
+	private String aambAudienceTypeName;
 
 	@Setter
 	@Getter

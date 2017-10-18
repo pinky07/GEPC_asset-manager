@@ -17,12 +17,12 @@ public class MixDetailFact extends BaseEntity
 	@Setter
 	@Getter
 	@Id
-	@Column(name = "MIX_DETAIL_FACT_PK",  nullable = false)
+	@Column(name = "MIX_DETAIL_FACT_PK", nullable = false)
 	private BigInteger id;
 
 	@Setter
 	@Getter
-	@Column(name = "Metric_Value_Num",  nullable = false)
+	@Column(name = "Metric_Value_Num", nullable = false)
 	private int metricValueNum;
 
 	@Setter

@@ -10,19 +10,19 @@ import java.util.List;
 
 @Entity
 @Table(name = "MANAGEMENT_STYLE")
-@EqualsAndHashCode(callSuper=false)
+@EqualsAndHashCode(callSuper = false)
 @ToString
 public class ManagementStyle extends BaseEntity
 {
 	@Setter
 	@Getter
 	@Id
-	@Column(name = "MANAGEMENT_STYLE_PK",  nullable = false)
+	@Column(name = "MANAGEMENT_STYLE_PK", nullable = false)
 	private int managementStylePK;
 
 	@Setter
 	@Getter
-	@Column(name = "Management_Style_Name", length = 10,nullable = false)
+	@Column(name = "Management_Style_Name", length = 10, nullable = false)
 	private String managementStyleName;
 
 	@Setter

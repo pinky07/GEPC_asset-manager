@@ -8,13 +8,12 @@ import lombok.ToString;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.math.BigInteger;
 import java.util.Date;
 import java.util.List;
 
 @Entity
 @Table(name = "PLAN_HOLDING")
-@EqualsAndHashCode(callSuper=false)
+@EqualsAndHashCode(callSuper = false)
 @ToString
 public class PlanHolding extends BaseEntity
 {
@@ -38,12 +37,12 @@ public class PlanHolding extends BaseEntity
 
 	@Setter
 	@Getter
-	@Column(name = "Virtual_Ind",columnDefinition = "char(1)",nullable = false)
+	@Column(name = "Virtual_Ind", columnDefinition = "char(1)", nullable = false)
 	private char virtualInd;
 
 	@Setter
 	@Getter
-	@Column(name = "IF_COLLECT_Manager_Approved_Ind",columnDefinition = "char(1)",nullable = false)
+	@Column(name = "IF_COLLECT_Manager_Approved_Ind", columnDefinition = "char(1)", nullable = false)
 	private char ifCollectManagerApprovedInd;
 
 	@Setter
@@ -68,17 +67,17 @@ public class PlanHolding extends BaseEntity
 
 	@Setter
 	@Getter
-	@Column(name = "Include_in_Discretionary_Reporting_Ind", nullable = false,columnDefinition = "char(1)")
+	@Column(name = "Include_in_Discretionary_Reporting_Ind", nullable = false, columnDefinition = "char(1)")
 	private char includeInDiscretionaryReportingInd;
 
 	@Setter
 	@Getter
-	@Column(name = "Plan_Holding_Specific_Accts_Ind", columnDefinition = "char(1)",nullable = false)
+	@Column(name = "Plan_Holding_Specific_Accts_Ind", columnDefinition = "char(1)", nullable = false)
 	private char planHoldingSpecificAcctsInd;
 
 	@Setter
 	@Getter
-	@Column(name = "Plan_Holding_Reporting_Name", length = 10,nullable = false)
+	@Column(name = "Plan_Holding_Reporting_Name", length = 10, nullable = false)
 	private String PlanHoldingReportingName;
 
 	@Setter
@@ -88,7 +87,7 @@ public class PlanHolding extends BaseEntity
 
 	@Setter
 	@Getter
-	@Column(name = "On_boarded_Holding_Ind",nullable = false, columnDefinition = "char(1)")
+	@Column(name = "On_boarded_Holding_Ind", nullable = false, columnDefinition = "char(1)")
 	private char onBoardedHoldingInd;
 
 	@Setter

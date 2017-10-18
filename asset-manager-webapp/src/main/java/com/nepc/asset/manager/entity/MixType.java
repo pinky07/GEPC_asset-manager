@@ -11,7 +11,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "MIX_TYPE")
-@EqualsAndHashCode(callSuper=false)
+@EqualsAndHashCode(callSuper = false)
 @ToString
 public class MixType extends BaseEntity
 {
@@ -23,7 +23,7 @@ public class MixType extends BaseEntity
 
 	@Setter
 	@Getter
-	@Column(name = "Mix_Type_Name", nullable = false,length = 10)
+	@Column(name = "Mix_Type_Name", nullable = false, length = 10)
 	private String mixTypeName;
 
 	@Setter

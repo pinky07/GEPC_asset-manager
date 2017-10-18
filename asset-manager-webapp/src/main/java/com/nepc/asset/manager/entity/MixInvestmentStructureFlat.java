@@ -17,17 +17,17 @@ public class MixInvestmentStructureFlat extends BaseEntity
 	@Setter
 	@Getter
 	@Id
-	@Column(name = "MIX_INVESTMENT_STRUCTURE_COMPONENT_FLAT_PK",  nullable = false)
+	@Column(name = "MIX_INVESTMENT_STRUCTURE_COMPONENT_FLAT_PK", nullable = false)
 	private BigInteger id;
 
 	@Setter
 	@Getter
-	@Column(name = "Levels_Between_Number",  nullable = false)
+	@Column(name = "Levels_Between_Number", nullable = false)
 	private int levelsBetweenNumber;
 
 	@Setter
 	@Getter
-	@Column(name = "Allocation_Percent",  nullable = false)
+	@Column(name = "Allocation_Percent", nullable = false)
 	private double allocationPercent;
 
 	@Setter

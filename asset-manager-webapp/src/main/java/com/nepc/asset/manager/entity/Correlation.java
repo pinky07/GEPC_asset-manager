@@ -10,7 +10,7 @@ import java.math.BigInteger;
 
 @Entity
 @Table(name = "CORRELATION")
-@EqualsAndHashCode(callSuper=false)
+@EqualsAndHashCode(callSuper = false)
 @ToString
 public class Correlation extends BaseEntity
 {

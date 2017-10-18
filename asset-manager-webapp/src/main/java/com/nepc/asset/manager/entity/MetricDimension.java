@@ -18,12 +18,12 @@ public class MetricDimension extends BaseEntity
 	@Setter
 	@Getter
 	@Id
-	@Column(name = "METRIC_DIMENSION_PK",  nullable = false)
+	@Column(name = "METRIC_DIMENSION_PK", nullable = false)
 	private BigInteger id;
 
 	@Setter
 	@Getter
-	@Column(name = "Metric_Name",  nullable = false)
+	@Column(name = "Metric_Name", nullable = false)
 	private String metricName;
 
 	@Setter

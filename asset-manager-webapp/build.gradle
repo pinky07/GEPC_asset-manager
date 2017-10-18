@@ -1,13 +1,13 @@
 buildscript {
-	ext {
-		springBootVersion = '1.5.7.RELEASE'
-	}
-	repositories {
-		mavenCentral()
-	}
-	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-	}
+    ext {
+        springBootVersion = '1.5.7.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
 }
 
 apply plugin: 'java'
@@ -19,8 +19,8 @@ apply plugin: 'application'
 apply plugin: "jacoco"
 
 jar {
-	baseName = 'asset-manager'
-	version = '0.0.1-SNAPSHOT'
+    baseName = 'asset-manager'
+    version = '0.0.1-SNAPSHOT'
 }
 
 group = 'com.nepc.asset.manager'
@@ -28,7 +28,7 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
 dependencies {
@@ -42,75 +42,78 @@ dependencies {
 }
 
 ext {
-	limits = [
-			'instruction': 80,
-			'branch'     : 80,
-			'line'       : 80,
-			'complexity' : 80,
-			'method'     : 80,
-			'class'      : 80 //TODO - 100%,
-	]
+    limits = [
+            'instruction': 80,
+            'branch'     : 80,
+            'line'       : 80,
+            'complexity' : 80,
+            'method'     : 80,
+            'class'      : 80 //TODO - 100%,
+    ]
 }
+
+// Uncomment if you want the UI to be compiled each time the compileJava is about to be executed
+// compileJava.dependsOn tasks.getByPath(':asset-manager-ui:compileUI')
 
 jacocoTestReport {
 
-	reports {
-		//XML required by coveralls and for the below coverage checks
-		xml.enabled true
-	}
+    reports {
+        //XML required by coveralls and for the below coverage checks
+        xml.enabled true
+    }
 
-	afterEvaluate {
-		classDirectories = files(classDirectories.files.collect {
-			fileTree(dir: it,
-					exclude: ['com/asset/manager/entity/**',
-							  'com/asset/manager/exception/**'])
-		})
-	}
+    afterEvaluate {
+        classDirectories = files(classDirectories.files.collect {
+            fileTree(dir: it,
+                    exclude: ['com/asset/manager/entity/**',
+                              'com/asset/manager/exception/**'])
+        })
+    }
 
-	doLast {
-		def report = file("${jacoco.reportsDir}/test/jacocoTestReport.xml")
-		logger.lifecycle("Checking coverage results: ${report}")
+    doLast {
+        def report = file("${jacoco.reportsDir}/test/jacocoTestReport.xml")
+        logger.lifecycle("Checking coverage results: ${report}")
 
-		def parser = new XmlParser()
-		parser.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
-		parser.setFeature("http://apache.org/xml/features/disallow-doctype-decl", false)
-		def results = parser.parse(report)
+        def parser = new XmlParser()
+        parser.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
+        parser.setFeature("http://apache.org/xml/features/disallow-doctype-decl", false)
+        def results = parser.parse(report)
 
-		def percentage = {
-			def covered = it.'@covered' as Double
-			def missed = it.'@missed' as Double
-			((covered / (covered + missed)) * 100).round(2)
-		}
+        def percentage = {
+            def covered = it.'@covered' as Double
+            def missed = it.'@missed' as Double
+            ((covered / (covered + missed)) * 100).round(2)
+        }
 
-		def counters = results.counter
-		def metrics = [:]
-		metrics << [
-				'instruction': percentage(counters.find { it.'@type'.equals('INSTRUCTION') }),
-				'branch'     : percentage(counters.find { it.'@type'.equals('BRANCH') }),
-				'line'       : percentage(counters.find { it.'@type'.equals('LINE') }),
-				'complexity' : percentage(counters.find { it.'@type'.equals('COMPLEXITY') }),
-				'method'     : percentage(counters.find { it.'@type'.equals('METHOD') }),
-				'class'      : percentage(counters.find { it.'@type'.equals('CLASS') })
-		]
+        def counters = results.counter
+        def metrics = [:]
+        metrics << [
+                'instruction': percentage(counters.find { it.'@type'.equals('INSTRUCTION') }),
+                'branch'     : percentage(counters.find { it.'@type'.equals('BRANCH') }),
+                'line'       : percentage(counters.find { it.'@type'.equals('LINE') }),
+                'complexity' : percentage(counters.find { it.'@type'.equals('COMPLEXITY') }),
+                'method'     : percentage(counters.find { it.'@type'.equals('METHOD') }),
+                'class'      : percentage(counters.find { it.'@type'.equals('CLASS') })
+        ]
 
-		def failures = []
-		metrics.each {
-			def limit = limits[it.key]
-			if (it.value < limit) {
-				failures.add("- ${it.key} coverage rate is: ${it.value}%, minimum is ${limit}%")
-			}
-		}
+        def failures = []
+        metrics.each {
+            def limit = limits[it.key]
+            if (it.value < limit) {
+                failures.add("- ${it.key} coverage rate is: ${it.value}%, minimum is ${limit}%")
+            }
+        }
 
-		if (failures) {
-			logger.quiet("------------------ Code Coverage Failed -----------------------")
-			failures.each {
-				logger.quiet(it)
-			}
-			logger.quiet("---------------------------------------------------------------")
-			throw new GradleException("Code coverage failed")
-		} else{
-			logger.quiet("Passed Code Coverage Checks")
-		}
-	}
+        if (failures) {
+            logger.quiet("------------------ Code Coverage Failed -----------------------")
+            failures.each {
+                logger.quiet(it)
+            }
+            logger.quiet("---------------------------------------------------------------")
+            throw new GradleException("Code coverage failed")
+        } else {
+            logger.quiet("Passed Code Coverage Checks")
+        }
+    }
 }
 //check.dependsOn jacocoTestReport

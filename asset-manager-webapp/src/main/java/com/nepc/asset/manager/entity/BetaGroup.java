@@ -11,7 +11,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "BETA_GROUP")
-@EqualsAndHashCode(callSuper=false)
+@EqualsAndHashCode(callSuper = false)
 @ToString
 public class BetaGroup extends BaseEntity
 {
@@ -23,7 +23,7 @@ public class BetaGroup extends BaseEntity
 
 	@Setter
 	@Getter
-	@Column(name = "Beta_Group_Name",length = 160,nullable = false)
+	@Column(name = "Beta_Group_Name", length = 160, nullable = false)
 	private String betaGroupName;
 
 	@Setter

@@ -14,7 +14,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "\"PLAN\"")
-@EqualsAndHashCode(callSuper=false)
+@EqualsAndHashCode(callSuper = false)
 @ToString
 public class Plan extends BaseEntity
 {
@@ -31,22 +31,22 @@ public class Plan extends BaseEntity
 
 	@Setter
 	@Getter
-	@Column(name = "Legal_Plan_Name", length = 160,nullable = false)
+	@Column(name = "Legal_Plan_Name", length = 160, nullable = false)
 	private String legalPlanName;
 
 	@Setter
 	@Getter
-	@Column(name = "Plan_Preferred_Short_Name",length = 10)
-	private String  planPreferredShortName;
+	@Column(name = "Plan_Preferred_Short_Name", length = 10)
+	private String planPreferredShortName;
 
 	@Setter
 	@Getter
-	@Column(name = "Plan_Preferred_Long_Name",length = 250)
+	@Column(name = "Plan_Preferred_Long_Name", length = 250)
 	private String planPreferredLongName;
 
 	@Setter
 	@Getter
-	@Column(name = "NEPC_Plan_NickName",length = 10)
+	@Column(name = "NEPC_Plan_NickName", length = 10)
 	private String nepcPlanNickName;
 
 	@Setter
@@ -56,57 +56,57 @@ public class Plan extends BaseEntity
 
 	@Setter
 	@Getter
-	@Column(name = "Virtual_Ind", columnDefinition = "char(1)",nullable = false)
+	@Column(name = "Virtual_Ind", columnDefinition = "char(1)", nullable = false)
 	private char virtualInd;
 
 	@Setter
 	@Getter
-	@Column(name = "Managed_at_Client_Ind",columnDefinition = "char(1)",nullable = false)
+	@Column(name = "Managed_at_Client_Ind", columnDefinition = "char(1)", nullable = false)
 	private char managedAtClientInd;
 
 	@Setter
 	@Getter
-	@Column(name = "Union_Bug_Ind", columnDefinition = "char(1)",nullable = false)
+	@Column(name = "Union_Bug_Ind", columnDefinition = "char(1)", nullable = false)
 	private char unionBugInd;
 
 	@Setter
 	@Getter
-	@Column(name = "Taxable_Flag", columnDefinition = "char(1)",nullable = false)
+	@Column(name = "Taxable_Flag", columnDefinition = "char(1)", nullable = false)
 	private char taxableFlag;
 
 	@Setter
 	@Getter
-	@Column(name = "ERISA_Ind",columnDefinition = "char(1)",nullable = false)
+	@Column(name = "ERISA_Ind", columnDefinition = "char(1)", nullable = false)
 	private char erisaInd;
 
 	@Setter
 	@Getter
-	@Column(name = "Plan_Frozen_Ind", columnDefinition = "char(1)",nullable = false)
+	@Column(name = "Plan_Frozen_Ind", columnDefinition = "char(1)", nullable = false)
 	private char planFrozenInd;
 
 	@Setter
 	@Getter
-	@Column(name = "Discretionary_Services_Ind",columnDefinition = "char(1)",nullable = false)
+	@Column(name = "Discretionary_Services_Ind", columnDefinition = "char(1)", nullable = false)
 	private char discretionaryServicesInd;
 
 	@Setter
 	@Getter
-	@Column(name = "Asset_Allocation_Ind", columnDefinition = "char(1)",nullable = false)
+	@Column(name = "Asset_Allocation_Ind", columnDefinition = "char(1)", nullable = false)
 	private char assetAllocationInd;
 
 	@Setter
 	@Getter
-	@Column(name = "Captive_Ind", columnDefinition = "char(1)",nullable = false)
+	@Column(name = "Captive_Ind", columnDefinition = "char(1)", nullable = false)
 	private char captiveInd;
 
 	@Setter
 	@Getter
-	@Column(name = "Onshore_Ind",columnDefinition = "char(1)",nullable = false)
+	@Column(name = "Onshore_Ind", columnDefinition = "char(1)", nullable = false)
 	private char onshoreInd;
 
 	@Setter
 	@Getter
-	@Column(name = "Extrinsically_Managed_Assets_Ind",columnDefinition = "char(1)",nullable = false)
+	@Column(name = "Extrinsically_Managed_Assets_Ind", columnDefinition = "char(1)", nullable = false)
 	private char extrinsicallyManagedAssetsInd;
 
 	@Setter
@@ -132,7 +132,7 @@ public class Plan extends BaseEntity
 	@Setter
 	@Getter
 	@Size(max = 10)
-	@Column(name = "Risk_Profile",length = 10)
+	@Column(name = "Risk_Profile", length = 10)
 	private String riskProfile;
 
 	@Setter
@@ -148,12 +148,12 @@ public class Plan extends BaseEntity
 
 	@Setter
 	@Getter
-	@Column(name = "Type_Of_Insurance_Asset",length = 160,nullable = false)
+	@Column(name = "Type_Of_Insurance_Asset", length = 160, nullable = false)
 	private String typeOfInsuranceAsset;
 
 	@Setter
 	@Getter
-	@Column(name = "Country_of_Domicile",nullable = false,length = 160)
+	@Column(name = "Country_of_Domicile", nullable = false, length = 160)
 	private String countryOfDomicile;
 
 	@Setter
@@ -178,17 +178,17 @@ public class Plan extends BaseEntity
 
 	@Setter
 	@Getter
-	@Column(name = "Tax_ID",length = 160)
+	@Column(name = "Tax_ID", length = 160)
 	private String taxID;
 
 	@Setter
 	@Getter
-	@Column(name = "IF_Collect_Plan_Authorization_Letter_Ind", nullable = false,columnDefinition = "char(1)")
+	@Column(name = "IF_Collect_Plan_Authorization_Letter_Ind", nullable = false, columnDefinition = "char(1)")
 	private char ifCollectPlanAuthorizationLetterInd;
 
 	@Setter
 	@Getter
-	@Column(name = "Legal_Name_Source",length = 10)
+	@Column(name = "Legal_Name_Source", length = 10)
 	private String legalNameSource;
 
 	@Setter
@@ -209,7 +209,7 @@ public class Plan extends BaseEntity
 	@Setter
 	@Getter
 	@Column(name = "NEPC_Responsible_Start_Date")
-	private Date  nepcResponsibleStartDate;
+	private Date nepcResponsibleStartDate;
 
 	@Setter
 	@Getter

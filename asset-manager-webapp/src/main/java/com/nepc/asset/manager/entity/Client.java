@@ -15,7 +15,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "CLIENT")
-@EqualsAndHashCode(callSuper=false)
+@EqualsAndHashCode(callSuper = false)
 @ToString
 public class Client extends BaseEntity
 {
@@ -28,22 +28,22 @@ public class Client extends BaseEntity
 
 	@Setter
 	@Getter
-	@Size(max=160)
+	@Size(max = 160)
 	@NotNull
 	@Column(name = "Preferred_Name_Short")
-	private String  preferredNameShort;
+	private String preferredNameShort;
 
 	@Setter
 	@Getter
-	@Size(max=250)
+	@Size(max = 250)
 	@Column(name = "Preferred_Name_Long")
 	private String preferredNameLong;
 
 	@Setter
 	@Getter
-	@Size(max=160)
+	@Size(max = 160)
 	@Column(name = "Legal_Client_Name")
-	private String  legalClientName;
+	private String legalClientName;
 
 	@Setter
 	@Getter
@@ -57,18 +57,18 @@ public class Client extends BaseEntity
 
 	@Setter
 	@Getter
-	@Column(name = "Estimated_Manageable_Assets_Amount",precision = 12, scale = 2)
-	private BigDecimal  estimatedManageableAssetsAmount;
+	@Column(name = "Estimated_Manageable_Assets_Amount", precision = 12, scale = 2)
+	private BigDecimal estimatedManageableAssetsAmount;
 
 	@Setter
 	@Getter
-	@Size(max=10)
+	@Size(max = 10)
 	@Column(name = "Stock_Exchange_Ticker")
 	private String stockExchangeTicker;
 
 	@Setter
 	@Getter
-	@Size(max=10)
+	@Size(max = 10)
 	@Column(name = "Growth_Category")
 	private String growthCategory;
 
@@ -94,28 +94,28 @@ public class Client extends BaseEntity
 
 	@Setter
 	@Getter
-	@Size(max=10)
-	@Column(name = "General_Phone", length = 12,nullable = false)
+	@Size(max = 10)
+	@Column(name = "General_Phone", length = 12, nullable = false)
 	private String generalPhone;
 
 	@Setter
 	@Getter
-	@Column(name = "General_Fax", length = 12 ,nullable = false)
+	@Column(name = "General_Fax", length = 12, nullable = false)
 	private String generalFax;
 
 	@Setter
 	@Getter
-	@Column(name = "Website", length = 250,nullable = false)
+	@Column(name = "Website", length = 250, nullable = false)
 	private String website;
 
 	@Setter
 	@Getter
-	@Column(name = "Client_NEPC_CODE",length = 160,nullable = false)
+	@Column(name = "Client_NEPC_CODE", length = 160, nullable = false)
 	private String clientNepcCODE;
 
 	@Setter
 	@Getter
-	@Column(name = "Legal_Name_Source",length = 160,nullable = false)
+	@Column(name = "Legal_Name_Source", length = 160, nullable = false)
 	private String legalNameSource;
 
 	@Setter

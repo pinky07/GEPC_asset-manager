@@ -14,7 +14,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "INVESTMENT_STRUCTURE")
-@EqualsAndHashCode(callSuper=false)
+@EqualsAndHashCode(callSuper = false)
 @ToString
 public class InvestmentStructure extends BaseEntity
 {
@@ -26,7 +26,7 @@ public class InvestmentStructure extends BaseEntity
 
 	@Setter
 	@Getter
-	@Column(name = "INVESTMENT_STRUCTURE_Name", length = 160,nullable = false)
+	@Column(name = "INVESTMENT_STRUCTURE_Name", length = 160, nullable = false)
 	private String investmentStructureName;
 
 	@Setter
@@ -36,14 +36,14 @@ public class InvestmentStructure extends BaseEntity
 
 	@Setter
 	@Getter
-	@Column(name = "Plan_Funded_Amount",precision = 12,scale = 2)
+	@Column(name = "Plan_Funded_Amount", precision = 12, scale = 2)
 	private BigDecimal planFundedAmount;
 
 	@Setter
 	@Getter
 	@ManyToOne
 	@JoinColumn(name = "PLAN_PK")
-	@NotFound(action= NotFoundAction.IGNORE)
+	@NotFound(action = NotFoundAction.IGNORE)
 	private Plan plan;
 
 	@Setter

@@ -11,7 +11,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "TAX_JURISDICTION")
-@EqualsAndHashCode(callSuper=false)
+@EqualsAndHashCode(callSuper = false)
 @ToString
 public class TaxJurisdiction extends BaseEntity
 {
@@ -23,8 +23,8 @@ public class TaxJurisdiction extends BaseEntity
 
 	@Setter
 	@Getter
-	@Column(name = "Tax_Jurisdiction_Name", length = 160,nullable = false)
-	private String  taxJurisdictionName;
+	@Column(name = "Tax_Jurisdiction_Name", length = 160, nullable = false)
+	private String taxJurisdictionName;
 
 	@Setter
 	@Getter

@@ -10,19 +10,19 @@ import java.util.List;
 
 @Entity
 @Table(name = "INVESTMENT_STRUCTURE_COMPONENT_TYPE")
-@EqualsAndHashCode(callSuper=false)
+@EqualsAndHashCode(callSuper = false)
 @ToString
 public class InvestmentStructureComponentType extends BaseEntity
 {
 	@Setter
 	@Getter
 	@Id
-	@Column(name = "INVESTMENT_STRUCTURE_COMPONENT_TYPE_PK",  nullable = false)
+	@Column(name = "INVESTMENT_STRUCTURE_COMPONENT_TYPE_PK", nullable = false)
 	private char id;
 
 	@Setter
 	@Getter
-	@Column(name = "INVESTMENT_STRUCTURE_COMPONENT_Type_Name", length = 160,nullable = false)
+	@Column(name = "INVESTMENT_STRUCTURE_COMPONENT_Type_Name", length = 160, nullable = false)
 	private String InvestmentStructureComponentTypeName;
 
 	@Setter

@@ -11,7 +11,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "AAMB_CURATION_TYPE")
-@EqualsAndHashCode(callSuper=false)
+@EqualsAndHashCode(callSuper = false)
 @ToString
 public class AambCurationType extends BaseEntity
 {
@@ -23,8 +23,8 @@ public class AambCurationType extends BaseEntity
 
 	@Setter
 	@Getter
-	@Column(name = "AAMB_Curation_TYPE_Name", length = 160,nullable = false)
-	private String  aambCurationTypeName;
+	@Column(name = "AAMB_Curation_TYPE_Name", length = 160, nullable = false)
+	private String aambCurationTypeName;
 
 	@Setter
 	@Getter

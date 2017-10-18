@@ -1,4 +1,4 @@
-package com.nepc.asset.manager.config;
+package com.nepc.asset.manager.configuration;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.web.ResourceProperties;
@@ -7,26 +7,25 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.Resource;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.resource.GzipResourceResolver;
 import org.springframework.web.servlet.resource.PathResourceResolver;
 
 import java.io.IOException;
 import java.util.Arrays;
 
+/**
+ * MVC configuration.
+ *
+ * @author Minor Madrigal
+ */
 @Configuration
 @EnableConfigurationProperties({ ResourceProperties.class })
-public class StaticResourcesConfiguration extends WebMvcConfigurerAdapter
+public class MvcConfig extends WebMvcConfigurerAdapter
 {
-	static final String[] STATIC_RESOURCES = new String[] {
-			"/**/**/*.css",
-			"/**/**/*.js",
-			"/*.html",
-			"/*.js",
-			"/*.json",
-			"/**/**/*.ttf",
-			"/**/**/*.eot",
-			"/**/**/*.svg",
-			"/**/**/*.woff",
-			"/**/**/*.woff2"
+
+	// UI resources that need exposing
+	static final String[] UI_RESOURCES = new String[] { "/**/**/*.css", "/**/**/*.js", "/*.html", "/*.js", "/*.json",
+			"/**/**/*.ttf", "/**/**/*.eot", "/**/**/*.svg", "/**/**/*.woff", "/**/**/*.woff2"
 	};
 
 	@Autowired
@@ -35,17 +34,13 @@ public class StaticResourcesConfiguration extends WebMvcConfigurerAdapter
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry)
 	{
-		//Add all static files
+		// Add all public files
 		Integer cachePeriod = resourceProperties.getCachePeriod();
-		registry.addResourceHandler(STATIC_RESOURCES)
-				.addResourceLocations(resourceProperties.getStaticLocations())
-				.setCachePeriod(cachePeriod);
-
+		registry.addResourceHandler(UI_RESOURCES).addResourceLocations(resourceProperties.getStaticLocations())
+				.setCachePeriod(cachePeriod).resourceChain(true).addResolver(new GzipResourceResolver());
 
 		String[] indexLocations = getIndexLocations();
-		registry.addResourceHandler("/**")
-				.addResourceLocations(indexLocations)
-				.setCachePeriod(cachePeriod)
+		registry.addResourceHandler("/**").addResourceLocations(indexLocations).setCachePeriod(cachePeriod)
 				.resourceChain(true).addResolver(new PathResourceResolver()
 		{
 			@Override
@@ -58,8 +53,7 @@ public class StaticResourcesConfiguration extends WebMvcConfigurerAdapter
 
 	private String[] getIndexLocations()
 	{
-		 return Arrays.stream(resourceProperties.getStaticLocations())
-				 .map((location) -> location + "index.html")
-				 .toArray(String[]::new);
+		return Arrays.stream(resourceProperties.getStaticLocations()).map((location) -> location + "index.html")
+				.toArray(String[]::new);
 	}
 }
