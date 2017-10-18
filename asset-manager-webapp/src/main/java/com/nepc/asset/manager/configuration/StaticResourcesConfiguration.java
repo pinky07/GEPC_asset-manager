@@ -14,13 +14,13 @@ import java.io.IOException;
 import java.util.Arrays;
 
 /**
- * MVC configuration.
+ * Static resources configuration.
  *
  * @author Minor Madrigal
  */
 @Configuration
 @EnableConfigurationProperties({ ResourceProperties.class })
-public class MvcConfig extends WebMvcConfigurerAdapter
+public class StaticResourcesConfiguration extends WebMvcConfigurerAdapter
 {
 
 	// UI resources that need exposing
