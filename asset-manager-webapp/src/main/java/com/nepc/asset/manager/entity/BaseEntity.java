@@ -50,12 +50,4 @@ public abstract class BaseEntity implements Serializable
 
 	@Override
 	public abstract String toString();
-
-	public void disable(String modifiedBy)
-	{
-		this.setActiveInd(Constants.DISABLED_VALUE);
-		this.setActiveIndTS(new Date());
-		this.setModifiedBy(modifiedBy);
-		this.setModifiedTS(new Date());
-	}
 }

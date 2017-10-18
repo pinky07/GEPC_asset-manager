@@ -5,6 +5,7 @@ import com.nepc.asset.manager.entity.InvestmentStructure;
 import com.nepc.asset.manager.entity.Mix;
 import com.nepc.asset.manager.repository.InvestmentStructureRepository;
 import com.nepc.asset.manager.service.InvestmentStructureService;
+import com.nepc.asset.manager.utility.EntityUtils;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -55,27 +56,28 @@ public class InvestmentStructureServiceImpl implements InvestmentStructureServic
 	{
 		// Disable the Investment Structure
 		InvestmentStructure investmentStructure = investmentStructureRepository.getOne(id);
-		investmentStructure.disable(modifiedBy);
+		EntityUtils.disable(investmentStructure, modifiedBy);
 
 		// Disable every Investment Structure Component
 		investmentStructure.getInvestmentStructureComponents().forEach(investmentStructureComponent -> {
-			investmentStructureComponent.disable(modifiedBy);
+			EntityUtils.disable(investmentStructureComponent, modifiedBy);
 
 			// Disable every Investment Structure Mix Component
 			investmentStructureComponent.getInvestmentStructureMixComponents()
 					.forEach(investmentStructureMixComponent -> {
-						investmentStructureMixComponent.disable(modifiedBy);
+						EntityUtils.disable(investmentStructureMixComponent, modifiedBy);
 
 						// Disable the Mix
 						Mix mix = investmentStructureMixComponent.getMix();
-						mix.disable(modifiedBy);
+						EntityUtils.disable(mix, modifiedBy);
 
 						// Disable every Mix Summary Fact
-						mix.getMixSummaryFacts().forEach(mixSummaryFact -> mixSummaryFact.disable(modifiedBy));
+						mix.getMixSummaryFacts()
+								.forEach(mixSummaryFact -> EntityUtils.disable(mixSummaryFact, modifiedBy));
 
 						// Disable every Mix Detail Fact
 						investmentStructureMixComponent.getMixDetailFacts()
-								.forEach(mixDetailFact -> mixDetailFact.disable(modifiedBy));
+								.forEach(mixDetailFact -> EntityUtils.disable(mixDetailFact, modifiedBy));
 					});
 		});
 
