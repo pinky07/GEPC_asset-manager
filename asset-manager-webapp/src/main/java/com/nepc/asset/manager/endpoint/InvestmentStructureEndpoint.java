@@ -1,4 +1,4 @@
-package com.nepc.asset.manager.controller;
+package com.nepc.asset.manager.endpoint;
 
 import com.nepc.asset.manager.dto.InvestmentStructureDto;
 import com.nepc.asset.manager.service.InvestmentStructureService;
@@ -15,7 +15,7 @@ import java.math.BigInteger;
 
 @RestController
 @RequestMapping("/api/v1/trees")
-public class InvestmentStructureController
+public class InvestmentStructureEndpoint
 {
 
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -23,7 +23,7 @@ public class InvestmentStructureController
 	private InvestmentStructureService investmentStructureService;
 
 	@Autowired
-	public InvestmentStructureController(InvestmentStructureService investmentStructureService)
+	public InvestmentStructureEndpoint(InvestmentStructureService investmentStructureService)
 	{
 		this.investmentStructureService = investmentStructureService;
 	}
