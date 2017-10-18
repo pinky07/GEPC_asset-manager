@@ -208,7 +208,6 @@ const treeService = () => {
       ...node,
       showOnGrid: false,
     };
-
     const { matches } = find({
       getNodeKey: defaultGetNodeKey,
       treeData,
