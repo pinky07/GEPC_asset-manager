@@ -14,6 +14,6 @@ import java.math.BigInteger;
  * @author Rubén Jiménez
  */
 @Repository
-public interface InvestmentStructureComponentRepository  extends JpaRepository<InvestmentStructureComponent, BigInteger>
+public interface InvestmentStructureComponentRepository extends JpaRepository<InvestmentStructureComponent, BigInteger>
 {
 }

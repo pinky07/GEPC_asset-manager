@@ -2,8 +2,7 @@ package com.nepc.asset.manager.service.impl;
 
 import com.nepc.asset.manager.dto.InvestmentStructureDto;
 import com.nepc.asset.manager.entity.InvestmentStructure;
-import com.nepc.asset.manager.repository.InvestmentStructureComponentRepository;
-import com.nepc.asset.manager.repository.InvestmentStructureMixComponentRepository;
+import com.nepc.asset.manager.entity.Mix;
 import com.nepc.asset.manager.repository.InvestmentStructureRepository;
 import com.nepc.asset.manager.service.InvestmentStructureService;
 import org.modelmapper.ModelMapper;
@@ -21,29 +20,19 @@ public class InvestmentStructureServiceImpl implements InvestmentStructureServic
 
 	private InvestmentStructureRepository investmentStructureRepository;
 
-	private InvestmentStructureComponentRepository investmentStructureComponentRepository;
-
-	private InvestmentStructureMixComponentRepository investmentStructureMixComponentRepository;
-
 	private ModelMapper modelMapper;
 
 	/**
 	 * Creates a new object.
 	 *
-	 * @param investmentStructureRepository             Entity Repository
-	 * @param investmentStructureComponentRepository    Entity Repository
-	 * @param investmentStructureMixComponentRepository Entity Repository
-	 * @param modelMapper                               Entity 2 DTO mapper
+	 * @param investmentStructureRepository Entity Repository
+	 * @param modelMapper                   Entity 2 DTO mapper
 	 */
 	@Autowired
 	public InvestmentStructureServiceImpl(InvestmentStructureRepository investmentStructureRepository,
-			InvestmentStructureComponentRepository investmentStructureComponentRepository,
-			InvestmentStructureMixComponentRepository investmentStructureMixComponentRepository,
 			ModelMapper modelMapper)
 	{
 		this.investmentStructureRepository = investmentStructureRepository;
-		this.investmentStructureComponentRepository = investmentStructureComponentRepository;
-		this.investmentStructureMixComponentRepository = investmentStructureMixComponentRepository;
 		this.modelMapper = modelMapper;
 	}
 
@@ -67,20 +56,30 @@ public class InvestmentStructureServiceImpl implements InvestmentStructureServic
 		// Disable the Investment Structure
 		InvestmentStructure investmentStructure = investmentStructureRepository.getOne(id);
 		investmentStructure.disable(modifiedBy);
-		investmentStructure = investmentStructureRepository.saveAndFlush(investmentStructure);
 
 		// Disable every Investment Structure Component
 		investmentStructure.getInvestmentStructureComponents().forEach(investmentStructureComponent -> {
 			investmentStructureComponent.disable(modifiedBy);
-			investmentStructureComponentRepository.saveAndFlush(investmentStructureComponent);
 
 			// Disable every Investment Structure Mix Component
 			investmentStructureComponent.getInvestmentStructureMixComponents()
 					.forEach(investmentStructureMixComponent -> {
 						investmentStructureMixComponent.disable(modifiedBy);
-						investmentStructureMixComponentRepository.saveAndFlush(investmentStructureMixComponent);
+
+						// Disable the Mix
+						Mix mix = investmentStructureMixComponent.getMix();
+						mix.disable(modifiedBy);
+
+						// Disable every Mix Summary Fact
+						mix.getMixSummaryFacts().forEach(mixSummaryFact -> mixSummaryFact.disable(modifiedBy));
+
+						// Disable every Mix Detail Fact
+						investmentStructureMixComponent.getMixDetailFacts()
+								.forEach(mixDetailFact -> mixDetailFact.disable(modifiedBy));
 					});
 		});
+
+		investmentStructure = investmentStructureRepository.saveAndFlush(investmentStructure);
 
 		return getInvestmentStructureDto(investmentStructure);
 	}
