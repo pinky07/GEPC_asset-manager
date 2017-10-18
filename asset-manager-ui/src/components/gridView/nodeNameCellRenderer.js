@@ -8,9 +8,8 @@ import { searchNode, showTreeView } from '../../actions';
 
 export class NodeNameCellRenderer extends React.Component {
   search = () => {
-    console.log(this.props)
-    //this.props.searchNode(this.props.value);
-    //this.props.showTreeView();
+    this.props.searchNode(this.props.value);
+    this.props.showTreeView();
   };
 
   render() {
@@ -18,9 +17,9 @@ export class NodeNameCellRenderer extends React.Component {
       <ContextMenuProvider
         id="grid_menu_id"
         event="onContextMenu">
-      <NavLink href="#" onClick={this.search}>
-        {this.props.value}
-      </NavLink>
+        <NavLink href="#" onClick={this.search}>
+          {this.props.value}
+        </NavLink>
       </ContextMenuProvider>
     );
   }

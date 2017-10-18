@@ -25,8 +25,6 @@ export class GridView extends React.Component {
       selectedPlanAnalysis: undefined,
       selectedAliasSelector: undefined,
     };
-    this.gridApi = undefined;
-    this.columnApi = undefined;
   }
 
   componentDidMount() {
@@ -39,7 +37,7 @@ export class GridView extends React.Component {
     }
     if (nextProps.mixes !== this.props.mixes) {
       let columnDefs = [];
-      nextProps.mixes.forEach(mix => {
+      _.forEach(nextProps.mixes, mix => {
         mixColumn.headerName = mix;
         mixColumn.field = mix.replace(' ', '').toLowerCase();
         columnDefs.push({ ...mixColumn });
@@ -56,31 +54,19 @@ export class GridView extends React.Component {
     }
   }
 
-  onGridReady = params => {
-    this.gridApi = params.api;
-    this.columnApi = params.columnApi;
-  }
-
   changePlanAnalysisLens = plan => {
     this.props.selectPlanAnalysis(plan);
     this.setState({ selectedPlanAnalysis: plan });
   };
 
-  onCellEditingStopped = event => {
-    const { colDef, value, data } = event;
+  onGridReady = params => {
+    this.gridApi = params.api;
+    this.columnApi = params.columnApi;
+  };
 
+  onCellEditingStopped = ({ colDef, value, data }) => {
     if (colDef.field.includes('mix') && value === '') {
-      const keys = Object.keys(data);
-      let totalMixes = keys.reduce((total, key) => {
-        if (key.includes('mix') && data[key] !== '') {
-          total++;
-        }
-        return total;
-      }, 0);
-
-      if (totalMixes === 0) {
-       this.props.removeNodeFromGrid(data);
-      }
+      this.props.removeNodeFromGrid(data);
     }
   };
 
@@ -104,19 +90,19 @@ export class GridView extends React.Component {
         </Row>
         <Row>
           <Col xs="12">
-              <div className="gridContainer ag-fresh">
-                <AgGridReact
-                  columnDefs={this.state.columnDefs}
-                  rowData={this.props.gridData}
-                  onGridReady={this.onGridReady}
-                  headerHeight="35"
-                  enableSorting
-                  onCellEditingStopped={this.onCellEditingStopped}
-                />
-                <NodeNameCellMenu />
-                <ValueHeaderMenu />
-                <MixHeaderMenu />
-              </div>
+            <div className="gridContainer ag-fresh">
+              <AgGridReact
+                columnDefs={this.state.columnDefs}
+                rowData={this.props.gridData}
+                onGridReady={this.onGridReady}
+                onCellEditingStopped={this.onCellEditingStopped}
+                headerHeight="35"
+                enableSorting
+              />
+              <NodeNameCellMenu />
+              <ValueHeaderMenu />
+              <MixHeaderMenu />
+            </div>
           </Col>
         </Row>
       </div>
@@ -132,6 +118,7 @@ GridView.propTypes = {
   selectPlanAnalysis: PropTypes.func.isRequired,
   getPlanAnalysisLens: PropTypes.func.isRequired,
   getAllocationGrid: PropTypes.func.isRequired,
+  removeNodeFromGrid: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => {

@@ -15,7 +15,7 @@ describe('mixHeaderMenu component', () => {
   it('renders correctly', () => {
     expect(toJSON(wrapper)).toMatchSnapshot();
   });
-  
+
   describe('when clicking an item', () => {
     beforeEach(() => {
       wrapper = shallow(<MixHeaderMenu {...props} />);

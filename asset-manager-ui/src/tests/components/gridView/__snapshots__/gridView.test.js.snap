@@ -185,6 +185,7 @@ exports[`gridView component renders correctly 1`] = `
           }
           enableSorting={true}
           headerHeight="35"
+          onCellEditingStopped={[Function]}
           onGridReady={[Function]}
           rowData={Array []}
         />

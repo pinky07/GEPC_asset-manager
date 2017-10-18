@@ -22,12 +22,12 @@ export default (state = INITIAL_STATE, action) => {
     case types.ADD_MIX:
       return {
         ...state,
-        mixes: [action.mix, ...state.mixes],
+        mixes: action.mixes,
       };
     case types.REMOVE_MIX:
       return {
         ...state,
-        mixes: action.result.mixes,
+        mixes: action.mixes,
       };
     default:
       return state;

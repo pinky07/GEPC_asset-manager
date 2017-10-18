@@ -1,3 +1,5 @@
+import _ from 'lodash';
+
 import * as types from './types';
 import lookupService from '../services/lookupService';
 import assetsAllocationModel from '../model/assetsAllocationModel';
@@ -51,9 +53,9 @@ export const addMix = () => {
   return (dispatch, getState) => {
     return mixService()
       .addMix(getState().allocationGrid)
-      .then(mix => {
-        dispatch({ type: types.ADD_MIX, mix });
-      })
+      .then(mixes => {
+        dispatch({ type: types.ADD_MIX, mixes });
+      });
   };
 };
 
@@ -62,13 +64,19 @@ export const removeMix = mixName => {
     return mixService()
       .removeMix(getState().allocationGrid, mixName)
       .then(result => {
-        dispatch({ type: types.REMOVE_MIX, result });
+        const { gridData, mixes } = result;
+        _.forEach(gridData, item => {
+          dispatch(removeNodeFromGrid(item));
+        });
+        dispatch({ type: types.REMOVE_MIX, mixes });
       });
   };
 };
 
 export const removeNodeFromGrid = node => {
   return dispatch => {
-    dispatch({ type: types.REMOVE_NODE_FROM_GRID, node });
+    if (!mixService().hasMixes(node)) {
+      dispatch({ type: types.REMOVE_NODE_FROM_GRID, node });
+    }
   };
 };

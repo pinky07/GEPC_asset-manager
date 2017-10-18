@@ -9,7 +9,7 @@ export class MixHeaderMenu extends React.Component {
   removeMix = targetNode => {
     this.props.removeMix(targetNode.dataset.mix);
   };
-  
+
   render() {
     return (
       <ContextMenu id="mix_menu_id">
