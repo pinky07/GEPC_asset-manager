@@ -79,3 +79,16 @@ export const allocationGrid = [
     showOnGrid: true,
   },
 ];
+
+export const mixes = ['Mix 1'];
+
+export const planAnalysisLens = [
+  {
+    id: 1,
+    name: 'Beta Group',
+  },
+  {
+    id: 2,
+    name: 'LDI',
+  },
+];

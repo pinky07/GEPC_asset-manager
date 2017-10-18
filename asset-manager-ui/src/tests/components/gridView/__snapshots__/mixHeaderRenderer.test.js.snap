@@ -13,21 +13,15 @@ exports[`mixHeaderRenderer component renders correctly 1`] = `
   </NavLink>
   <ContextMenuProvider
     className=""
+    data-mix="Mix 1"
     event="onClick"
-    id="mix_menu_Mix 1"
+    id="mix_menu_id"
     renderTag="div"
     style={Object {}}
   >
-    <div>
-      <button>
-        ...
-      </button>
-      <Connect(MixMenu)
-        isMixHeader={true}
-        menuId="mix_menu_Mix 1"
-        mixName="Mix 1"
-      />
-    </div>
+    <button>
+      ...
+    </button>
   </ContextMenuProvider>
 </div>
 `;

@@ -4,14 +4,17 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import React from 'react';
 import Select from 'react-select';
-import { ContextMenuProvider } from 'react-contexify';
+import _ from 'lodash';
 
-import GridContextMenu from './gridContextMenu';
+import NodeNameCellMenu from './nodeNameCellMenu';
+import ValueHeaderMenu from './valueHeaderMenu';
+import MixHeaderMenu from './mixHeaderMenu';
 import { columns, mixColumn } from './columnsDef';
 import {
   getPlanAnalysisLens,
   selectPlanAnalysis,
   getAllocationGrid,
+  removeNodeFromGrid,
 } from '../../actions';
 
 export class GridView extends React.Component {
@@ -34,7 +37,7 @@ export class GridView extends React.Component {
     }
     if (nextProps.mixes !== this.props.mixes) {
       let columnDefs = [];
-      nextProps.mixes.forEach(mix => {
+      _.forEach(nextProps.mixes, mix => {
         mixColumn.headerName = mix;
         mixColumn.field = mix.replace(' ', '').toLowerCase();
         columnDefs.push({ ...mixColumn });
@@ -44,9 +47,11 @@ export class GridView extends React.Component {
     }
   }
 
-  onGridReady(params) {
-    this.gridApi = params.api;
-    this.columnApi = params.columnApi;
+  componentDidUpdate() {
+    if (this.gridApi) {
+      const columnValueId = columns[5].colId;
+      this.gridApi.gridPanel.ensureColumnVisible(columnValueId);
+    }
   }
 
   changePlanAnalysisLens = plan => {
@@ -54,10 +59,14 @@ export class GridView extends React.Component {
     this.setState({ selectedPlanAnalysis: plan });
   };
 
-  onClick = event => {
-    const text = event.target.innerText;
-    if (text.includes('Actual') || text.includes('Mix')) {
-      event.stopPropagation();
+  onGridReady = params => {
+    this.gridApi = params.api;
+    this.columnApi = params.columnApi;
+  };
+
+  onCellEditingStopped = ({ colDef, value, data }) => {
+    if (colDef.field.includes('mix') && value === '') {
+      this.props.removeNodeFromGrid(data);
     }
   };
 
@@ -81,22 +90,19 @@ export class GridView extends React.Component {
         </Row>
         <Row>
           <Col xs="12">
-            <ContextMenuProvider
-              id="grid_menu_id"
-              event="onContextMenu"
-              onContextMenu={this.onClick}
-              onClick={this.onClick}>
-              <div className="gridContainer ag-fresh">
-                <AgGridReact
-                  columnDefs={this.state.columnDefs}
-                  rowData={this.props.gridData}
-                  onGridReady={this.onGridReady}
-                  headerHeight="35"
-                  enableSorting
-                />
-                <GridContextMenu />
-              </div>
-            </ContextMenuProvider>
+            <div className="gridContainer ag-fresh">
+              <AgGridReact
+                columnDefs={this.state.columnDefs}
+                rowData={this.props.gridData}
+                onGridReady={this.onGridReady}
+                onCellEditingStopped={this.onCellEditingStopped}
+                headerHeight="35"
+                enableSorting
+              />
+              <NodeNameCellMenu />
+              <ValueHeaderMenu />
+              <MixHeaderMenu />
+            </div>
           </Col>
         </Row>
       </div>
@@ -112,6 +118,7 @@ GridView.propTypes = {
   selectPlanAnalysis: PropTypes.func.isRequired,
   getPlanAnalysisLens: PropTypes.func.isRequired,
   getAllocationGrid: PropTypes.func.isRequired,
+  removeNodeFromGrid: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => {
@@ -125,4 +132,5 @@ export default connect(mapStateToProps, {
   getPlanAnalysisLens,
   selectPlanAnalysis,
   getAllocationGrid,
+  removeNodeFromGrid,
 })(GridView);

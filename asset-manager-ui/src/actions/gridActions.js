@@ -1,3 +1,5 @@
+import _ from 'lodash';
+
 import * as types from './types';
 import lookupService from '../services/lookupService';
 import assetsAllocationModel from '../model/assetsAllocationModel';
@@ -49,20 +51,32 @@ export const showMixPanel = () => {
 
 export const addMix = () => {
   return (dispatch, getState) => {
-    const { mixes } = getState().allocationGrid;
-    const mixNumber =
-      mixes.length > 0 ? Number(mixes[0].replace('Mix ', '')) + 1 : 1;
-    dispatch({ type: types.ADD_MIX, mix: `Mix ${mixNumber}` });
+    return mixService()
+      .addMix(getState().allocationGrid)
+      .then(mixes => {
+        dispatch({ type: types.ADD_MIX, mixes });
+      });
   };
 };
 
 export const removeMix = mixName => {
   return (dispatch, getState) => {
-    const { mixes, gridData } = getState().allocationGrid;
     return mixService()
-      .removeMix(mixes, gridData, mixName)
+      .removeMix(getState().allocationGrid, mixName)
       .then(result => {
-        dispatch({ type: types.REMOVE_MIX, result });
+        const { gridData, mixes } = result;
+        _.forEach(gridData, item => {
+          dispatch(removeNodeFromGrid(item));
+        });
+        dispatch({ type: types.REMOVE_MIX, mixes });
       });
+  };
+};
+
+export const removeNodeFromGrid = node => {
+  return dispatch => {
+    if (!mixService().hasMixes(node)) {
+      dispatch({ type: types.REMOVE_NODE_FROM_GRID, node });
+    }
   };
 };
