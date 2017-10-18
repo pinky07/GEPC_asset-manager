@@ -202,6 +202,30 @@ const treeService = () => {
     });
   };
 
+  const removeNodeFromGrid = (tree, node) => {
+    const treeData = tree.data;
+    const newNode = {
+      ...node,
+      showOnGrid: false,
+    };
+    const { matches } = find({
+      getNodeKey: defaultGetNodeKey,
+      treeData,
+      searchQuery: node.accountgroupname,
+      searchMethod: defaultSearchMethod,
+      searchFocusOffset: 0,
+      expandAllMatchPaths: false,
+      expandFocusMatchPaths: false,
+    });
+
+    return changeNodeAtPath({
+      treeData,
+      path: matches[0].path,
+      getNodeKey: ({ treeIndex }) => treeIndex,
+      newNode,
+    });
+  };
+
   return {
     addAboveNode,
     addSiblingNode,
@@ -216,6 +240,7 @@ const treeService = () => {
     addNodeToRoot,
     addRootNode,
     searchNode,
+    removeNodeFromGrid,
   };
 };
 

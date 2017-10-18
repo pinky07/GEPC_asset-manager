@@ -1,9 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`gridContextMenu component renders correctly 1`] = `
+exports[`nodeNameCellMenu component renders correctly 1`] = `
 <ContextMenu
   animation={null}
   id="grid_menu_id"
+  renderTag="div"
   theme={null}
 >
   <Item

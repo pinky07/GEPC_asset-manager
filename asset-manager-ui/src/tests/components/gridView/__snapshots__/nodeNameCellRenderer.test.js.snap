@@ -1,11 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`NodeNameCellRenderer component renders correctly 1`] = `
-<NavLink
-  href="#"
-  onClick={[Function]}
-  tag="a"
+<ContextMenuProvider
+  className=""
+  event="onContextMenu"
+  id="grid_menu_id"
+  renderTag="div"
+  style={Object {}}
 >
-  test value
-</NavLink>
+  <NavLink
+    href="#"
+    onClick={[Function]}
+    tag="a"
+  >
+    test value
+  </NavLink>
+</ContextMenuProvider>
 `;

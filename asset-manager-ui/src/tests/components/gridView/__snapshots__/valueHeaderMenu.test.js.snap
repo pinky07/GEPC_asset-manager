@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`valueHeaderMenu component renders correctly 1`] = `
+<ContextMenu
+  animation={null}
+  id="value_menu_id"
+  renderTag="div"
+  theme={null}
+>
+  <Item
+    data={null}
+    disabled={false}
+    leftIcon=""
+    onClick={[Function]}
+    refsFromProvider={Array []}
+    rightIcon=""
+    targetNode={Object {}}
+  >
+    Add Mix
+  </Item>
+  <Item
+    data={null}
+    disabled={true}
+    leftIcon=""
+    onClick={[Function]}
+    refsFromProvider={Array []}
+    rightIcon=""
+    targetNode={Object {}}
+  >
+    Delete Mix
+  </Item>
+</ContextMenu>
+`;

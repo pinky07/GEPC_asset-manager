@@ -1,6 +1,7 @@
 import NodeNameCellRenderer from './nodeNameCellRenderer';
 import MixHeaderRenderer from './mixHeaderRenderer';
 import ValueHeaderRenderer from './valueHeaderRenderer';
+import MixCellEditor from './mixCellEditor';
 
 const sortAscending = '<i class="fa fa-sort-asc fa-3" aria-hidden="true"/>';
 const sortDescending = '<i class="fa fa-sort-desc fa-3" aria-hidden="true"/>';
@@ -8,7 +9,7 @@ const sortUnSort = '<i class="fa fa-refresh fa-3" aria-hidden="true"/>';
 
 export const percentageFormatter = params => {
   let { value } = params;
-  if (typeof value === 'string') {
+  if (typeof value === 'string' && value.includes('* ')) {
     value = value.substring(2).replace(/,/gi, '');
     value = Number(value);
   }
@@ -79,6 +80,7 @@ export const columns = [
   {
     field: 'actual_mv',
     headerName: 'Actual',
+    colId: 'actualCol',
     width: 200,
     headerComponentFramework: ValueHeaderRenderer,
     sortingOrder: ['asc', 'desc'],
@@ -96,6 +98,7 @@ export const mixColumn = {
   editable: true,
   headerName: 'Mix',
   headerComponentFramework: MixHeaderRenderer,
+  cellEditorFramework: MixCellEditor,
   sortingOrder: ['asc', 'desc'],
   icons: {
     sortAscending,
