@@ -12,6 +12,7 @@ const props = {
   selectPlanAnalysis: jest.fn(),
   getPlanAnalysisLens: jest.fn(),
   getAllocationGrid: jest.fn(),
+  removeNodeFromGrid: jest.fn(),
 };
 
 describe('gridView component', () => {
