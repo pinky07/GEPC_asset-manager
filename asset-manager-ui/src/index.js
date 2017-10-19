@@ -7,7 +7,7 @@ import ReactDOM from 'react-dom';
 
 import App from './app';
 import configStore from './store/configStore';
-//import registerServiceWorker from './registerServiceWorker';
+import registerServiceWorker from './registerServiceWorker';
 
 const store = configStore();
 
@@ -17,4 +17,4 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root')
 );
-//registerServiceWorker();
+registerServiceWorker();
