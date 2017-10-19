@@ -19,9 +19,9 @@ logging:
 #=======================================================================================================================
 
 spring.datasource:
-  url: jdbc:sqlserver://localhost;databaseName=asset_allocation_v2
-  username: NEPCUser
-  password: Admin@123#
+  url: jdbc:sqlserver://stagesql:1433;databaseName=asset_allocation_v2
+  username: gftUser
+  password: asdf34234$34
   tomcat:
     max-wait: 20000
     max-active: 50
