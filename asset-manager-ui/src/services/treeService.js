@@ -15,7 +15,7 @@ const treeService = () => {
     { clientName = '', planName = '' } = {},
     isRoot = false
   ) => {
-    const DEFAULT_NODE_NAME = isRoot ? 'Composite' : 'Node ' + nodeSequence++;
+    const DEFAULT_NODE_NAME = isRoot ? 'Composite' : `Node ${nodeSequence++}`;
     let newNode = {
       clientname: clientName,
       planname: planName,
