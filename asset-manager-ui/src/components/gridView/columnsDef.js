@@ -3,10 +3,6 @@ import MixHeaderRenderer from './mixHeaderRenderer';
 import ValueHeaderRenderer from './valueHeaderRenderer';
 import MixCellEditor from './mixCellEditor';
 
-const sortAscending = '<i class="fa fa-sort-asc fa-3" aria-hidden="true"/>';
-const sortDescending = '<i class="fa fa-sort-desc fa-3" aria-hidden="true"/>';
-const sortUnSort = '<i class="fa fa-refresh fa-3" aria-hidden="true"/>';
-
 export const percentageFormatter = params => {
   let { value } = params;
   if (typeof value === 'string' && value.includes('* ')) {
@@ -28,9 +24,6 @@ export const columns = [
     width: 350,
     cellRendererFramework: NodeNameCellRenderer,
     sortingOrder: [null, null],
-    icons: {
-      sortUnSort,
-    },
     pinned: 'left',
   },
   {
@@ -38,10 +31,6 @@ export const columns = [
     headerName: 'Asset Category',
     width: 184,
     sortingOrder: ['asc', 'desc'],
-    icons: {
-      sortAscending,
-      sortDescending,
-    },
     pinned: 'left',
   },
   {
@@ -49,10 +38,6 @@ export const columns = [
     headerName: 'Asset Class Alias',
     width: 350,
     sortingOrder: ['asc', 'desc'],
-    icons: {
-      sortAscending,
-      sortDescending,
-    },
     pinned: 'left',
   },
   {
@@ -60,10 +45,6 @@ export const columns = [
     headerName: 'AAMB',
     width: 200,
     sortingOrder: ['asc', 'desc'],
-    icons: {
-      sortAscending,
-      sortDescending,
-    },
     pinned: 'left',
   },
   {
@@ -71,10 +52,6 @@ export const columns = [
     headerName: 'Policy',
     width: 200,
     sortingOrder: ['asc', 'desc'],
-    icons: {
-      sortAscending,
-      sortDescending,
-    },
     valueFormatter: percentageFormatter,
   },
   {
@@ -84,10 +61,6 @@ export const columns = [
     width: 200,
     headerComponentFramework: ValueHeaderRenderer,
     sortingOrder: ['asc', 'desc'],
-    icons: {
-      sortAscending,
-      sortDescending,
-    },
     valueFormatter: percentageFormatter,
   },
 ];
@@ -100,9 +73,5 @@ export const mixColumn = {
   headerComponentFramework: MixHeaderRenderer,
   cellEditorFramework: MixCellEditor,
   sortingOrder: ['asc', 'desc'],
-  icons: {
-    sortAscending,
-    sortDescending,
-  },
   valueFormatter: percentageFormatter,
 };
