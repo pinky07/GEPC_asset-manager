@@ -147,7 +147,6 @@ exports[`gridView component renders correctly 1`] = `
                 "width": 200,
               },
               Object {
-                "colId": "actualCol",
                 "field": "actual_mv",
                 "headerComponentFramework": [Function],
                 "headerName": "Actual",
