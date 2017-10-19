@@ -8,12 +8,14 @@ import {
   defaultGetNodeKey,
 } from 'react-sortable-tree';
 
+let nodeSequence = 1;
+
 const treeService = () => {
   const _newNode = (
     { clientName = '', planName = '' } = {},
     isRoot = false
   ) => {
-    const DEFAULT_NODE_NAME = isRoot ? 'Composite' : 'Node';
+    const DEFAULT_NODE_NAME = isRoot ? 'Composite' : 'Node ' + nodeSequence++;
     let newNode = {
       clientname: clientName,
       planname: planName,
