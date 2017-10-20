@@ -4,13 +4,18 @@ import toJSON from 'enzyme-to-json';
 
 import { ValueHeaderRenderer } from '../../../components/gridView/valueHeaderRenderer';
 
-const props = {
+let props = {
   column: {
     colDef: {
       headerName: 'Header test',
     },
+    addEventListener: jest.fn(),
   },
   gridData: [],
+  enableSorting: true,
+  progressSort: jest.fn(),
+  setSort: jest.fn(),
+  displayName: 'test name',
 };
 
 describe('valueHeaderRenderer component', () => {
@@ -18,5 +23,16 @@ describe('valueHeaderRenderer component', () => {
 
   it('renders correctly', () => {
     expect(toJSON(wrapper)).toMatchSnapshot();
+  });
+
+  describe('when there is items at gridData', () => {
+    beforeEach(() => {
+      props.gridData = [1];
+      wrapper = shallow(<ValueHeaderRenderer {...props} />);
+    });
+
+    it('should renders correctly', () => {
+      expect(toJSON(wrapper)).toMatchSnapshot();
+    });
   });
 });

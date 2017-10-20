@@ -22,7 +22,7 @@
   .ag-header-cell-label {
     align-items: center;
     justify-content: center;
-    height: 100%;
+    width: 100%;
   }
 
   .ag-row.ag-row-even {
@@ -45,16 +45,11 @@
     }
 
     button {
+      display: inline-block;
       color: #fff;
       font-weight: bold;
       background-color: #004879;
       border: none;
     }
-  }
-
-  i {
-    display: inline-block;
-    color: white;
-    margin-left: 0.5em;
   }
 }

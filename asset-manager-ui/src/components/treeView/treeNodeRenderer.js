@@ -47,11 +47,14 @@ class TreeNodeRenderer extends Component {
       className,
       style,
       didDrop,
+      selectedNode,
       isOver, // Not needed, but preserved for other renderers
       parentNode, // Needed for dndManager
       toggleNodeAtPath,
       ...otherProps
     } = this.props;
+
+    const isSelected = selectedNode && selectedNode.treeIndex === treeIndex;
 
     delete otherProps.startDrag;
     delete otherProps.endDrag;
@@ -132,6 +135,7 @@ class TreeNodeRenderer extends Component {
                 (isLandingPadActive && !canDrop ? 'rowCancelPad ' : '') +
                 (isSearchMatch ? 'rowSearchMatch ' : '') +
                 (isSearchFocus ? 'rowSearchFocus ' : '') +
+                (isSelected ? 'rowSelected ' : '') +
                 (className ? ` ${className}` : '')
               }
               style={{
@@ -242,6 +246,13 @@ TreeNodeRenderer.propTypes = {
   // Drop target
   isOver: PropTypes.bool.isRequired,
   canDrop: PropTypes.bool,
+  selectedNode: PropTypes.object,
 };
 
-export default connect(null, { toggleNodeAtPath })(TreeNodeRenderer);
+const mapStateToProps = state => {
+  return {
+    selectedNode: state.allocationTree.selectedNode,
+  };
+};
+
+export default connect(mapStateToProps, { toggleNodeAtPath })(TreeNodeRenderer);

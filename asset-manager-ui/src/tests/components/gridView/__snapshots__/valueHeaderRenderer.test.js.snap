@@ -2,8 +2,77 @@
 
 exports[`valueHeaderRenderer component renders correctly 1`] = `
 <div
-  className="ag-header-cell-label"
+  className="ag-cell-label-container    ag-header-cell-sorted-none"
 >
-  Header test
+  <div
+    className="ag-header-cell-label"
+    onClick={[Function]}
+  >
+    <span
+      className="ag-header-cell-text"
+    >
+      Header test
+    </span>
+    <span
+      className="ag-header-icon ag-sort-ascending-icon  ag-hidden"
+      onClick={[Function]}
+    >
+      <span
+        className="ag-icon ag-icon-asc"
+      />
+    </span>
+    <span
+      className="ag-header-icon ag-sort-descending-icon  ag-hidden"
+      onClick={[Function]}
+    >
+      <span
+        className="ag-icon ag-icon-desc"
+      />
+    </span>
+  </div>
+</div>
+`;
+
+exports[`valueHeaderRenderer component when there is items at gridData should renders correctly 1`] = `
+<div
+  className="ag-cell-label-container    ag-header-cell-sorted-none"
+>
+  <div
+    className="ag-header-cell-label"
+    onClick={[Function]}
+  >
+    <span
+      className="ag-header-cell-text"
+    >
+      Header test
+    </span>
+    <span
+      className="ag-header-icon ag-sort-ascending-icon  ag-hidden"
+      onClick={[Function]}
+    >
+      <span
+        className="ag-icon ag-icon-asc"
+      />
+    </span>
+    <span
+      className="ag-header-icon ag-sort-descending-icon  ag-hidden"
+      onClick={[Function]}
+    >
+      <span
+        className="ag-icon ag-icon-desc"
+      />
+    </span>
+    <ContextMenuProvider
+      className=""
+      event="onClick"
+      id="value_menu_id"
+      renderTag="span"
+      style={Object {}}
+    >
+      <button>
+        ...
+      </button>
+    </ContextMenuProvider>
+  </div>
 </div>
 `;

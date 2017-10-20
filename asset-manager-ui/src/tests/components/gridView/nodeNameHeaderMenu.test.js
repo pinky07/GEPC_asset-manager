@@ -2,14 +2,14 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import toJSON from 'enzyme-to-json';
 
-import { NodeNameCellMenu } from '../../../components/gridView/nodeNameCellMenu';
+import { NodeNameHeaderMenu } from '../../../components/gridView/nodeNameHeaderMenu';
 
 let props = {
   addNodeFromGrid: jest.fn(),
 };
 
-describe('nodeNameCellMenu component', () => {
-  let wrapper = shallow(<NodeNameCellMenu {...props} />);
+describe('nodeNameHeaderMenu component', () => {
+  let wrapper = shallow(<NodeNameHeaderMenu {...props} />);
 
   it('renders correctly', () => {
     expect(toJSON(wrapper)).toMatchSnapshot();
@@ -17,7 +17,7 @@ describe('nodeNameCellMenu component', () => {
 
   describe('when clicking an item', () => {
     beforeEach(() => {
-      wrapper = shallow(<NodeNameCellMenu {...props} />);
+      wrapper = shallow(<NodeNameHeaderMenu {...props} />);
     });
 
     it('the first item should call the addNodeFromGrid function', () => {

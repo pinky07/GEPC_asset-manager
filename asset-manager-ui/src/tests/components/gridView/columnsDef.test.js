@@ -3,6 +3,11 @@ import {
   mixColumn,
   percentageFormatter,
 } from '../../../components/gridView/columnsDef';
+import NodeNameCellRenderer from '../../../components/gridView/nodeNameCellRenderer';
+import NodeNameHeaderRenderer from '../../../components/gridView/nodeNameHeaderRenderer';
+import ValueHeaderRenderer from '../../../components/gridView/valueHeaderRenderer';
+import MixHeaderRenderer from '../../../components/gridView/mixHeaderRenderer';
+import MixCellEditor from '../../../components/gridView/mixCellEditor';
 
 describe('columns definition', () => {
   it('should have the right number of columns', () => {
@@ -33,6 +38,16 @@ describe('columns definition', () => {
     it('should be pinned to the left', () => {
       const pinnedValue = 'left';
       expect(firstColumn.pinned).toEqual(pinnedValue);
+    });
+
+    it('should have NodeNameCellRenderer as a cell renderer', () => {
+      expect(firstColumn.cellRendererFramework).toEqual(NodeNameCellRenderer);
+    });
+
+    it('should have NodeNameHeaderRenderer as a header renderer', () => {
+      expect(firstColumn.headerComponentFramework).toEqual(
+        NodeNameHeaderRenderer
+      );
     });
   });
 
@@ -180,6 +195,10 @@ describe('columns definition', () => {
     it('should have a value formatter set', () => {
       expect(sixthColumn.valueFormatter).toBeDefined();
     });
+
+    it('should have ValueHeaderRenderer as a header renderer', () => {
+      expect(sixthColumn.headerComponentFramework).toEqual(ValueHeaderRenderer);
+    });
   });
 
   describe('the mix column', () => {
@@ -209,6 +228,14 @@ describe('columns definition', () => {
 
     it('should have a value formatter set', () => {
       expect(mixColumn.valueFormatter).toBeDefined();
+    });
+
+    it('should have MixCellEditor as a cell editor', () => {
+      expect(mixColumn.cellEditorFramework).toEqual(MixCellEditor);
+    });
+
+    it('should have MixHeaderRenderer as a header renderer', () => {
+      expect(mixColumn.headerComponentFramework).toEqual(MixHeaderRenderer);
     });
   });
 

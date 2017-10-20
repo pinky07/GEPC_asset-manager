@@ -6,7 +6,7 @@ import React from 'react';
 import Select from 'react-select';
 import _ from 'lodash';
 
-import NodeNameCellMenu from './nodeNameCellMenu';
+import NodeNameHeaderMenu from './nodeNameHeaderMenu';
 import ValueHeaderMenu from './valueHeaderMenu';
 import MixHeaderMenu from './mixHeaderMenu';
 import { columns, mixColumn } from './columnsDef';
@@ -49,8 +49,10 @@ export class GridView extends React.Component {
 
   componentDidUpdate() {
     if (this.gridApi) {
-      const columnValueId = columns[5].colId;
-      this.gridApi.gridPanel.ensureColumnVisible(columnValueId);
+      const columns = this.columnApi.getAllColumns();
+      if (columns.length > 6) {
+        this.gridApi.gridPanel.ensureColumnVisible(columns[6].colId);
+      }
     }
   }
 
@@ -99,7 +101,7 @@ export class GridView extends React.Component {
                 headerHeight="35"
                 enableSorting
               />
-              <NodeNameCellMenu />
+              <NodeNameHeaderMenu />
               <ValueHeaderMenu />
               <MixHeaderMenu />
             </div>
