@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 import { addNodeFromGrid } from '../../actions';
 
-export class NodeNameCellMenu extends React.Component {
+export class NodeNameHeaderMenu extends React.Component {
   render() {
     return (
       <ContextMenu id="grid_menu_id" renderTag="div">
@@ -15,8 +15,8 @@ export class NodeNameCellMenu extends React.Component {
   }
 }
 
-NodeNameCellMenu.propTypes = {
+NodeNameHeaderMenu.propTypes = {
   addNodeFromGrid: PropTypes.func.isRequired,
 };
 
-export default connect(null, { addNodeFromGrid })(NodeNameCellMenu);
+export default connect(null, { addNodeFromGrid })(NodeNameHeaderMenu);

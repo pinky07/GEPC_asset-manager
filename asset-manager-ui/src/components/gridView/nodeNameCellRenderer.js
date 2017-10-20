@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { NavLink } from 'reactstrap';
 import PropTypes from 'prop-types';
-import { ContextMenuProvider } from 'react-contexify';
 
 import { searchNode, showTreeView } from '../../actions';
 
@@ -14,13 +13,9 @@ export class NodeNameCellRenderer extends React.Component {
 
   render() {
     return (
-      <ContextMenuProvider
-        id="grid_menu_id"
-        event="onContextMenu">
-        <NavLink href="#" onClick={this.search}>
-          {this.props.value}
-        </NavLink>
-      </ContextMenuProvider>
+      <NavLink href="#" onClick={this.search}>
+        {this.props.value}
+      </NavLink>
     );
   }
 }
