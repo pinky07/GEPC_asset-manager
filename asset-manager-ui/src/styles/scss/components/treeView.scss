@@ -58,6 +58,10 @@
     border-color: $gray-1;
   }
 
+  .rowSelected {
+    outline: solid 2px $blue-1;
+  }
+
   .rowSearchMatch {
     outline: none;
   }
