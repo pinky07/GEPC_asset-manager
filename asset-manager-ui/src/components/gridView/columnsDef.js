@@ -57,7 +57,6 @@ export const columns = [
   {
     field: 'actual_mv',
     headerName: 'Actual',
-    colId: 'actualCol',
     width: 200,
     headerComponentFramework: ValueHeaderRenderer,
     sortingOrder: ['asc', 'desc'],
