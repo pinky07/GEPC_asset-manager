@@ -12,7 +12,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "VERSION")
-@EqualsAndHashCode(callSuper=false)
+@EqualsAndHashCode(callSuper = false)
 @ToString
 public class Version extends BaseEntity
 {
@@ -31,11 +31,11 @@ public class Version extends BaseEntity
 	@Setter
 	@Getter
 	@Column(name = "AsOf")
-	private Date asOf ;
+	private Date asOf;
 
 	@Setter
 	@Getter
-	@Column(name = "Version_Flag",columnDefinition = "char(1)")
+	@Column(name = "Version_Flag", columnDefinition = "char(1)")
 	private boolean version_Flag;
 
 	@Setter

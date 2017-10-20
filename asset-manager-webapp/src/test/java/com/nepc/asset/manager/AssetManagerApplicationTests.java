@@ -11,7 +11,8 @@ public class AssetManagerApplicationTests
 {
 
 	@Test
-	public void contextLoads() {
+	public void contextLoads()
+	{
 	}
 
 }

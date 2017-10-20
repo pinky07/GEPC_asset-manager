@@ -3,7 +3,6 @@ package com.nepc.asset.manager.dto;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.math.BigDecimal;
@@ -18,19 +17,19 @@ public class ClientDto
 
 	@Setter
 	@Getter
-	@Size(max=160)
+	@Size(max = 160)
 	@NotNull
-	private String  preferredNameShort;
+	private String preferredNameShort;
 
 	@Setter
 	@Getter
-	@Size(max=250)
+	@Size(max = 250)
 	private String preferredNameLong;
 
 	@Setter
 	@Getter
-	@Size(max=160)
-	private String  legalClientName;
+	@Size(max = 160)
+	private String legalClientName;
 
 	@Setter
 	@Getter
@@ -42,16 +41,16 @@ public class ClientDto
 
 	@Setter
 	@Getter
-	private BigDecimal  estimatedManageableAssetsAmount;
+	private BigDecimal estimatedManageableAssetsAmount;
 
 	@Setter
 	@Getter
-	@Size(max=10)
+	@Size(max = 10)
 	private String stockExchangeTicker;
 
 	@Setter
 	@Getter
-	@Size(max=10)
+	@Size(max = 10)
 	private String growthCategory;
 
 	@Setter
@@ -72,7 +71,7 @@ public class ClientDto
 
 	@Setter
 	@Getter
-	@Size(max=10)
+	@Size(max = 10)
 	private String generalPhone;
 
 	@Setter

@@ -11,7 +11,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "GOAL_BASED_CATEGORY")
-@EqualsAndHashCode(callSuper=false)
+@EqualsAndHashCode(callSuper = false)
 @ToString
 public class GoalBasedCategory extends BaseEntity
 {
@@ -23,7 +23,7 @@ public class GoalBasedCategory extends BaseEntity
 
 	@Setter
 	@Getter
-	@Column(name = "Goal_Based_Category_Name", length = 160,nullable = false)
+	@Column(name = "Goal_Based_Category_Name", length = 160, nullable = false)
 	private String goalBasedCategoryName;
 
 	@Setter

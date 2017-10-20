@@ -11,7 +11,7 @@ import java.math.BigInteger;
 
 @Entity
 @Table(name = "ASSUMPTION_VALUE_SET")
-@EqualsAndHashCode(callSuper=false)
+@EqualsAndHashCode(callSuper = false)
 @ToString
 public class AssumptionValueSet extends BaseEntity
 {
@@ -23,52 +23,52 @@ public class AssumptionValueSet extends BaseEntity
 
 	@Setter
 	@Getter
-	@Column(name = "arithmetic_expected_returns_30_year_assumptions",nullable = false,precision = 7, scale = 4)
+	@Column(name = "arithmetic_expected_returns_30_year_assumptions", nullable = false, precision = 7, scale = 4)
 	private BigDecimal arithmeticExpectedRreturns30YearAssumptions;
 
 	@Setter
 	@Getter
-	@Column(name = "arithmetic_expected_returns_5_7_year_assumptions",nullable = false,precision = 7, scale = 4)
+	@Column(name = "arithmetic_expected_returns_5_7_year_assumptions", nullable = false, precision = 7, scale = 4)
 	private BigDecimal arithmeticExpectedReturns5_7YearAssumptions;
 
 	@Setter
 	@Getter
-	@Column(name = "geometric_expected_returns_30_year_assumptions", precision = 7, scale = 4,nullable = false)
+	@Column(name = "geometric_expected_returns_30_year_assumptions", precision = 7, scale = 4, nullable = false)
 	private BigDecimal geometricExpectedReturns30YearAssumptions;
 
 	@Setter
 	@Getter
-	@Column(name = "expected_std_dev_30_year_assumptions", nullable = false,precision = 7, scale = 4)
+	@Column(name = "expected_std_dev_30_year_assumptions", nullable = false, precision = 7, scale = 4)
 	private BigDecimal expectedStdDev30YearAssumptions;
 
 	@Setter
 	@Getter
-	@Column(name = "geometric_expected_returns_5_7_year_assumptions",nullable = false,precision = 7, scale = 4)
+	@Column(name = "geometric_expected_returns_5_7_year_assumptions", nullable = false, precision = 7, scale = 4)
 	private BigDecimal geometricExpectedReturns5_7YearAssumptions;
 
 	@Setter
 	@Getter
-	@Column(name = "expected_std_dev_5_7_year_assumptions",nullable = false,precision = 7, scale = 4)
+	@Column(name = "expected_std_dev_5_7_year_assumptions", nullable = false, precision = 7, scale = 4)
 	private BigDecimal expectedStdDev5_7YearAssumptions;
 
 	@Setter
 	@Getter
-	@Column(name = "assumption_value_yield", precision = 7, scale = 4,nullable = false)
+	@Column(name = "assumption_value_yield", precision = 7, scale = 4, nullable = false)
 	private BigDecimal assumptionvalueyield;
 
 	@Setter
 	@Getter
-	@Column(name = "OAS",columnDefinition="float(53)")
+	@Column(name = "OAS", columnDefinition = "float(53)")
 	private double oas;
 
 	@Setter
 	@Getter
-	@Column(name = "Standard_Deviation",nullable = false,precision = 7, scale = 4)
+	@Column(name = "Standard_Deviation", nullable = false, precision = 7, scale = 4)
 	private BigDecimal standardDeviation;
 
 	@Setter
 	@Getter
-	@Column(name = "Duration_Period",columnDefinition="float(53)")
+	@Column(name = "Duration_Period", columnDefinition = "float(53)")
 	private double durationPeriod;
 
 	@Setter

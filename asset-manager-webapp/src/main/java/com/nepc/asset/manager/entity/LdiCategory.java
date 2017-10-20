@@ -11,19 +11,19 @@ import java.util.List;
 
 @Entity
 @Table(name = "LDI_CATEGORY")
-@EqualsAndHashCode(callSuper=false)
+@EqualsAndHashCode(callSuper = false)
 @ToString
 public class LdiCategory extends BaseEntity
 {
 	@Setter
 	@Getter
 	@Id
-	@Column(name = "LDI_Category_PK",  nullable = false)
+	@Column(name = "LDI_Category_PK", nullable = false)
 	private BigInteger id;
 
 	@Setter
 	@Getter
-	@Column(name = "LDI_Category_Name", length = 160,nullable = false)
+	@Column(name = "LDI_Category_Name", length = 160, nullable = false)
 	private String ldiCategoryName;
 
 	@Setter

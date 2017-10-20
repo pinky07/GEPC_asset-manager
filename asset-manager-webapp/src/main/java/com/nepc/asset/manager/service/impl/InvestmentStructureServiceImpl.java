@@ -1,9 +1,11 @@
 package com.nepc.asset.manager.service.impl;
 
-import com.nepc.asset.manager.dao.InvestmentStructureDao;
 import com.nepc.asset.manager.dto.InvestmentStructureDto;
 import com.nepc.asset.manager.entity.InvestmentStructure;
+import com.nepc.asset.manager.entity.Mix;
+import com.nepc.asset.manager.repository.InvestmentStructureRepository;
 import com.nepc.asset.manager.service.InvestmentStructureService;
+import com.nepc.asset.manager.utility.EntityUtils;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,66 +18,82 @@ import java.math.BigInteger;
 @Transactional(propagation = Propagation.REQUIRED)
 public class InvestmentStructureServiceImpl implements InvestmentStructureService
 {
-	@Autowired
-	private InvestmentStructureDao investmentStructureDao;
 
-	@Autowired
+	private InvestmentStructureRepository investmentStructureRepository;
+
 	private ModelMapper modelMapper;
 
-	private static final char DISABLE_VALUE = '0';
+	/**
+	 * Creates a new object.
+	 *
+	 * @param investmentStructureRepository Entity Repository
+	 * @param modelMapper                   Entity 2 DTO mapper
+	 */
+	@Autowired
+	public InvestmentStructureServiceImpl(InvestmentStructureRepository investmentStructureRepository,
+			ModelMapper modelMapper)
+	{
+		this.investmentStructureRepository = investmentStructureRepository;
+		this.modelMapper = modelMapper;
+	}
 
-	private static final char ENABLE_VALUE = '1';
-
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public InvestmentStructureDto getById(BigInteger id)
 	{
-		InvestmentStructure investmentStructure = investmentStructureDao.getTreeByInvestmentStructureId(id);
+		InvestmentStructure investmentStructure = investmentStructureRepository.getOne(id);
 
 		return getInvestmentStructureDto(investmentStructure);
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
-	public InvestmentStructureDto disableTree(BigInteger id)
+	public InvestmentStructureDto softDeleteInvestmentStructure(BigInteger id, String modifiedBy)
 	{
-		InvestmentStructure investmentStructure = investmentStructureDao.getTreeByInvestmentStructureId(id);
-		investmentStructure.setActiveInd(DISABLE_VALUE);
+		// Disable the Investment Structure
+		InvestmentStructure investmentStructure = investmentStructureRepository.getOne(id);
+		EntityUtils.disable(investmentStructure, modifiedBy);
 
+		// Disable every Investment Structure Component
 		investmentStructure.getInvestmentStructureComponents().forEach(investmentStructureComponent -> {
-			investmentStructureComponent.setActiveInd(DISABLE_VALUE);
+			EntityUtils.disable(investmentStructureComponent, modifiedBy);
 
+			// Disable every Investment Structure Mix Component
 			investmentStructureComponent.getInvestmentStructureMixComponents()
 					.forEach(investmentStructureMixComponent -> {
+						EntityUtils.disable(investmentStructureMixComponent, modifiedBy);
 
-						investmentStructureMixComponent.setActiveInd(DISABLE_VALUE);
-						investmentStructureMixComponent.getMix().setActiveInd(DISABLE_VALUE);
+						// Disable the Mix
+						Mix mix = investmentStructureMixComponent.getMix();
+						EntityUtils.disable(mix, modifiedBy);
 
-						investmentStructureMixComponent.getMixDetailFacts().forEach(mixDetailFact -> {
-							mixDetailFact.setActiveInd(DISABLE_VALUE);
-						});
+						// Disable every Mix Summary Fact
+						mix.getMixSummaryFacts()
+								.forEach(mixSummaryFact -> EntityUtils.disable(mixSummaryFact, modifiedBy));
 
-						investmentStructureMixComponent.getMix().getMixSummaryFacts().forEach(mixSummaryFact -> {
-							mixSummaryFact.setActiveInd(DISABLE_VALUE);
-						});
-
+						// Disable every Mix Detail Fact
+						investmentStructureMixComponent.getMixDetailFacts()
+								.forEach(mixDetailFact -> EntityUtils.disable(mixDetailFact, modifiedBy));
 					});
 		});
 
-		InvestmentStructure response = investmentStructureDao.save(investmentStructure);
+		investmentStructure = investmentStructureRepository.saveAndFlush(investmentStructure);
 
-		return getInvestmentStructureDto(response);
+		return getInvestmentStructureDto(investmentStructure);
 	}
 
 	private InvestmentStructureDto getInvestmentStructureDto(InvestmentStructure investmentStructure)
 	{
+		InvestmentStructureDto result = null;
 		if (investmentStructure != null)
 		{
-			InvestmentStructureDto investmentStructureDto = modelMapper
-					.map(investmentStructure, InvestmentStructureDto.class);
-
-			return investmentStructureDto;
+			result = modelMapper.map(investmentStructure, InvestmentStructureDto.class);
 		}
-
-		return null;
+		return result;
 	}
 
 }

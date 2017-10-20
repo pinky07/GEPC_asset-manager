@@ -17,7 +17,7 @@ public class MixSummaryFact extends BaseEntity
 	@Setter
 	@Getter
 	@Id
-	@Column(name = "MIX_SUMMARY_FACT_PK",  nullable = false)
+	@Column(name = "MIX_SUMMARY_FACT_PK", nullable = false)
 	private BigInteger id;
 
 	@Setter

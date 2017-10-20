@@ -11,7 +11,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "TAX_RATE")
-@EqualsAndHashCode(callSuper=false)
+@EqualsAndHashCode(callSuper = false)
 @ToString
 public class TaxRate extends BaseEntity
 {

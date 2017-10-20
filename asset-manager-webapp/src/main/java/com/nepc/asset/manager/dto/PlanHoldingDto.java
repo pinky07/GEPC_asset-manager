@@ -23,7 +23,7 @@ public class PlanHoldingDto
 
 	@Setter
 	@Getter
-	@Column(name = "Virtual_Ind",columnDefinition = "char(1)",nullable = false)
+	@Column(name = "Virtual_Ind", columnDefinition = "char(1)", nullable = false)
 	private char virtualInd;
 
 	@Setter

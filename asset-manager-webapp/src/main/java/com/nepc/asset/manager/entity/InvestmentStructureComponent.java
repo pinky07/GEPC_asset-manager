@@ -8,7 +8,6 @@ import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.NotFoundAction;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -17,7 +16,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "INVESTMENT_STRUCTURE_COMPONENT")
-@EqualsAndHashCode(callSuper=false)
+@EqualsAndHashCode(callSuper = false)
 @ToString
 public class InvestmentStructureComponent extends BaseEntity
 {
@@ -126,7 +125,7 @@ public class InvestmentStructureComponent extends BaseEntity
 	@Getter
 	@ManyToOne
 	@JoinColumn(name = "PLAN_HOLDING_PK")
-	@NotFound(action= NotFoundAction.IGNORE)
+	@NotFound(action = NotFoundAction.IGNORE)
 	private PlanHolding planHolding;
 
 	@Setter

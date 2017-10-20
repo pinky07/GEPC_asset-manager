@@ -1,24 +1,29 @@
-spring.profiles.active: production
+#=======================================================================================================================
+#== SPRING =============================================================================================================
+#=======================================================================================================================
 
-spring:
+server.port: 9077
+
 logging:
   file: logs/asset-manager.log
-  pattern:     
+  pattern:
+      console: "%d %-5level %logger : %msg%n"
       file: "%d %-5level [%thread] %logger : %msg%n"
   level:
-    org.springframework.web: WARN
-    com.sigma.eduko.endpoint: WARN
-    org.hibernate: WARN
+    org.springframework.web: ERROR
+    org.hibernate: ERROR
+    com.nepc: ERROR
 
-spring.datasource.url: jdbc:sqlserver://localhost;databaseName=AADB
-spring.datasource.username: sa
-spring.datasource.password: admin
-spring.datasource.tomcat.max-wait: 20000
-spring.datasource.tomcat.max-active: 50
-spring.datasource.tomcat.max-idle: 20
-spring.datasource.tomcat.min-idle: 15
+#=======================================================================================================================
+#== SPRING JPA =========================================================================================================
+#=======================================================================================================================
 
-spring.jpa.properties.hibernate.dialect: org.hibernate.dialect.SQLServer2012Dialect
-spring.jpa.properties.hibernate.id.new_generator_mappings: false
-spring.jpa.properties.hibernate.format_sql: true
-spring.jpa.properties.hibernate.current_session_context_class: org.springframework.orm.hibernate5.SpringSessionContext
+spring.datasource:
+  url: jdbc:sqlserver://localhost;databaseName=AADB
+  username: NEPCUser
+  password: Admin@123#
+  tomcat:
+    max-wait: 20000
+    max-active: 50
+    max-idle: 20
+    min-idle: 15

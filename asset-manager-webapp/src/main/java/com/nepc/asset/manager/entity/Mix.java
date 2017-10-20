@@ -14,7 +14,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "MIX")
-@EqualsAndHashCode(callSuper=false)
+@EqualsAndHashCode(callSuper = false)
 @ToString
 public class Mix extends BaseEntity
 {
@@ -26,7 +26,7 @@ public class Mix extends BaseEntity
 
 	@Setter
 	@Getter
-	@Column(name = "MIX_Name",length = 10)
+	@Column(name = "MIX_Name", length = 10)
 	private String mixName;
 
 	@Setter
@@ -41,12 +41,12 @@ public class Mix extends BaseEntity
 
 	@Setter
 	@Getter
-	@Column(name = "Funded_Status",length = 10)
+	@Column(name = "Funded_Status", length = 10)
 	private String fundedStatus;
 
 	@Setter
 	@Getter
-	@Column(name = "Mix_Description",length = 250, nullable = false)
+	@Column(name = "Mix_Description", length = 250, nullable = false)
 	private String mixDescription;
 
 	@Setter
@@ -63,6 +63,6 @@ public class Mix extends BaseEntity
 	@Getter
 	@ManyToOne
 	@JoinColumn(name = "Mix_Type_PK")
-	@NotFound(action= NotFoundAction.IGNORE)
+	@NotFound(action = NotFoundAction.IGNORE)
 	private MixType mixType;
 }

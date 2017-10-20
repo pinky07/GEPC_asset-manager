@@ -11,7 +11,7 @@ import java.math.BigInteger;
 
 @Entity
 @Table(name = "DERIVED_BENCHMARK_COMPONENT")
-@EqualsAndHashCode(callSuper=false)
+@EqualsAndHashCode(callSuper = false)
 @ToString
 public class DerivedBenchMarkComponent extends BaseEntity
 {
@@ -28,7 +28,7 @@ public class DerivedBenchMarkComponent extends BaseEntity
 
 	@Setter
 	@Getter
-	@Column(name = "Composite_Dependency_Level",nullable = false)
+	@Column(name = "Composite_Dependency_Level", nullable = false)
 	private int compositeDependencyLevel;
 
 	@Setter

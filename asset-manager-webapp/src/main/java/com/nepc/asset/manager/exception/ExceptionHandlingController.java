@@ -31,14 +31,10 @@ public class ExceptionHandlingController extends ResponseEntityExceptionHandler
 	 * Handle MissingServletRequestParameterException. Triggered when a 'required' request parameter is
 	 * missing.
 	 *
-	 * @param ex
-	 *            MissingServletRequestParameterException
-	 * @param headers
-	 *            HttpHeaders
-	 * @param status
-	 *            HttpStatus
-	 * @param request
-	 *            WebRequest
+	 * @param ex      MissingServletRequestParameterException
+	 * @param headers HttpHeaders
+	 * @param status  HttpStatus
+	 * @param request WebRequest
 	 * @return the ApiError object
 	 */
 	@Override
@@ -52,14 +48,10 @@ public class ExceptionHandlingController extends ResponseEntityExceptionHandler
 	/**
 	 * Handle HttpMediaTypeNotSupportedException. This one triggers when JSON is invalid as well.
 	 *
-	 * @param ex
-	 *            HttpMediaTypeNotSupportedException
-	 * @param headers
-	 *            HttpHeaders
-	 * @param status
-	 *            HttpStatus
-	 * @param request
-	 *            WebRequest
+	 * @param ex      HttpMediaTypeNotSupportedException
+	 * @param headers HttpHeaders
+	 * @param status  HttpStatus
+	 * @param request WebRequest
 	 * @return the ApiError object
 	 */
 	@Override
@@ -70,21 +62,17 @@ public class ExceptionHandlingController extends ResponseEntityExceptionHandler
 		builder.append(ex.getContentType());
 		builder.append(" media type is not supported. Supported media types are ");
 		ex.getSupportedMediaTypes().forEach(t -> builder.append(t).append(", "));
-		return buildResponseEntity(new NepcApiError(HttpStatus.UNSUPPORTED_MEDIA_TYPE,
-				builder.substring(0, builder.length() - 2), ex));
+		return buildResponseEntity(new NepcApiError(HttpStatus.UNSUPPORTED_MEDIA_TYPE, builder
+				.substring(0, builder.length() - 2), ex));
 	}
 
 	/**
 	 * Handle MethodArgumentNotValidException. Triggered when an object fails @Valid validation.
 	 *
-	 * @param ex
-	 *            the MethodArgumentNotValidException that is thrown when @Valid validation fails
-	 * @param headers
-	 *            HttpHeaders
-	 * @param status
-	 *            HttpStatus
-	 * @param request
-	 *            WebRequest
+	 * @param ex      the MethodArgumentNotValidException that is thrown when @Valid validation fails
+	 * @param headers HttpHeaders
+	 * @param status  HttpStatus
+	 * @param request WebRequest
 	 * @return the ApiError object
 	 */
 	@Override
@@ -102,8 +90,7 @@ public class ExceptionHandlingController extends ResponseEntityExceptionHandler
 	 * Handles org.springframework.security.authentication.BadCredentialsException. Thrown when @Validated
 	 * fails.
 	 *
-	 * @param ex
-	 *            the BadCredentialsException
+	 * @param ex the BadCredentialsException
 	 * @return the ApiError object
 	 */
 	@ExceptionHandler(BadCredentialsException.class)
@@ -117,8 +104,7 @@ public class ExceptionHandlingController extends ResponseEntityExceptionHandler
 	/**
 	 * Handles IllegalArgumentException.
 	 *
-	 * @param ex
-	 *            the IllegalArgumentException
+	 * @param ex the IllegalArgumentException
 	 * @return the ApiError object
 	 */
 	@ExceptionHandler(IllegalArgumentException.class)
@@ -132,8 +118,7 @@ public class ExceptionHandlingController extends ResponseEntityExceptionHandler
 	/**
 	 * Handles javax.validation.ConstraintViolationException. Thrown when @Validated fails.
 	 *
-	 * @param ex
-	 *            the ConstraintViolationException
+	 * @param ex the ConstraintViolationException
 	 * @return the ApiError object
 	 */
 	@ExceptionHandler(ConstraintViolationException.class)
@@ -149,8 +134,7 @@ public class ExceptionHandlingController extends ResponseEntityExceptionHandler
 	 * Handles EdukoEntityNotFoundException. Created to encapsulate errors with more detail than
 	 * javax.persistence.EdukoEntityNotFoundException.
 	 *
-	 * @param ex
-	 *            the EdukoEntityNotFoundException
+	 * @param ex the EdukoEntityNotFoundException
 	 * @return the ApiError object
 	 */
 	@ExceptionHandler(NepcEntityNotFoundException.class)
@@ -164,14 +148,10 @@ public class ExceptionHandlingController extends ResponseEntityExceptionHandler
 	/**
 	 * Handle HttpMessageNotReadableException. Happens when request JSON is malformed.
 	 *
-	 * @param ex
-	 *            HttpMessageNotReadableException
-	 * @param headers
-	 *            HttpHeaders
-	 * @param status
-	 *            HttpStatus
-	 * @param request
-	 *            WebRequest
+	 * @param ex      HttpMessageNotReadableException
+	 * @param headers HttpHeaders
+	 * @param status  HttpStatus
+	 * @param request WebRequest
 	 * @return the ApiError object
 	 */
 	@Override
@@ -187,14 +167,10 @@ public class ExceptionHandlingController extends ResponseEntityExceptionHandler
 	/**
 	 * Handle HttpMessageNotWritableException.
 	 *
-	 * @param ex
-	 *            HttpMessageNotWritableException
-	 * @param headers
-	 *            HttpHeaders
-	 * @param status
-	 *            HttpStatus
-	 * @param request
-	 *            WebRequest
+	 * @param ex      HttpMessageNotWritableException
+	 * @param headers HttpHeaders
+	 * @param status  HttpStatus
+	 * @param request WebRequest
 	 * @return the ApiError object
 	 */
 	@Override
@@ -217,24 +193,24 @@ public class ExceptionHandlingController extends ResponseEntityExceptionHandler
 	/**
 	 * Handle DataIntegrityViolationException, inspects the cause for different DB causes.
 	 *
-	 * @param ex
-	 *            the DataIntegrityViolationException
+	 * @param ex the DataIntegrityViolationException
 	 * @return the ApiError object
 	 */
 	@ExceptionHandler(DataIntegrityViolationException.class)
 	protected ResponseEntity<Object> handleDataIntegrityViolation(DataIntegrityViolationException ex,
 			WebRequest request)
 	{
-		if (ex.getCause() instanceof ConstraintViolationException) { return buildResponseEntity(new NepcApiError(
-				HttpStatus.CONFLICT, "Database error", ex.getCause())); }
+		if (ex.getCause() instanceof ConstraintViolationException)
+		{
+			return buildResponseEntity(new NepcApiError(HttpStatus.CONFLICT, "Database error", ex.getCause()));
+		}
 		return buildResponseEntity(new NepcApiError(HttpStatus.INTERNAL_SERVER_ERROR, ex));
 	}
 
 	/**
 	 * Handle Exception, handle generic Exception.class
 	 *
-	 * @param ex
-	 *            the Exception
+	 * @param ex the Exception
 	 * @return the ApiError object
 	 */
 	@ExceptionHandler(MethodArgumentTypeMismatchException.class)
@@ -242,8 +218,9 @@ public class ExceptionHandlingController extends ResponseEntityExceptionHandler
 			WebRequest request)
 	{
 		NepcApiError apiError = new NepcApiError(HttpStatus.BAD_REQUEST);
-		apiError.setMessage(String.format("The parameter '%s' of value '%s' could not be converted to type '%s'", ex
-				.getName(), ex.getValue(), ex.getRequiredType().getSimpleName()));
+		apiError.setMessage(String
+				.format("The parameter '%s' of value '%s' could not be converted to type '%s'", ex.getName(), ex
+						.getValue(), ex.getRequiredType().getSimpleName()));
 		apiError.setDebugMessage(ex.getMessage());
 		return buildResponseEntity(apiError);
 	}

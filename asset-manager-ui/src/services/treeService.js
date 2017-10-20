@@ -1,3 +1,4 @@
+import axios from 'axios';
 import {
   addNodeUnderParent,
   changeNodeAtPath,
@@ -148,6 +149,11 @@ const treeService = () => {
     });
   };
 
+  const deleteTree = (treeId, username) => {
+    const url = `/api/v1/trees/${treeId}?modifiedBy=${username}`;
+    axios.delete(url);
+  };
+
   const _expandNodes = (node, level) => {
     const { children } = node;
 
@@ -234,6 +240,7 @@ const treeService = () => {
     addBelowNode,
     deleteBelowNode,
     deleteNode,
+    deleteTree,
     updateNode,
     jumpLevel,
     getMaxDepthNode,

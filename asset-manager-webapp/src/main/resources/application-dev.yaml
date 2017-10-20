@@ -1,7 +1,9 @@
-server:
-  port: 9087
+#=======================================================================================================================
+#== SPRING =============================================================================================================
+#=======================================================================================================================
 
-spring:
+server.port: 9087
+
 logging:
   file: logs/asset-manager.log
   pattern:
@@ -9,24 +11,19 @@ logging:
       file: "%d %-5level [%thread] %logger : %msg%n"
   level:
     org.springframework.web: DEBUG
-    org.hibernate: ERROR
+    org.hibernate: DEBUG
+    com.nepc: DEBUG
 
-spring.profiles: dev
+#=======================================================================================================================
+#== SPRING JPA =========================================================================================================
+#=======================================================================================================================
 
-spring.datasource.url: jdbc:sqlserver://localhost;databaseName=asset_allocation_v2
-spring.datasource.username: NEPCUser
-spring.datasource.password: Admin@123#
-spring.datasource.tomcat.max-wait: 20000
-spring.datasource.tomcat.max-active: 50
-spring.datasource.tomcat.max-idle: 20
-spring.datasource.tomcat.min-idle: 15
-
-
-spring.jpa.properties.hibernate.dialect: org.hibernate.dialect.SQLServer2012Dialect
-spring.datasource.driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
-spring.jpa.properties.hibernate.id.new_generator_mappings: false
-spring.jpa.properties.hibernate.format_sql: true
-spring.jpa.properties.hibernate.current_session_context_class: org.springframework.orm.hibernate5.SpringSessionContext
-spring.jpa.hibernate.naming.physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
-
-
+spring.datasource:
+  url: jdbc:sqlserver://stagesql:1433;databaseName=asset_allocation_v2
+  username: gftUser
+  password: asdf34234$34
+  tomcat:
+    max-wait: 20000
+    max-active: 50
+    max-idle: 20
+    min-idle: 15

@@ -112,6 +112,7 @@ export default (state = INITIAL_STATE, action) => {
       };
     }
     case types.DELETE_TREE: {
+      TreeService().deleteTree(1, 'nepc-ui');
       return {
         ...state,
         tree: {

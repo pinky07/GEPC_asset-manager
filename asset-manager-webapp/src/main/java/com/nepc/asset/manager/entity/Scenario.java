@@ -11,7 +11,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "SCENARIO")
-@EqualsAndHashCode(callSuper=false)
+@EqualsAndHashCode(callSuper = false)
 @ToString
 public class Scenario extends BaseEntity
 {
@@ -23,7 +23,7 @@ public class Scenario extends BaseEntity
 
 	@Setter
 	@Getter
-	@Column(name = "Scenario_Name", nullable = false,length = 50)
+	@Column(name = "Scenario_Name", nullable = false, length = 50)
 	private String scenarioName;
 
 	@Setter
