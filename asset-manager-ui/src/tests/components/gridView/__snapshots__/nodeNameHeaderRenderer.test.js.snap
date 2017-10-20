@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`nodeNameHeaderRenderer component renders correctly 1`] = `
+<div
+  className="ag-header-cell-label"
+  onClick={[Function]}
+>
+  <span>
+    Header test
+  </span>
+  <ContextMenuProvider
+    className=""
+    event="onClick"
+    id="grid_menu_id"
+    renderTag="span"
+    style={Object {}}
+  >
+    <button>
+      ...
+    </button>
+  </ContextMenuProvider>
+</div>
+`;
