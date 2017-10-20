@@ -98,6 +98,7 @@ exports[`gridView component renders correctly 1`] = `
               Object {
                 "cellRendererFramework": [Function],
                 "field": "accountgroupname",
+                "headerComponentFramework": [Function],
                 "headerName": "Node Name",
                 "pinned": "left",
                 "sortingOrder": Array [
@@ -165,7 +166,7 @@ exports[`gridView component renders correctly 1`] = `
           onGridReady={[Function]}
           rowData={Array []}
         />
-        <Connect(NodeNameCellMenu) />
+        <Connect(NodeNameHeaderMenu) />
         <Connect(ValueHeaderMenu) />
         <Connect(MixHeaderMenu) />
       </div>

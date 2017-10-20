@@ -20,7 +20,7 @@ let props = {
 
 describe('valueHeaderRenderer component', () => {
   let wrapper = shallow(<ValueHeaderRenderer {...props} />);
-  
+
   it('renders correctly', () => {
     expect(toJSON(wrapper)).toMatchSnapshot();
   });

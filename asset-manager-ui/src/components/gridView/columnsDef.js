@@ -2,6 +2,7 @@ import NodeNameCellRenderer from './nodeNameCellRenderer';
 import MixHeaderRenderer from './mixHeaderRenderer';
 import ValueHeaderRenderer from './valueHeaderRenderer';
 import MixCellEditor from './mixCellEditor';
+import NodeNameHeaderRenderer from './nodeNameHeaderRenderer';
 
 export const percentageFormatter = params => {
   let { value } = params;
@@ -23,6 +24,7 @@ export const columns = [
     headerName: 'Node Name',
     width: 350,
     cellRendererFramework: NodeNameCellRenderer,
+    headerComponentFramework: NodeNameHeaderRenderer,
     sortingOrder: [null, null],
     pinned: 'left',
   },
